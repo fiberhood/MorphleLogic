@@ -80,3 +80,19 @@ The first row and the last row are network ports while the 8 middle rows are nor
 
 The two bits from the addition appear in the columns labelled "s" and exit the bottom into the network as one packet. The carry out is a separate one bit packet read from the column labelled "t".
 
+The network protocol is very simple. A row and column address select a starting point and a size field indicates how many columns will receive the packet. The row address only takes into account the special rows with networking hardware. In the adder example above the row with the "a" and "b" would be address 0 and the one with "c", "s" and "t" would be row 1.
+
+The column address and packet size might be restricted to a multiple of some value, like 8. This means that the lowest three bits of the column address and of the size would be ignored in this case.
+
+The following packet types are used:
+
+ 0. configure: the following bytes are shifted into the configuration registers of the rows below
+ 1. a: the following bytes supply the bits for the "a" inputs
+ 2. b: the following bytes supply the bits for the "b" inputs
+ 3. c: the following bytes supply the bits for the "c" inputs
+ 4. run: at the start of a configuration all lines and columns are forced to empty. This packet allows the circuit to function normally
+ 5. r: the following bytes are to be used as the header for any packets with bits from the "r" outputs
+ 6. s: the following bytes are to be used as the header for any packets with bits from the "s" outputs
+ 7. t: the following bytes are to be used as the header for any packets with bits from the "t" outputs
+
+
