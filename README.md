@@ -95,4 +95,9 @@ The following packet types are used:
  6. s: the following bytes are to be used as the header for any packets with bits from the "s" outputs
  7. t: the following bytes are to be used as the header for any packets with bits from the "t" outputs
 
+## Files
+
+     --- verilog    hardware description of Morphle Logic cells and blocks
+     \-- test       test benches for iverilog
+
 
