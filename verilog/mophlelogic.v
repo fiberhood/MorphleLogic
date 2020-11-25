@@ -64,6 +64,6 @@ module ycfsm (reset, in, match, out);
     
     // forward the result of combining match and in
     assign out[1] = lin[1] & lmatch[1];
-    assign out[0] = (lmatch[1] & lin[0]) & (lmatch[0] & linval);
+    assign out[0] = (lmatch[1] & lin[0]) | (lmatch[0] & linval);
     
 endmodule

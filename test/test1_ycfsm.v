@@ -13,6 +13,9 @@
 // limitations under the License.
 
 // simple test for the basic finite state machine for Morphle Logic
+// this lists many internal variables in order to find a bug in the
+// reset logic, so it isn't a proper black box test. It is also an
+// experiement in generating a waveform file
 
 `include "../verilog/mophlelogic.v"
 
@@ -29,17 +32,30 @@ module test1fsm;
   begin
     reset = 0; in = `Vempty; match = `Vempty;
     #10 reset = 1;
-    #50 reset = 0;
+    #10 reset = 0;
     #10 in = `V1;
     #10 match = `V1;
     #10 match = `Vempty;
     #10 in = `Vempty;
+    #10 match = `V0;
+    #10 match = `Vempty;
+    #10 in = `V1;
+    #10 match = `V1;
+    #10 in = `Vempty;
+    #10 in = `V0;
+    #10 match = `Vempty;
+    #10 in = `Vempty;
+    #10;
   end
   
   initial
+  begin
   $monitor($time,,reset,out,,
            in,DUT.lin,DUT.nlin,DUT.inval,DUT.linval,,
            match,DUT.lmatch,DUT.nlmatch,DUT.matchval,DUT.lmatchval,,
            DUT.clear2,DUT.lmempty,DUT.nlmempty);
+  $dumpfile("test.vcd");
+  $dumpvars;
+  end
   
 endmodule
