@@ -29,7 +29,7 @@ module test1fsm;
   begin
     reset = 0; in = `Vempty; match = `Vempty;
     #10 reset = 1;
-    #10 reset = 0;
+    #50 reset = 0;
     #10 in = `V1;
     #10 match = `V1;
     #10 match = `Vempty;
@@ -38,8 +38,8 @@ module test1fsm;
   
   initial
   $monitor($time,,reset,out,,
-           in,DUT.lin,DUT.inval,DUT.linval,,
-           match,DUT.lmatch,DUT.matchval,DUT.lmatchval,,
-           DUT.clear,DUT.lmempty);
+           in,DUT.lin,DUT.nlin,DUT.inval,DUT.linval,,
+           match,DUT.lmatch,DUT.nlmatch,DUT.matchval,DUT.lmatchval,,
+           DUT.clear2,DUT.lmempty,DUT.nlmempty);
   
 endmodule

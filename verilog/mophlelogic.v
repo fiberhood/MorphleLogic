@@ -48,7 +48,7 @@ module ycfsm (reset, in, match, out);
     assign matchval  = match != `Vempty;
     
     assign clear = reset | (lmempty & linval & ~inval);
-    wire clear2;
+    wire [1:0] clear2;
     assign clear2 = {clear,clear};
     
     // two bit latches
