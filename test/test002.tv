@@ -1,0 +1,43 @@
+// Copyright 2020 Jecel Mattos de Assumpcao Jr
+// 
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+// 
+//     https://www.apache.org/licenses/LICENSE-2.0
+// 
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+// test vectors for basic Morphle Logic block finite state machine
+// to be used with test002ycfsm.v
+//
+// each vector in the the format   reset_in_match_out
+//
+// where 00 indicates "empty", "01" indicates a 0 value and "10 a 1 value
+//
+// The goal is to test each "arrow" in the picture of the FSM
+// There are 34 valid transitions and we number them from top to
+// bottom, left to right. The number of a transition is indicated in
+// square brackets in the comment of a vector
+
+0_00_00_00  // first two vectors have the output ignored to settle down
+1_00_00_00  // reset everything [1]
+1_00_00_00  // keep it in reset a little longer
+0_00_00_00
+0_10_00_00  // first input [2]
+0_10_10_10  // with a match [6]
+0_10_00_10  // remember the match [17]
+0_00_00_00  // back to start [22]
+0_00_01_00  // mismatch [5]
+0_00_00_00  // remembered [15]
+0_10_00_01  // late input [28]
+0_10_10_01  // next match - no transition
+0_00_10_00  // back to start and deal with match [23][4]
+0_01_10_01  // input [11]
+0_01_00_01  // remember match [19]
+0_00_00_00  // back to start [23]
+0_00_00_00  // settle
