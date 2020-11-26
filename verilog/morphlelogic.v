@@ -89,12 +89,12 @@ module ycconfig (confclk, cbitin, cbitout,
        assign {empty,hblock,hbypass, hmatch0, hmatch1,
                vblock, vbypass, vmatch0, vmatch1} = r;
        
-       reg [2:0] config;
-       always @(posedge confclk) config = {config[1:0],cbitin}; // shift to msb
-       assign cbitout = config[2];  // shifted to next cell
+       reg [2:0] cnfg;
+       always @(posedge confclk) cnfg = {cnfg[1:0],cbitin}; // shift to msb
+       assign cbitout = cnfg[2];  // shifted to next cell
        
-       always @(config)
-         case(config)
+       always @(cnfg)
+         case(cnfg)
            3'b000: r = 9'b110001000; // space is empty and blocked
            3'b001: r = 9'b000110011; // +     sync with don't cares
            3'b010: r = 9'b001001000; // -     horizontal short circuit

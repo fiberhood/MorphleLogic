@@ -27,4 +27,6 @@ Since no internal signals are used, this test should work even if the circuit is
 
 ### test003ycconfig.v
 
-This tests the configuration circuit by manually shifting in 3 bits at a time and listing the outputs
+This tests the configuration circuit by manually shifting in 3 bits at a time and listing the outputs. It adds a comment about which state the configuration is in after the 3 bits.
+
+A second configuration circuit is cascaded with the first in this test. Every time the first circuit has a valid configuration, the second one should have the previous valid configuration of the first circuit.
