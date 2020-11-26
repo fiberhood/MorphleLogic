@@ -22,7 +22,7 @@
 // this circuit was derived from the one described in
 // https://syssec.ethz.ch/content/dam/ethz/special-interest/infk/inst-infsec/system-security-group-dam/education/Digitaltechnik_14/14_Verilog_Testbenches.pdf
 
-`include "../verilog/mophlelogic.v"
+`include "../verilog/morphlelogic.v"
 
 module test002fsm;
 

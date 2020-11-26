@@ -24,3 +24,7 @@ This is the finite state machine being tested by this and the previous test. The
 A separate file, "test002.tv", has the actual test vectors with one 7 bit vector per line. The reset signal is a single bit but all others are pairs with 00 indicating "empty", 01 indicating a logical 0 and 10 a logical 1. The last two bits are the expected value for the output and an error is printed if that is not what comes out of the actual circuit.
 
 Since no internal signals are used, this test should work even if the circuit is changed as long as it still implements the fsm indicated above. In order to check that all transitions (arrows) are tested they were numbered and the test vector file has comments indicating where each transitions is tested for the first time. In order to get to a transition that hasn't yet been tested it is often necessary to go through many that have already been seen. That is the big problem with black box testing and why it is a good idea to include BIST (built-in self test circuits) in a design.
+
+### test003ycconfig.v
+
+This tests the configuration circuit by manually shifting in 3 bits at a time and listing the outputs

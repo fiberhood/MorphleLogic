@@ -67,3 +67,42 @@ module ycfsm (reset, in, match, out);
     assign out[0] = (lmatch[1] & lin[0]) | (lmatch[0] & linval);
     
 endmodule
+
+// each "yellow cell" in Morphle Logic can be configured to one of eight
+// different options. This circuit saves the 3 bits of the configuration
+// and outputs the control circuit the rest of the cell needs
+//
+// the case statement is where the meaning of the configuration bits are
+// defined and is the only thing that needs to change (not counting software)
+// if the meaning needs to be changed
+
+module ycconfig (confclk, cbitin, cbitout,
+                 empty,
+                 hblock, hbypass, hmatch0, hmatch1,
+                 vblock, vbypass, vmatch0, vmatch1);
+       input confclk, cbitin;
+       output cbitout;
+       output empty;
+       output hblock, hbypass, hmatch0, hmatch1;
+       output vblock, vbypass, vmatch0, vmatch1;
+       reg [8:0] r;  // case needs REG even though we want a combinational circuit
+       assign {empty,hblock,hbypass, hmatch0, hmatch1,
+               vblock, vbypass, vmatch0, vmatch1} = r;
+       
+       reg [2:0] config;
+       always @(posedge confclk) config = {config[1:0],cbitin}; // shift to msb
+       assign cbitout = config[2];  // shifted to next cell
+       
+       always @(config)
+         case(config)
+           3'b000: r = 9'b110001000; // space is empty and blocked
+           3'b001: r = 9'b000110011; // +     sync with don't cares
+           3'b010: r = 9'b001001000; // -     horizontal short circuit
+           3'b011: r = 9'b010000100; // |     vertical short circuit
+           3'b100: r = 9'b000110001; // 1     1 vertical, X horizontal
+           3'b101: r = 9'b000110010; // 0     0 vertical, X horizontal
+           3'b110: r = 9'b000010011; // Y     X vertical, 1 horizontal     
+           3'b111: r = 9'b000100011; // N     X vertical, 0 horizontal
+         endcase
+       
+endmodule
