@@ -17,6 +17,7 @@
 // reset logic, so it isn't a proper black box test. It is also an
 // experiement in generating a waveform file
 
+`timescale1ns/1ps
 `include "../verilog/morphlelogic.v"
 
 module test1fsm;

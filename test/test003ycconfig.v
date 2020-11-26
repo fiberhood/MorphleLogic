@@ -16,6 +16,7 @@
 // 3 bits have to be shifted into the circuit and then the output is
 // checked for the desired value
 
+`timescale1ns/1ps
 `include "../verilog/morphlelogic.v"
 
 module test1fsm;

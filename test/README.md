@@ -5,7 +5,7 @@ Each circuit in this directory is a top level simulation-only device which tests
 The way to execute them is
 
     iverilog testNNNdescription.v
-    ./a.out
+    vvp a.out
 
 Normally some output is printed or a .vcd file is generated which can then be examined with gtkwave.
 
