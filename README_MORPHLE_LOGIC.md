@@ -97,7 +97,7 @@ The following packet types are used:
 
 ## Files
 
-     --- verilog    hardware description of Morphle Logic cells and blocks
-     \-- test       test benches for iverilog
+Besides all the files in the Caravel project, the Morphle Logic specific hardware description can
+be found in "verilog/morphle/" and that includes all tests.
 
 
