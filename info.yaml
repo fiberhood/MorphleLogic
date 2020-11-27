@@ -1,13 +1,13 @@
 --- 
 project: 
-  description: "A template SoC for Google sponsored Open MPW shuttles for SKY130."
+  description: "A test-wafer for testing Mophle Logic reconfigurable hardware for SKY130."
   foundry: "SkyWater"
-  git_url: "https://github.com/efabless/caravel.git"
-  organization: "Efabless"
-  organization_url: "http://efabless.com"
-  owner: "Tim Edwards"
+  git_url: "https://github.com/fiberhood/MorphleLogic.git"
+  organization: "Morphle"
+  organization_url: "http://www.fiberhood.org"
+  owner: "Jecel Mattos de Assumpção Jr, Merik Voswinkel"
   process: "SKY130"
-  project_name: "Caravel"
+  project_name: "MorphleLogic"
   tags: 
     - "Open MPW"
     - "Test Harness"
