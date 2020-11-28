@@ -51,8 +51,8 @@
 30C0000  // configured to 000 (space)
 3000000  // out of reset
 3008000  // 1 from U
-300A8A8  // 1 from all neighbors to U and L (from the two muxes)
-3001400  // 0 from D to U
+3008888  // 1 from all neighbors (now blocks to save energy)
+3000400  // 0 from D (now blocks)
 3080000  // reset
 30C0000  // clock in a 0
 30A0000

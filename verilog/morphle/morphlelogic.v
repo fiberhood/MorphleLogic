@@ -39,10 +39,10 @@ module ycfsm (reset, in, match, out);
     wire lmempty;
     wire nlmempty;
         
-    wire linval    = lin != `Vempty;
-    wire inval     = in != `Vempty;
-    wire lmatchval = lmatch != `Vempty;
-    wire matchval  = match != `Vempty;
+    wire linval    =| lin; // lin != `Vempty;
+    wire inval     =| in; // in != `Vempty;
+    wire lmatchval =| lmatch; // lmatch != `Vempty;
+    wire matchval  =| match; // match != `Vempty;
     
     wire clear = reset | (lmempty & linval & ~inval);
     wire [1:0] clear2 = {clear,clear};
@@ -176,7 +176,7 @@ module ycell(reset, confclk, cbitin, cbitout,
   wire [1:0] bhout = hbypass ? hin : hout;
   assign rout = bhout;
   assign hin = lempty ? {~(hback[1]|hback[1'b0]),1'b0} : lin;
-  assign hback = rempty ? bhout : rin;
+  assign hback = (rempty | hempty) ? bhout : rin; // don't propagate when rightmost or empty
   assign lout = hback;
   
   wire [1:0] vmatch = {hback[1]&vmatch1,hback[0]&vmatch0};
@@ -184,7 +184,7 @@ module ycell(reset, confclk, cbitin, cbitout,
   wire [1:0] bvout = vbypass ? vin : vout;
   assign dout = bvout;
   assign vin = uempty ? {~(vback[1]|vback[1'b0]),1'b0} : uin;
-  assign vback = dempty ? bvout : din;
+  assign vback = (dempty | vempty) ? bvout : din; // don't propagate when bottommost or empty
   assign uout = vback;
 
 endmodule
