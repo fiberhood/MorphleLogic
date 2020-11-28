@@ -229,8 +229,18 @@ module yblock(reset, confclk, cbitin, cbitout,
   output [VMSB2:0] rout;
   
   // vertical lines are row order, horizontal lines are column order
-  // this makes assigns chunks much simpler
+  // this makes assigning chunks much simpler
   
+  // ----[]----[]----[]----
+  //  0     1     2     3     BLOCKHEIGHT+1   vcbit
+  //
+  // ====[]====[]====[]====
+  // 1,0    3,2   5,4   7,6   (BLOCKHEIGHT+1)*2  hs, hb, vs, vb
+  //
+  // u    [ued]     [ued]    [ued]   d
+  // \-----/| \------+|+------/|\----/
+  // uv-----+--------/ \-------+-----dv   BLOCKHEIGHT+2  he, ve
+    
   wire [((BLOCKWIDTH*(BLOCKHEIGHT+1))-1):0] vcbit;
   wire [((BLOCKWIDTH*(BLOCKHEIGHT+2))-1):0] ve; // first and last rows go outside
   wire [(((BLOCKWIDTH+2)*BLOCKHEIGHT)-1):0] he; // first and last columns go outside
@@ -256,16 +266,16 @@ module yblock(reset, confclk, cbitin, cbitout,
              vb[(2*x)+1+(y*2*BLOCKWIDTH):(2*x)+(y*2*BLOCKWIDTH)],
              // dempty, din, dout,
              ve[x+((y+2)*BLOCKWIDTH)],
-             vs[(2*x)+1+((y+1)*2*BLOCKWIDTH):(2*x)+((y+1)*2*BLOCKWIDTH)],
              vb[(2*x)+1+((y+1)*2*BLOCKWIDTH):(2*x)+((y+1)*2*BLOCKWIDTH)],
+             vs[(2*x)+1+((y+1)*2*BLOCKWIDTH):(2*x)+((y+1)*2*BLOCKWIDTH)],
              // lempty, lin, lout,
              he[y+(x*BLOCKHEIGHT)],
              hs[(2*y)+1+(x*2*BLOCKHEIGHT):(2*y)+(x*2*BLOCKHEIGHT)],
              hb[(2*y)+1+(x*2*BLOCKHEIGHT):(2*y)+(x*2*BLOCKHEIGHT)],
              // rempty, rin, rout
              he[y+((x+2)*BLOCKHEIGHT)],
-             hs[(2*y)+1+((x+1)*2*BLOCKHEIGHT):(2*y)+((x+1)*2*BLOCKHEIGHT)],
-             hb[(2*y)+1+((x+1)*2*BLOCKHEIGHT):(2*y)+((x+1)*2*BLOCKHEIGHT)]
+             hb[(2*y)+1+((x+1)*2*BLOCKHEIGHT):(2*y)+((x+1)*2*BLOCKHEIGHT)],
+             hs[(2*y)+1+((x+1)*2*BLOCKHEIGHT):(2*y)+((x+1)*2*BLOCKHEIGHT)]
              );
       end
     end
@@ -280,19 +290,23 @@ module yblock(reset, confclk, cbitin, cbitout,
   assign rhempty = he[(((BLOCKWIDTH+1)*BLOCKHEIGHT)-1):BLOCKWIDTH*BLOCKHEIGHT]; 
   assign dvempty = ve[((BLOCKWIDTH*(BLOCKHEIGHT+1))-1):BLOCKWIDTH*BLOCKHEIGHT]; 
   // UP
-  assign ve[BLOCKWIDTH-1:0] = uempty; 
+  assign ve[BLOCKWIDTH-1:0] = uempty;
+  assign uvempty = ve[(2*BLOCKWIDTH)-1:BLOCKWIDTH]; 
   assign vs[(2*BLOCKWIDTH)-1:0] = uin;
   assign uout = vb[(2*BLOCKWIDTH)-1:0];
   // DOWN
-  assign ve[((BLOCKWIDTH*(BLOCKHEIGHT+2))-1):BLOCKWIDTH*(BLOCKHEIGHT+1)] = dempty; 
+  assign ve[((BLOCKWIDTH*(BLOCKHEIGHT+2))-1):BLOCKWIDTH*(BLOCKHEIGHT+1)] = dempty;
+  assign dvempty = ve[BLOCKWIDTH-1+BLOCKHEIGHT*BLOCKWIDTH:BLOCKHEIGHT*BLOCKWIDTH]; 
   assign vb[(((BLOCKWIDTH*2)*(BLOCKHEIGHT+1))-1):BLOCKWIDTH*2*BLOCKHEIGHT] = din;
   assign dout = vs[(((BLOCKWIDTH*2)*(BLOCKHEIGHT+1))-1):BLOCKWIDTH*2*BLOCKHEIGHT];
   // LEFT
-  assign he[BLOCKHEIGHT-1:0] = lempty;   
+  assign he[BLOCKHEIGHT-1:0] = lempty;
+  assign lhempty = he[(2*BLOCKHEIGHT)-1:BLOCKHEIGHT];   
   assign hs[(2*BLOCKHEIGHT)-1:0] = lin;
   assign lout = hb[(2*BLOCKHEIGHT)-1:0];
   // RIGHT
-  assign he[(((BLOCKWIDTH+2)*BLOCKHEIGHT)-1):(BLOCKWIDTH+1)*BLOCKHEIGHT] = rempty;  
+  assign he[(((BLOCKWIDTH+2)*BLOCKHEIGHT)-1):(BLOCKWIDTH+1)*BLOCKHEIGHT] = rempty;
+  assign rhempty = ve[BLOCKHEIGHT-1+BLOCKHEIGHT*BLOCKWIDTH:BLOCKHEIGHT*BLOCKWIDTH];  
   assign hb[(((BLOCKWIDTH+1)*(BLOCKHEIGHT*2))-1):BLOCKWIDTH*BLOCKHEIGHT*2] = rin;
   assign rout = hs[(((BLOCKWIDTH+1)*(BLOCKHEIGHT*2))-1):BLOCKWIDTH*BLOCKHEIGHT*2];
   
