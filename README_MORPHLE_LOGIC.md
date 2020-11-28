@@ -1,3 +1,20 @@
+<!---
+< SPDX-FileCopyrightText: Copyright 2020 Jecel Mattos de Assumpcao Jr
+< 
+< SPDX-License-Identifier: Apache-2.0 
+< 
+< Licensed under the Apache License, Version 2.0 (the "License");
+< you may not use this file except in compliance with the License.
+< You may obtain a copy of the License at
+< 
+<     https://www.apache.org/licenses/LICENSE-2.0
+< 
+< Unless required by applicable law or agreed to in writing, software
+< distributed under the License is distributed on an "AS IS" BASIS,
+< WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+< See the License for the specific language governing permissions and
+< limitations under the License.
+--->
 # Morphle Logic
 
 The most well known reconfigurable hardware systems are the FPGAs (Field Programmable Logic Arrays) and the CPLDs (Complex Programmable Logic Devices). Though currently the two terms are a bit fuzzy for low end devices, originally FPGAs had an architecture with islands of configurable logic, normally small LUTs (lookup tables), connected via a static routing fabric with circuits not that different from early telephone switching hubs. CPLDs, on the other hand, evolved from PALs (Programmable Arrays Logic) with an OR of ANDs architectures. CPLDs are like a small number of PALs connected inside a single chip.
@@ -63,16 +80,16 @@ Instead of having every ML cell connect to the network, a row of special cells i
 
 A two bit full adder could receive its data from the network are return its results to the network:
 
-    ab   ab
-    00N  00N
-    11NN 11NN
-      ||   ||
-    0N0| 0N0|
-    1N1N 1N1N
-    || 0-Y| |
-    ||    | |
-    ||    | |
-    cs    s t
+      ab   ab
+     N00  N00
+    NN11 NN11
+    ||   ||
+    |0N0 |0N0
+    N1N1 N1N1
+    | |Y-0 ||
+    | |    ||
+    | |    ||
+    t s    sc
 
 Note that rows and columns can easily be swapped to help match the outputs of a circuit to the inputs of the next circuit.
 
@@ -81,8 +98,6 @@ The first row and the last row are network ports while the 8 middle rows are nor
 The two bits from the addition appear in the columns labelled "s" and exit the bottom into the network as one packet. The carry out is a separate one bit packet read from the column labelled "t".
 
 The network protocol is very simple. A row and column address select a starting point and a size field indicates how many columns will receive the packet. The row address only takes into account the special rows with networking hardware. In the adder example above the row with the "a" and "b" would be address 0 and the one with "c", "s" and "t" would be row 1.
-
-The column address and packet size might be restricted to a multiple of some value, like 8. This means that the lowest three bits of the column address and of the size would be ignored in this case.
 
 The following packet types are used:
 
