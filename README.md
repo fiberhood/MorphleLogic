@@ -57,14 +57,16 @@ The first actual step is to generate all the files for the example project:
 
 Note that this uses files generated in the *user_project_wrapper* subproject (definition files that help the included subproject know where the pins will go) even though that uses this one. It is not bad as circular dependencies go.
 
-   make user_project_wrapper
+    make user_project_wrapper
 
 Now we have the .mag file that the main script needs.
 
-   cd ..
-   make ship
+    cd ..
+    make ship
 
 If there were no errors in any step then the file *gds/caravel.gds* has the final design. The files needed for error checking should also all be available at this point.
+
+It is possible to "make compress" to make it easier to move the repository around (only files larger than 25MB, by default, will be affected).
 
 ===========================================
 
