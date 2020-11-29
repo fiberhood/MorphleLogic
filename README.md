@@ -1,5 +1,6 @@
 <!---
-< SPDX-FileCopyrightText: Copyright 2020 Jecel Mattos de Assumpcao Jr
+< SPDX-FileCopyrightText: Copyright 2020 eFabless
+< with initial lines added 2020 by Jecel Mattos de Assumpcao Jr
 < 
 < SPDX-License-Identifier: Apache-2.0 
 < 
@@ -24,7 +25,51 @@ of the project.
 
 This version of the chip uses a single block of "yellow cells" from Morphle Logic connected to the logic analyzer pins inside Caravel. The processor in the management frame can inject a configuration into the block (a reset, configuration clock and 16 configuration bits interface with the capability of reading back 16 configuration bits coming out of the bottom of the block) and then inject a value into the top interface of the block (16 pairs of bits) and read back the value coming out the top of the block. The left, down and right interfaces are hardwired to loop back into themselves (which shouldn't matter as their missing neighbors always assert that they are "empty").
 
-The Caravel README is below:
+## Steps to build caravel.gds
+
+Note that the project includes many intermediate files that were generated separately. Using the tools to generate new versions of them is not a good idea. Only the "user_proj_example" and "user_project_wrappers" should be touched and then magic is used to combine this result with previously generated files of the remaining subprojects into the final .gds file with the chip masks.
+
+OpenLane runs inside Docker so that should be installed and able to run as the current user and not just as root.
+
+To build the standard Caravel chip the following steps should be taken starting from the root of the MorphleLogic project:
+
+    export PDK_ROOT=<path where the various PDK projects will be placed>
+
+If the various PDK packages have been installed with the correct versions then this step can be skipped:
+
+    make pdk
+
+If the large files in MorphleLogic are still compressed then you can:
+
+    make uncompress
+
+    export OPENLANE_ROOT=<path where the right version of OpenLane has been installed>
+    cd openlane
+
+If OpenLane has not yet been installed in the indicated place you can:
+
+    make openlane
+
+The first actual step is to generate all the files for the example project:
+
+    make user_proj_example
+
+
+Note that this uses files generated in the *user_project_wrapper* subproject (definition files that help the included subproject know where the pins will go) even though that uses this one. It is not bad as circular dependencies go.
+
+   make user_project_wrapper
+
+Now we have the .mag file that the main script needs.
+
+   cd ..
+   make ship
+
+If there were no errors in any step then the file *gds/caravel.gds* has the final design. The files needed for error checking should also all be available at this point.
+
+===========================================
+
+The Caravel README is below for reference only since the instructions above are better for this fork:
+
 =======
 ## Getting Started:
 

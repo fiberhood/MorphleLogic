@@ -1,4 +1,6 @@
-// Copyright 2020 Jecel Mattos de Assumpcao Jr
+// SPDX-FileCopyrightText: Copyright 2020 Jecel Mattos de Assumpcao Jr
+// 
+// SPDX-License-Identifier: Apache-2.0 
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.

@@ -15,9 +15,15 @@
 < See the License for the specific language governing permissions and
 < limitations under the License.
 --->
-# Tests
+# Verilog files specific to Morphle Logic
 
-Each circuit in this directory is a top level simulation-only device which tests the components found in the ../verilog directory.
+## library
+
+The main library file *morphlelogic.v* contains the building blocks for Morphle Logic, with the basic element being *ycell* ("yellow cell", named so because of the first illustrations) and *yblock* just being an array of ycells of the specified BLOCKWIDTH and BLOCKHEIGHT. Besides connecting the ycells to each other, yblock connects the wires at the edges of the array to ports so it can be used as a component in a larger system.
+
+## Tests
+
+The circuits of this kind are simulation-only can test the components in the library
 
 The way to execute them is
 
