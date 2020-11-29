@@ -253,8 +253,8 @@ module yblock(reset, confclk, cbitin, cbitout,
   genvar y;
   
   generate
-    for (x = 0 ; x < BLOCKWIDTH ; x = x + 1) begin
-      for (y = 0 ; y < BLOCKHEIGHT ; y = y + 1) begin
+    for (x = 0 ; x < BLOCKWIDTH ; x = x + 1) begin : generate_columns
+      for (y = 0 ; y < BLOCKHEIGHT ; y = y + 1) begin : generate_rows
         ycell gencell (reset, confclk,
              // cbitin, cbitout,
              vcbit[x+(y*BLOCKWIDTH)], vcbit[x+((y+1)*BLOCKWIDTH)],
@@ -285,10 +285,6 @@ module yblock(reset, confclk, cbitin, cbitout,
   
   assign vcbit[BLOCKWIDTH-1:0] = cbitin;   
   assign cbitout = vcbit[((BLOCKWIDTH*(BLOCKHEIGHT+1))-1):BLOCKWIDTH*BLOCKHEIGHT]; 
-  assign lhempty = he[BLOCKWIDTH+BLOCKHEIGHT-1:BLOCKWIDTH]; 
-  assign uvempty = ve[BLOCKWIDTH-1+BLOCKHEIGHT:BLOCKHEIGHT]; 
-  assign rhempty = he[(((BLOCKWIDTH+1)*BLOCKHEIGHT)-1):BLOCKWIDTH*BLOCKHEIGHT]; 
-  assign dvempty = ve[((BLOCKWIDTH*(BLOCKHEIGHT+1))-1):BLOCKWIDTH*BLOCKHEIGHT]; 
   // UP
   assign ve[BLOCKWIDTH-1:0] = uempty;
   assign uvempty = ve[(2*BLOCKWIDTH)-1:BLOCKWIDTH]; 
