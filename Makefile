@@ -51,6 +51,10 @@ clean:
 verify:
 	echo "verify"
 
+.PHONY: copy_user_config
+copy_user_config:
+	echo "overwritting config.tcl in user_proj_example"
+	cp verilog/morphle/config.tcl.2copy openlane/user_proj_example/config.tcl
 
 
 $(LARGE_FILES_GZ): %.gz: %

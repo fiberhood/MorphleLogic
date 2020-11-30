@@ -31,9 +31,13 @@ Note that the project includes many intermediate files that were generated separ
 
 OpenLane runs inside Docker so that should be installed and able to run as the current user and not just as root.
 
-To build the standard Caravel chip the following steps should be taken starting from the root of the MorphleLogic project:
+To build the modified Caravel chip that includes Morphle Logic instead of the supplied *user_proj_example*, the following steps should be taken starting from the root of the MorphleLogic project:
 
     export PDK_ROOT=<path where the various PDK projects will be placed>
+
+If the supplied *user_proj_example* is still present in the openlane subdirectory, then this will patch it to use Morphle Logic verilog files instead by replacing only the *config.tcl* file:
+
+    make copy_user_config
 
 If the various PDK packages have been installed with the correct versions then this step can be skipped:
 
@@ -50,6 +54,8 @@ If OpenLane has not yet been installed in the indicated place you can:
 
     make openlane
 
+Be sure that you have the latest version of the *magic* tool, otherwise you will get some very hard to understand errors.
+
 The first actual step is to generate all the files for the example project:
 
     make user_proj_example
@@ -59,14 +65,14 @@ Note that this uses files generated in the *user_project_wrapper* subproject (de
 
     make user_project_wrapper
 
-Now we have the .mag file that the main script needs.
+Now we have the *gds/user_project_wrapper.gds* file that the main script needs.
 
     cd ..
     make ship
 
 If there were no errors in any step then the file *gds/caravel.gds* has the final design. The files needed for error checking should also all be available at this point.
 
-It is possible to "make compress" to make it easier to move the repository around (only files larger than 25MB, by default, will be affected).
+It is possible to "make compress" to make it easier to move the repository around (only files larger than 10MB, by default, will be affected).
 
 ===========================================
 
