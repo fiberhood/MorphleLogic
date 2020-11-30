@@ -5,7 +5,7 @@ set ::env(DESIGN_NAME) user_proj_example
 set ::env(VERILOG_FILES) "\
 	$script_dir/../../verilog/rtl/defines.v \
 	$script_dir/../../verilog/morphle/morphlelogic.v \
-	$script_dir/../../verilog/morphle/top.v"
+	$script_dir/../../verilog/morphle/user_proj_block.v"
 
 set ::env(CLOCK_PORT) "wb_clk_i"
 set ::env(CLOCK_NET) "blk.confclk"

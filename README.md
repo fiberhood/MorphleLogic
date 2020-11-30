@@ -37,7 +37,7 @@ To build the modified Caravel chip that includes Morphle Logic instead of the su
 
 If the supplied *user_proj_example* is still present in the openlane subdirectory, then this will patch it to use Morphle Logic verilog files instead by replacing only the *config.tcl* file:
 
-    make copy_user_config
+    make copy_config_block
 
 If the various PDK packages have been installed with the correct versions then this step can be skipped:
 
