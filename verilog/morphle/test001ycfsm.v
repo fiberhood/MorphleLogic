@@ -29,7 +29,7 @@ module test001fsm;
   reg reset;
   reg [1:0] match;
   
-  ycfsm DUT (reset, in, match, out);
+  ycfsm DUT (.reset(reset), .in(in), .match(match), .out(out));
   
   initial
   begin

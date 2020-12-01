@@ -27,44 +27,39 @@
 // the combination 3 is not defined
 
 
-module yblock(reset, confclk, cbitin, cbitout,
-             lhempty, uvempty,
-             rhempty, dvempty,
-             uempty, uin, uout,
-             dempty, din, dout,
-             lempty, lin, lout,
-             rempty, rin, rout);
-  parameter BLOCKWIDTH = 8;
-  parameter BLOCKHEIGHT = 8;
-  parameter HMSB = BLOCKWIDTH-1;
-  parameter HMSB2 = (2*BLOCKWIDTH)-1;
-  parameter VMSB = BLOCKHEIGHT-1;
-  parameter VMSB2 = (2*BLOCKHEIGHT)-1;
+module yblock #(parameter
+  BLOCKWIDTH = 8,
+  BLOCKHEIGHT = 8,
+  HMSB = BLOCKWIDTH-1,
+  HMSB2 = (2*BLOCKWIDTH)-1,
+  VMSB = BLOCKHEIGHT-1,
+  VMSB2 = (2*BLOCKHEIGHT)-1)
+  (
   // control
-  input reset; // freezes the cell operations and clears everything
-  input confclk;  // a strobe to enter one configuration bit
-  input [HMSB:0] cbitin;   // new configuration bit from previous cell (U)
-  output [HMSB:0] cbitout; // configuration bit to next cell (D)
-  output [HMSB:0] lhempty;   // this cell interrupts horizontal signals to left
-  output [HMSB:0] uvempty;   // this cell interrupts vertical signals to up
-  output [HMSB:0] rhempty;   // this cell interrupts horizontal signals to right
-  output [HMSB:0] dvempty;   // this cell interrupts vertical signals to down
+  input reset,              // freezes the cell operations and clears everything
+  input confclk,            // a strobe to enter one configuration bit
+  input [HMSB:0] cbitin,    // new configuration bit from previous cell (U)
+  output [HMSB:0] cbitout,  // configuration bit to next cell (D)
+  output [HMSB:0] lhempty,  // this cell interrupts horizontal signals to left
+  output [HMSB:0] uvempty,  // this cell interrupts vertical signals to up
+  output [HMSB:0] rhempty,  // this cell interrupts horizontal signals to right
+  output [HMSB:0] dvempty,  // this cell interrupts vertical signals to down
   // UP
-  input [HMSB:0] uempty;    // cell U is empty, so we are the topmost of a signal
-  input [HMSB2:0] uin;
-  output [HMSB2:0] uout;
+  input [HMSB:0] uempty,    // cells U is empty, so we are the topmost of a signal
+  input [HMSB2:0] uin,
+  output [HMSB2:0] uout,
   // DOWN
-  input [HMSB:0] dempty;    // cell D is empty, so we are the bottommost of a signal
-  input [HMSB2:0] din;
-  output [HMSB2:0] dout;
+  input [HMSB:0] dempty,    // cells D is empty, so we are the bottommost of a signal
+  input [HMSB2:0] din,
+  output [HMSB2:0] dout,
   // LEFT
-  input [VMSB:0] lempty;    // cell L is empty, so we are the leftmost of a signal
-  input [VMSB2:0] lin;
-  output [VMSB2:0] lout;
+  input [VMSB:0] lempty,    // cells L is empty, so we are the leftmost of a signal
+  input [VMSB2:0] lin,
+  output [VMSB2:0] lout,
   // RIGHT
-  input [VMSB:0] rempty;    // cell D is empty, so we are the rightmost of a signal
-  input [VMSB2:0] rin;
-  output [VMSB2:0] rout;
+  input [VMSB:0] rempty,    // cells D is empty, so we are the rightmost of a signal
+  input [VMSB2:0] rin,
+  output [VMSB2:0] rout);
   
   // vertical lines are row order, horizontal lines are column order
   // this makes assigning chunks much simpler
@@ -93,27 +88,27 @@ module yblock(reset, confclk, cbitin, cbitout,
   generate
     for (x = 0 ; x < BLOCKWIDTH ; x = x + 1) begin : generate_columns
       for (y = 0 ; y < BLOCKHEIGHT ; y = y + 1) begin : generate_rows
-        ycell gencell (reset, confclk,
+        ycell gencell (.reset(reset), .confclk(confclk),
              // cbitin, cbitout,
-             vcbit[x+(y*BLOCKWIDTH)], vcbit[x+((y+1)*BLOCKWIDTH)],
+             .cbitin(vcbit[x+(y*BLOCKWIDTH)]), .cbitout(vcbit[x+((y+1)*BLOCKWIDTH)]),
              // hempty, vempty,
-             he[y+((x+1)*BLOCKHEIGHT)], ve[x+((y+1)*BLOCKWIDTH)],
+             .hempty(he[y+((x+1)*BLOCKHEIGHT)]), .vempty(ve[x+((y+1)*BLOCKWIDTH)]),
              // uempty, uin, uout,
-             ve[x+(y*BLOCKWIDTH)],
-             vs[(2*x)+1+(y*2*BLOCKWIDTH):(2*x)+(y*2*BLOCKWIDTH)],
-             vb[(2*x)+1+(y*2*BLOCKWIDTH):(2*x)+(y*2*BLOCKWIDTH)],
+             .uempty(ve[x+(y*BLOCKWIDTH)]),
+             .uin(vs[(2*x)+1+(y*2*BLOCKWIDTH):(2*x)+(y*2*BLOCKWIDTH)]),
+             .uout(vb[(2*x)+1+(y*2*BLOCKWIDTH):(2*x)+(y*2*BLOCKWIDTH)]),
              // dempty, din, dout,
-             ve[x+((y+2)*BLOCKWIDTH)],
-             vb[(2*x)+1+((y+1)*2*BLOCKWIDTH):(2*x)+((y+1)*2*BLOCKWIDTH)],
-             vs[(2*x)+1+((y+1)*2*BLOCKWIDTH):(2*x)+((y+1)*2*BLOCKWIDTH)],
+             .dempty(ve[x+((y+2)*BLOCKWIDTH)]),
+             .din(vb[(2*x)+1+((y+1)*2*BLOCKWIDTH):(2*x)+((y+1)*2*BLOCKWIDTH)]),
+             .dout(vs[(2*x)+1+((y+1)*2*BLOCKWIDTH):(2*x)+((y+1)*2*BLOCKWIDTH)]),
              // lempty, lin, lout,
-             he[y+(x*BLOCKHEIGHT)],
-             hs[(2*y)+1+(x*2*BLOCKHEIGHT):(2*y)+(x*2*BLOCKHEIGHT)],
-             hb[(2*y)+1+(x*2*BLOCKHEIGHT):(2*y)+(x*2*BLOCKHEIGHT)],
+             .lempty(he[y+(x*BLOCKHEIGHT)]),
+             .lin(hs[(2*y)+1+(x*2*BLOCKHEIGHT):(2*y)+(x*2*BLOCKHEIGHT)]),
+             .lout(hb[(2*y)+1+(x*2*BLOCKHEIGHT):(2*y)+(x*2*BLOCKHEIGHT)]),
              // rempty, rin, rout
-             he[y+((x+2)*BLOCKHEIGHT)],
-             hb[(2*y)+1+((x+1)*2*BLOCKHEIGHT):(2*y)+((x+1)*2*BLOCKHEIGHT)],
-             hs[(2*y)+1+((x+1)*2*BLOCKHEIGHT):(2*y)+((x+1)*2*BLOCKHEIGHT)]
+             .rempty(he[y+((x+2)*BLOCKHEIGHT)]),
+             .rin(hb[(2*y)+1+((x+1)*2*BLOCKHEIGHT):(2*y)+((x+1)*2*BLOCKHEIGHT)]),
+             .rout(hs[(2*y)+1+((x+1)*2*BLOCKHEIGHT):(2*y)+((x+1)*2*BLOCKHEIGHT)])
              );
       end
     end

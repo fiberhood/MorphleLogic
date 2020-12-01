@@ -71,12 +71,12 @@ module test004ycell;
     clk= 0; #5; clk= 1; #5;// 10ns period
   end
   
-  ycell DUT (reset, confclk, cbitin, cbitout,
-             hempty, vempty,
-             uempty, uin, uout,
-             dempty, din, dout,
-             lempty, lin, lout,
-             rempty, rin, rout);
+  ycell DUT (.reset(reset), .confclk(confclk), .cbitin(cbitin), .cbitout(cbitout),
+             .hempty(hempty), .vempty(vempty),
+             .uempty(uempty), .uin(uin), .uout(uout),
+             .dempty(dempty), .din(din), .dout(dout),
+             .lempty(lempty), .lin(lin), .lout(lout),
+             .rempty(rempty), .rin(rin), .rout(rout));
   
   initial
   begin

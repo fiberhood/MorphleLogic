@@ -44,7 +44,7 @@ module test002fsm;
     clk= 1; #5; clk= 0; #5;// 10ns period
   end
   
-  ycfsm DUT (reset, in, match, out);
+  ycfsm DUT (.reset(reset), .in(in), .match(match), .out(out));
   
   initial
   begin

@@ -29,10 +29,10 @@ module test003config;
   wire hblock, hbypass, hmatch0, hmatch1;
   wire vblock, vbypass, vmatch0, vmatch1;
 
-  ycconfig DUT (confclk, cbitin, cbitout,
-                 empty,
-                 hblock, hbypass, hmatch0, hmatch1,
-                 vblock, vbypass, vmatch0, vmatch1);
+  ycconfig DUT (.confclk(confclk), .cbitin(cbitin), .cbitout(cbitout),
+                 .empty(empty),
+                 .hblock(hblock), .hbypass(hbypass), .hmatch0(hmatch0), .hmatch1(hmatch1),
+                 .vblock(vblock), .vbypass(vbypass), .vmatch0(vmatch0), .vmatch1(vmatch1));
   
   // adds a second device cascade with the main one being tested to
   // see if the expected timing (always holds the previous configuration

@@ -28,11 +28,11 @@
 // of Morphle Logic. It explicitly defines 5 simple latches that
 // directly change when their inputs do, so there is no clock anywhere
 
-module ycfsm (reset, in, match, out);
-    input reset;
-    input [1:0] in;
-    input [1:0] match;
-    output [1:0] out;
+module ycfsm (
+    input reset,
+    input [1:0] in,
+    input [1:0] match,
+    output [1:0] out);
     
     wire [1:0] lin;
     wire [1:0] nlin;
@@ -74,15 +74,13 @@ endmodule
 // defined and is the only thing that needs to change (not counting software)
 // if the meaning needs to be changed
 
-module ycconfig (confclk, cbitin, cbitout,
-                 empty,
-                 hblock, hbypass, hmatch0, hmatch1,
-                 vblock, vbypass, vmatch0, vmatch1);
-       input confclk, cbitin;
-       output cbitout;
-       output empty;
-       output hblock, hbypass, hmatch0, hmatch1;
-       output vblock, vbypass, vmatch0, vmatch1;
+module ycconfig (
+       input confclk, cbitin,
+       output cbitout,
+       output empty,
+       output hblock, hbypass, hmatch0, hmatch1,
+       output vblock, vbypass, vmatch0, vmatch1);
+       
        reg [8:0] r;  // case needs REG even though we want a combinational circuit
        assign {empty,hblock,hbypass, hmatch0, hmatch1,
                vblock, vbypass, vmatch0, vmatch1} = r;
@@ -121,44 +119,39 @@ endmodule
 // Horizontal signals also have a L to R pair for partial results and a R to L
 // pair for final results
 
-module ycell(reset, confclk, cbitin, cbitout,
-             hempty, vempty,
-             uempty, uin, uout,
-             dempty, din, dout,
-             lempty, lin, lout,
-             rempty, rin, rout);
+module ycell(
   // control
-  input reset; // freezes the cell operations and clears everything
-  input confclk;  // a strobe to enter one configuration bit
-  input cbitin;   // new configuration bit from previous cell (U)
-  output cbitout; // configuration bit to next cell (D)
-  output hempty;   // this cell interrupts horizontal signals
-  output vempty;   // this cell interrupts vertical signals
+  input reset,    // freezes the cell operations and clears everything
+  input confclk,   // a strobe to enter one configuration bit
+  input cbitin,   // new configuration bit from previous cell (U)
+  output cbitout, // configuration bit to next cell (D)
+  output hempty,  // this cell interrupts horizontal signals
+  output vempty,  // this cell interrupts vertical signals
   // UP
-  input uempty;    // cell U is empty, so we are the topmost of a signal
-  input [1:0] uin;
-  output [1:0] uout;
+  input uempty,    // cell U is empty, so we are the topmost of a signal
+  input [1:0] uin,
+  output [1:0] uout,
   // DOWN
-  input dempty;    // cell D is empty, so we are the bottommost of a signal
-  input [1:0] din;
-  output [1:0] dout;
+  input dempty,    // cell D is empty, so we are the bottommost of a signal
+  input [1:0] din,
+  output [1:0] dout,
   // LEFT
-  input lempty;    // cell L is empty, so we are the leftmost of a signal
-  input [1:0] lin;
-  output [1:0] lout;
+  input lempty,    // cell L is empty, so we are the leftmost of a signal
+  input [1:0] lin,
+  output [1:0] lout,
   // RIGHT
-  input rempty;    // cell D is empty, so we are the rightmost of a signal
-  input [1:0] rin;
-  output [1:0] rout;
+  input rempty,    // cell D is empty, so we are the rightmost of a signal
+  input [1:0] rin,
+  output [1:0] rout);
   
   // configuration signals decoded
   wire empty;
   wire hblock, hbypass, hmatch0, hmatch1;
   wire vblock, vbypass, vmatch0, vmatch1;
-  ycconfig cfg (confclk, cbitin, cbitout,
-                 empty,
-                 hblock, hbypass, hmatch0, hmatch1,
-                 vblock, vbypass, vmatch0, vmatch1);
+  ycconfig cfg (.confclk(confclk), .cbitin(cbitin), .cbitout(cbitout),
+                 .empty(empty),
+                 .hblock(hblock), .hbypass(hbypass), .hmatch0(hmatch0), .hmatch1(hmatch1),
+                 .vblock(vblock), .vbypass(vbypass), .vmatch0(vmatch0), .vmatch1(vmatch1));
                  
   assign hempty = empty | hblock;
   assign vempty = empty | vblock;
@@ -174,7 +167,7 @@ module ycell(reset, confclk, cbitin, cbitout,
   wire [1:0] hback;
   
   wire [1:0] hmatch = {vback[1]&hmatch1,vback[0]&hmatch0};
-  ycfsm hfsm (hreset, hin, hmatch, hout);
+  ycfsm hfsm (.reset(hreset), .in(hin), .match(hmatch), .out(hout));
   wire [1:0] bhout = hbypass ? hin : hout;
   assign rout = bhout;
   assign hin = lempty ? {~(hback[1]|hback[1'b0]),1'b0} : lin;
@@ -182,7 +175,7 @@ module ycell(reset, confclk, cbitin, cbitout,
   assign lout = hback;
   
   wire [1:0] vmatch = {hback[1]&vmatch1,hback[0]&vmatch0};
-  ycfsm vfsm (vreset, vin, vmatch, vout);
+  ycfsm vfsm (.reset(vreset), .in(vin), .match(vmatch), .out(vout));
   wire [1:0] bvout = vbypass ? vin : vout;
   assign dout = bvout;
   assign vin = uempty ? {~(vback[1]|vback[1'b0]),1'b0} : uin;

@@ -56,7 +56,7 @@ module user_proj_example (
     output [`MPRJ_IO_PADS-1:0] io_out,
     output [`MPRJ_IO_PADS-1:0] io_oeb
 );
-  parameter BLOCKWIDTH = 16;
+  parameter BLOCKWIDTH = 16; // this should not be changed
   parameter BLOCKHEIGHT = 16;
   parameter HMSB = BLOCKWIDTH-1;
   parameter HMSB2 = (2*BLOCKWIDTH)-1;
@@ -91,15 +91,6 @@ module user_proj_example (
 // 127 to 64 as outputs to the circuit under test
 // 63 to 0 as inputs observing points in the circuit
   
-  assign la_data_out[127:48] = {48{1'b0}}; // don't leave it dangling
-                                           // 127:64 is output, 63:48 is unused input
-  wire reset = la_data_in[113]; // freezes the cell operations and clears everything
-                                // 127:114 is unused output
-  wire confclk = la_data_in[112];  // a strobe to enter one configuration bit
-  wire [HMSB:0] cbitin = la_data_in[111:96];   // new configuration bit from previous cell (U)
-  wire [HMSB:0] cbitout; // configuration bit to next cell (D)
-  assign la_data_out[47:32] = cbitout;
-
   // these are all left hanging
   wire [HMSB:0] lhempty;   // this cell interrupts horizontal signals to left
   wire [HMSB:0] uvempty;   // this cell interrupts vertical signals to up
@@ -108,30 +99,38 @@ module user_proj_example (
 
   // UP
   wire [HMSB:0] uempty = {HMSB{1'b0}};    // cell U is not empty, so the LA is above us
-  wire [HMSB2:0] uin = la_data_in[95:64];
   wire [HMSB2:0] uout;
-  assign la_data_out[31:0] = uout;
+  wire [HMSB:0] cbitout; // configuration bit to next cell (D)
+  assign la_data_out = {{80{1'b0}},cbitout,uout};
+  // la_data_in[127:114] are unused output
+  wire reset = la_data_in[113]; // freezes the cell operations and clears everything
+  wire confclk = la_data_in[112];  // a strobe to enter one configuration bit
+  wire [HMSB:0] cbitin = la_data_in[111:96];   // new configuration bit from previous cell (U)
+  wire [HMSB2:0] uin = la_data_in[95:64];
+
   // DOWN
   wire [HMSB:0] dempty = {HMSB{1'b1}};    // cell D is empty, so we are the bottommost of a signal
   wire [HMSB2:0] dout;                    // left dangling to avoid loops that confuse the tools
   wire [HMSB2:0] din = {HMSB2{1'b0}};
+
   // LEFT
   wire [VMSB:0] lempty = {VMSB{1'b1}};    // cell L is empty, so we are the leftmost of a signal
   wire [VMSB2:0] lout;
   wire [VMSB2:0] lin = {VMSB2{1'b0}};
+
   // RIGHT
   wire [VMSB:0] rempty = {VMSB{1'b1}};    // cell D is empty, so we are the rightmost of a signal
   wire [VMSB2:0] rout;
   wire [VMSB2:0] rin = {VMSB2{1'b0}};
 
     yblock #(.BLOCKWIDTH(BLOCKWIDTH), .BLOCKHEIGHT(BLOCKHEIGHT))
-        blk (reset, confclk, cbitin, cbitout,
-             lhempty, uvempty,
-             rhempty, dvempty,
-             uempty, uin, uout,
-             dempty, din, dout,
-             lempty, lin, lout,
-             rempty, rin, rout);
+        blk (.reset(reset), .confclk(confclk), .cbitin(cbitin), .cbitout(cbitout),
+             .lhempty(lhempty), .uvempty(uvempty),
+             .rempty(rhempty), .dvempty(dvempty),
+             .uempty(uempty), .uin(uin), .uout(uout),
+             .dempty(dempty), .din(din), .dout(dout),
+             .lempty(lempty), .lin(lin), .lout(lout),
+             .rempty(rempty), .rin(rin), .rout(rout));
 
 endmodule
 
