@@ -107,13 +107,13 @@ module user_proj_example (
   wire [HMSB:0] dvempty;   // this cell interrupts vertical signals to down
 
   // UP
-  wire [HMSB:0] uempty = {HMSB{1'b0}};    // cell U is empty, so we are the topmost of a signal
+  wire [HMSB:0] uempty = {HMSB{1'b0}};    // cell U is not empty, so the LA is above us
   wire [HMSB2:0] uin = la_data_in[95:64];
   wire [HMSB2:0] uout;
   assign la_data_out[31:0] = uout;
   // DOWN
   wire [HMSB:0] dempty = {HMSB{1'b1}};    // cell D is empty, so we are the bottommost of a signal
-  wire [HMSB2:0] dout;
+  wire [HMSB2:0] dout;                    // left dangling to avoid loops that confuse the tools
   wire [HMSB2:0] din = {HMSB2{1'b0}};
   // LEFT
   wire [VMSB:0] lempty = {VMSB{1'b1}};    // cell L is empty, so we are the leftmost of a signal

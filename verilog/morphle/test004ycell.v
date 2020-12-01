@@ -25,9 +25,9 @@
 // https://syssec.ethz.ch/content/dam/ethz/special-interest/infk/inst-infsec/system-security-group-dam/education/Digitaltechnik_14/14_Verilog_Testbenches.pdf
 
 `timescale 1ns/1ps
-`include "morphlelogic.v"
+`include "ycell.v"
 
-module test002fsm;
+module test004ycell;
 
   // control
   reg reset; // freezes the cell operations and clears everything

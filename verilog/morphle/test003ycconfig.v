@@ -19,9 +19,9 @@
 // checked for the desired value
 
 `timescale 1ns/1ps
-`include "morphlelogic.v"
+`include "ycell.v"
 
-module test1fsm;
+module test003config;
 
   reg confclk, cbitin;
   wire cbitout;

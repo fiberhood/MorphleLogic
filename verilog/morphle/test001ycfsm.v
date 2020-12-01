@@ -20,9 +20,9 @@
 // experiement in generating a waveform file
 
 `timescale 1ns/1ps
-`include "morphlelogic.v"
+`include "ycell.v"
 
-module test1fsm;
+module test001fsm;
 
   reg [1:0] in;
   wire [1:0] out;
