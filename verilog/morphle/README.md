@@ -17,9 +17,16 @@
 --->
 # Verilog files specific to Morphle Logic
 
+Pairs of files are used for each possible project to be included in the Caravel chip. One is a Verilog file that is used to generate *user_proj_example.gds* (the name must be this as it is what *user_project_wrapper* expects) and the other is a Tcl configuration file that must be copied to *../../openlane/user_proj_example/config.tcl* so openlane can do its job.
+
+- *user_proj_block.v* and *user_proj_block.v* connect a single 16x16 yblock cell to the Caravel logic analyzer pins. It also attaches a dummy circuit to the Wishbone interface, but leaves all io pins dangling (so ignore warnings about that).
+
 ## library
 
-The main library file *morphlelogic.v* contains the building blocks for Morphle Logic, with the basic element being *ycell* ("yellow cell", named so because of the first illustrations) and *yblock* just being an array of ycells of the specified BLOCKWIDTH and BLOCKHEIGHT. Besides connecting the ycells to each other, yblock connects the wires at the edges of the array to ports so it can be used as a component in a larger system.
+The main library contains the building blocks for Morphle Logic:
+
+- *ycell.v*: the basic element is *ycell* ("yellow cell", named so because of the first illustrations)
+- *yblock.v*: *yblock* just being an array of ycells of the specified BLOCKWIDTH and BLOCKHEIGHT. Besides connecting the ycells to each other, yblock connects the wires at the edges of the array to ports so it can be used as a component in a larger system.
 
 ## Tests
 

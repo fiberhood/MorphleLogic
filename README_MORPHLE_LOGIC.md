@@ -29,7 +29,7 @@ At the most basic level, Morphle Logic is a large 2D matrix of simple cells. Eac
 
 Each cell can be configured to one of eight values, which we represent with a character:
 
- 0. space: the default state, it is used to isolate different circuits
+ 0. .: the default state is a blank cell used to isolate different circuits
  1. +: this allows signals to cross this cell vertically and horizontally without interfering with each other
  2. -: this allows signals to cross this cell horizontally
  3. |: this allows signals to cross this cell vertically
@@ -42,10 +42,10 @@ An alternative name for Morphle Logic would be "match logic" since you explicitl
 
 Here is an example of a two bit half adder:
 
-    ||
-    00N
+    ||..
+    00N.
     11NY
-      ||
+    ..||
 
 The first and last lines use | to make it easier to see where the two inputs are coming in from the top and the two outputs (sum and carry, respectively) are going out the bottom. In a real circuit they probably wouldn't be needed as you can normally connect two circuits by just placing them next to each other.
 
@@ -80,16 +80,16 @@ Instead of having every ML cell connect to the network, a row of special cells i
 
 A two bit full adder could receive its data from the network are return its results to the network:
 
-      ab   ab
-     N00  N00
-    NN11 NN11
-    ||   ||
-    |0N0 |0N0
-    N1N1 N1N1
-    | |Y-0 ||
-    | |    ||
-    | |    ||
-    t s    sc
+    ..ab...ab
+    .N00..N00
+    NN11.NN11
+    ||...||..
+    |0N0.|0N0
+    N1N1.N1N1
+    |.|Y-0.||
+    |.|....||
+    |.|....||
+    t.s....sc
 
 Note that rows and columns can easily be swapped to help match the outputs of a circuit to the inputs of the next circuit.
 
@@ -113,6 +113,6 @@ The following packet types are used:
 ## Files
 
 Besides all the files in the Caravel project, the Morphle Logic specific hardware description can
-be found in "verilog/morphle/" and that includes all tests.
+be found in "verilog/morphle/" and that includes all tests. They are explained in the [README](verilog/morphle/README.md) file in that directory.
 
 

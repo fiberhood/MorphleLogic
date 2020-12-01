@@ -39,6 +39,10 @@ If the supplied *user_proj_example* is still present in the openlane subdirector
 
     make copy_config_block
 
+If you need a reminder of the possible targets for *make* just do:
+
+    make help
+
 If the various PDK packages have been installed with the correct versions then this step can be skipped:
 
     make pdk
