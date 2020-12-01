@@ -86,26 +86,31 @@ module user_proj_example (
     end
 
 // logic analyzer connections and test project
-
-  assign la_data_out[127:126] = {2{1'b0}}; // don't leave it dangling
-  assign la_data_out[124:96] = {29{1'b0}};
-  assign la_data_out[79:64] = {16{1'b0}};
-  assign la_data_out[31:0] = {32{1'b0}};
-  wire reset = la_data_in[127]; // freezes the cell operations and clears everything
-  wire confclk = la_data_in[126];  // a strobe to enter one configuration bit
-  wire [HMSB:0] cbitin = la_data_in[79:64];   // new configuration bit from previous cell (U)
+//
+// to make things easier for the RISC-V we configure
+// 127 to 64 as outputs to the circuit under test
+// 63 to 0 as inputs observing points in the circuit
+  
+  assign la_data_out[127:48] = {48{1'b0}}; // don't leave it dangling
+                                           // 127:64 is output, 63:48 is unused input
+  wire reset = la_data_in[113]; // freezes the cell operations and clears everything
+                                // 127:114 is unused output
+  wire confclk = la_data_in[112];  // a strobe to enter one configuration bit
+  wire [HMSB:0] cbitin = la_data_in[111:96];   // new configuration bit from previous cell (U)
   wire [HMSB:0] cbitout; // configuration bit to next cell (D)
-  assign la_data_out[95:80] = cbitout;
+  assign la_data_out[47:32] = cbitout;
+
+  // these are all left hanging
   wire [HMSB:0] lhempty;   // this cell interrupts horizontal signals to left
   wire [HMSB:0] uvempty;   // this cell interrupts vertical signals to up
   wire [HMSB:0] rhempty;   // this cell interrupts horizontal signals to right
   wire [HMSB:0] dvempty;   // this cell interrupts vertical signals to down
-  assign la_data_out[125] = |{dvempty, rhempty, uvempty, lhempty};
+
   // UP
   wire [HMSB:0] uempty = {HMSB{1'b0}};    // cell U is empty, so we are the topmost of a signal
-  wire [HMSB2:0] uin = la_data_in[31:0];
-  wire [HMSB2:0] uout;  // leave dangling
-  assign la_data_out[63:32] = {HMSB2{1'b0}};  // everybody to ground
+  wire [HMSB2:0] uin = la_data_in[95:64];
+  wire [HMSB2:0] uout;
+  assign la_data_out[31:0] = uout;
   // DOWN
   wire [HMSB:0] dempty = {HMSB{1'b1}};    // cell D is empty, so we are the bottommost of a signal
   wire [HMSB2:0] dout;

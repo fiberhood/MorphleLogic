@@ -53,8 +53,16 @@ verify:
 
 .PHONY: copy_config_block
 copy_config_block:
-	echo "overwritting config.tcl in user_proj_example"
+	@echo
+	@echo "       overwritting config.tcl in user_proj_example"
+	@echo
 	cp verilog/morphle/config_block.tcl openlane/user_proj_example/config.tcl
+
+.PHONY: help
+help:
+	@echo "      available commands (do 'make <command>')"
+	@echo
+	@awk '/^.PHONY/{print "    " $$2}' Makefile
 
 
 $(LARGE_FILES_GZ): %.gz: %
