@@ -74,13 +74,13 @@ module yblock #(parameter
   // \-----/| \------+|+------/|\----/
   // uv-----+--------/ \-------+-----dv   BLOCKHEIGHT+2  he, ve
     
-  wire [((BLOCKWIDTH*(BLOCKHEIGHT+1))-1):0] vcbit;
-  wire [((BLOCKWIDTH*(BLOCKHEIGHT+2))-1):0] ve; // first and last rows go outside
-  wire [(((BLOCKWIDTH+2)*BLOCKHEIGHT)-1):0] he; // first and last columns go outside
-  wire [(((BLOCKWIDTH*2)*(BLOCKHEIGHT+1))-1):0] vs; // signal pairs
-  wire [(((BLOCKWIDTH*2)*(BLOCKHEIGHT+1))-1):0] vb; // signal pairs back
-  wire [(((BLOCKWIDTH+1)*(BLOCKHEIGHT*2))-1):0] hs; // signal pairs
-  wire [(((BLOCKWIDTH+1)*(BLOCKHEIGHT*2))-1):0] hb; // signal pairs back
+  wire [HMSB:0] vcbit[BLOCKHEIGHT:0];
+  wire [HMSB:0] ve[BLOCKHEIGHT+1:0]; // first and last rows go outside
+  wire [VMSB:0] he[BLOCKWIDTH+1:0]; // first and last columns go outside
+  wire [HMSB2:0] vs[BLOCKHEIGHT:0]; // signal pairs
+  wire [HMSB2:0] vb[BLOCKHEIGHT:0]; // signal pairs back
+  wire [VMSB2:0] hs[BLOCKWIDTH:0]; // signal pairs
+  wire [VMSB2:0] hb[BLOCKWIDTH:0]; // signal pairs back
   
   genvar x;
   genvar y;
@@ -90,25 +90,25 @@ module yblock #(parameter
       for (y = 0 ; y < BLOCKHEIGHT ; y = y + 1) begin : generate_rows
         ycell gencell (.reset(reset), .confclk(confclk),
              // cbitin, cbitout,
-             .cbitin(vcbit[x+(y*BLOCKWIDTH)]), .cbitout(vcbit[x+((y+1)*BLOCKWIDTH)]),
+             .cbitin(vcbit[y][x]), .cbitout(vcbit[y+1][x]),
              // hempty, vempty,
-             .hempty(he[y+((x+1)*BLOCKHEIGHT)]), .vempty(ve[x+((y+1)*BLOCKWIDTH)]),
+             .hempty(he[x+1][y]), .vempty(ve[y+1][x]),
              // uempty, uin, uout,
-             .uempty(ve[x+(y*BLOCKWIDTH)]),
-             .uin(vs[(2*x)+1+(y*2*BLOCKWIDTH):(2*x)+(y*2*BLOCKWIDTH)]),
-             .uout(vb[(2*x)+1+(y*2*BLOCKWIDTH):(2*x)+(y*2*BLOCKWIDTH)]),
+             .uempty(ve[y][x]),
+             .uin(vs[y][2*x+1:2*x]),
+             .uout(vb[y][2*x+1:2*x]),
              // dempty, din, dout,
-             .dempty(ve[x+((y+2)*BLOCKWIDTH)]),
-             .din(vb[(2*x)+1+((y+1)*2*BLOCKWIDTH):(2*x)+((y+1)*2*BLOCKWIDTH)]),
-             .dout(vs[(2*x)+1+((y+1)*2*BLOCKWIDTH):(2*x)+((y+1)*2*BLOCKWIDTH)]),
+             .dempty(ve[y+2][x]),
+             .din(vb[y+1][2*x+1:2*x]),
+             .dout(vs[y+1][2*x+1:2*x]),
              // lempty, lin, lout,
-             .lempty(he[y+(x*BLOCKHEIGHT)]),
-             .lin(hs[(2*y)+1+(x*2*BLOCKHEIGHT):(2*y)+(x*2*BLOCKHEIGHT)]),
-             .lout(hb[(2*y)+1+(x*2*BLOCKHEIGHT):(2*y)+(x*2*BLOCKHEIGHT)]),
+             .lempty(he[x][y]),
+             .lin(hs[x][2*y+1:2*y]),
+             .lout(hb[x][2*y+1:2*y]),
              // rempty, rin, rout
-             .rempty(he[y+((x+2)*BLOCKHEIGHT)]),
-             .rin(hb[(2*y)+1+((x+1)*2*BLOCKHEIGHT):(2*y)+((x+1)*2*BLOCKHEIGHT)]),
-             .rout(hs[(2*y)+1+((x+1)*2*BLOCKHEIGHT):(2*y)+((x+1)*2*BLOCKHEIGHT)])
+             .rempty(he[x+2][y]),
+             .rin(hb[x][2*y+1:2*y]),
+             .rout(hs[x][2*y+1:2*y])
              );
       end
     end
@@ -116,28 +116,28 @@ module yblock #(parameter
 
   // the ends of the arrays of wire go to the outside
   
-  assign vcbit[BLOCKWIDTH-1:0] = cbitin;   
-  assign cbitout = vcbit[((BLOCKWIDTH*(BLOCKHEIGHT+1))-1):BLOCKWIDTH*BLOCKHEIGHT]; 
+  assign vcbit[0] = cbitin;   
+  assign cbitout = vcbit[BLOCKHEIGHT]; 
   // UP
-  assign ve[BLOCKWIDTH-1:0] = uempty;
-  assign uvempty = ve[(2*BLOCKWIDTH)-1:BLOCKWIDTH]; 
-  assign vs[(2*BLOCKWIDTH)-1:0] = uin;
-  assign uout = vb[(2*BLOCKWIDTH)-1:0];
+  assign ve[0] = uempty;
+  assign uvempty = ve[1]; 
+  assign vs[0] = uin;
+  assign uout = vb[0];
   // DOWN
-  assign ve[((BLOCKWIDTH*(BLOCKHEIGHT+2))-1):BLOCKWIDTH*(BLOCKHEIGHT+1)] = dempty;
-  assign dvempty = ve[BLOCKWIDTH-1+BLOCKHEIGHT*BLOCKWIDTH:BLOCKHEIGHT*BLOCKWIDTH]; 
-  assign vb[(((BLOCKWIDTH*2)*(BLOCKHEIGHT+1))-1):BLOCKWIDTH*2*BLOCKHEIGHT] = din;
-  assign dout = vs[(((BLOCKWIDTH*2)*(BLOCKHEIGHT+1))-1):BLOCKWIDTH*2*BLOCKHEIGHT];
+  assign ve[BLOCKHEIGHT+1] = dempty;
+  assign dvempty = ve[BLOCKHEIGHT]; 
+  assign vb[BLOCKHEIGHT] = din;
+  assign dout = vs[BLOCKHEIGHT];
   // LEFT
-  assign he[BLOCKHEIGHT-1:0] = lempty;
-  assign lhempty = he[(2*BLOCKHEIGHT)-1:BLOCKHEIGHT];   
-  assign hs[(2*BLOCKHEIGHT)-1:0] = lin;
-  assign lout = hb[(2*BLOCKHEIGHT)-1:0];
+  assign he[0] = lempty;
+  assign lhempty = he[1];   
+  assign hs[0] = lin;
+  assign lout = hb[0];
   // RIGHT
-  assign he[(((BLOCKWIDTH+2)*BLOCKHEIGHT)-1):(BLOCKWIDTH+1)*BLOCKHEIGHT] = rempty;
-  assign rhempty = ve[BLOCKHEIGHT-1+BLOCKHEIGHT*BLOCKWIDTH:BLOCKHEIGHT*BLOCKWIDTH];  
-  assign hb[(((BLOCKWIDTH+1)*(BLOCKHEIGHT*2))-1):BLOCKWIDTH*BLOCKHEIGHT*2] = rin;
-  assign rout = hs[(((BLOCKWIDTH+1)*(BLOCKHEIGHT*2))-1):BLOCKWIDTH*BLOCKHEIGHT*2];
+  assign he[BLOCKWIDTH+1] = rempty;
+  assign rhempty = he[BLOCKWIDTH];  
+  assign hb[BLOCKWIDTH] = rin;
+  assign rout = hs[BLOCKWIDTH];
   
 endmodule
 

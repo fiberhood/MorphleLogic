@@ -43,8 +43,8 @@ module user_proj_example (
     input [3:0] wbs_sel_i,
     input [31:0] wbs_dat_i,
     input [31:0] wbs_adr_i,
-    output wbs_ack_o,
-    output [31:0] wbs_dat_o,
+    output reg wbs_ack_o,
+    output reg [31:0] wbs_dat_o,
 
     // Logic Analyzer Signals
     input  [127:0] la_data_in,
@@ -68,20 +68,20 @@ module user_proj_example (
 
     reg [31:0] store;
 
-    wire valid = wb_cyc_i & wb_stb_i;
+    wire valid = wbs_cyc_i & wbs_stb_i;
 
     always @(posedge wb_clk_i) begin
         if (wb_rst_i == 1'b 1) begin
-            wb_ack_o <= 1'b 0;
+            wbs_ack_o <= 1'b 0;
         end else begin
-            if (wb_we_i == 1'b 1) begin
-                if (wb_sel_i[0]) store[7:0]   <= wb_dat_i[7:0];
-                if (wb_sel_i[1]) store[15:8]  <= wb_dat_i[15:8];
-                if (wb_sel_i[2]) store[23:16] <= wb_dat_i[23:16];
-                if (wb_sel_i[3]) store[31:24] <= wb_dat_i[31:24];
+            if (wbs_we_i == 1'b 1) begin
+                if (wbs_sel_i[0]) store[7:0]   <= wbs_dat_i[7:0];
+                if (wbs_sel_i[1]) store[15:8]  <= wbs_dat_i[15:8];
+                if (wbs_sel_i[2]) store[23:16] <= wbs_dat_i[23:16];
+                if (wbs_sel_i[3]) store[31:24] <= wbs_dat_i[31:24];
             end
-            wb_dat_o <= store;
-            wb_ack_o <= valid & !wb_ack_o;
+            wbs_dat_o <= store;
+            wbs_ack_o <= valid & !wb_ack_o;
         end
     end
 
