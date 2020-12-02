@@ -12,5 +12,5 @@ Loading sky130A Device Generator Menu ...
 Loading "/openLANE_flow/scripts/magic_maglef.tcl" from command line.
 Reading LEF data from file /project/openlane/morphle_ycell/runs/morphle_ycell/results/magic/ycell.lef.
 This action cannot be undone.
-LEF read: Processed 252 lines.
+LEF read: Processed 257 lines.
 [INFO]: DONE GENERATING MAGLEF VIEW

@@ -2,7 +2,7 @@
 set ::env(PDK) "sky130A"
 set ::env(STD_CELL_LIBRARY) "sky130_fd_sc_hd"
 set ::env(PDK_ROOT) "/opt/asic"
-set ::env(CELL_PAD) "8"
+set ::env(CELL_PAD) "4"
 set ::env(MERGED_LEF) "/project/openlane/morphle_ycell/runs/morphle_ycell/tmp/merged.lef"
 set ::env(MERGED_LEF_UNPADDED) "/project/openlane/morphle_ycell/runs/morphle_ycell/tmp/merged_unpadded.lef"
 set ::env(TRACKS_INFO_FILE) "/project/openlane/morphle_ycell/runs/morphle_ycell/tmp/tracks_copy.info"

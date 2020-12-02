@@ -1,0 +1,4 @@
+during executing: "openroad -exit /openLANE_flow/scripts/openroad/or_replace.tcl |& tee >&@stdout /project/openlane/morphle_yblock/runs/morphle_yblock/logs/placement/replace.log"
+Last 10 lines:
+child process exited abnormally
+

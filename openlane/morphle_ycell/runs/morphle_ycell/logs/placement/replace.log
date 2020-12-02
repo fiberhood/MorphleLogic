@@ -34,11 +34,11 @@ Notice 0: Finished DEF file: /project/openlane/morphle_ycell/runs/morphle_ycell/
 [INFO] Util(%) = 33.406212
 [INFO] StdInstsArea = 955916800
 [INFO] MacroInstsArea = 0
-[InitialPlace]  Iter: 1 CG Error: 7.69626e-08 HPWL: 2995870
-[InitialPlace]  Iter: 2 CG Error: 8.73537e-08 HPWL: 2201138
-[InitialPlace]  Iter: 3 CG Error: 4.71638e-08 HPWL: 2171557
-[InitialPlace]  Iter: 4 CG Error: 8.6324e-08 HPWL: 2139718
-[InitialPlace]  Iter: 5 CG Error: 6.80926e-08 HPWL: 2120926
+[InitialPlace]  Iter: 1 CG Error: 6.59921e-08 HPWL: 2708790
+[InitialPlace]  Iter: 2 CG Error: 9.62714e-08 HPWL: 2225171
+[InitialPlace]  Iter: 3 CG Error: 8.55354e-08 HPWL: 2214989
+[InitialPlace]  Iter: 4 CG Error: 9.22672e-08 HPWL: 2215850
+[InitialPlace]  Iter: 5 CG Error: 5.64912e-08 HPWL: 2209561
 [INFO] FillerInit: NumGCells = 179
 [INFO] FillerInit: NumGNets = 121
 [INFO] FillerInit: NumGPins = 359
@@ -50,11 +50,11 @@ Notice 0: Finished DEF file: /project/openlane/morphle_ycell/runs/morphle_ycell/
 [INFO] BinCnt = (64, 64)
 [INFO] BinSize = (877, 850)
 [INFO] NumBins = 4096
-[NesterovSolve] Iter: 1 overflow: 0.807637 HPWL: 1552187
-[NesterovSolve] Iter: 10 overflow: 0.77406 HPWL: 1552052
-[NesterovSolve] Iter: 20 overflow: 0.773955 HPWL: 1554841
-[NesterovSolve] Iter: 30 overflow: 0.7752 HPWL: 1555913
-[NesterovSolve] Iter: 40 overflow: 0.774698 HPWL: 1555843
-[NesterovSolve] Iter: 50 overflow: 0.773988 HPWL: 1555586
-[NesterovSolve] Finished with Overflow: 0.773974
+[NesterovSolve] Iter: 1 overflow: 0.768503 HPWL: 1656971
+[NesterovSolve] Iter: 10 overflow: 0.736488 HPWL: 1569549
+[NesterovSolve] Iter: 20 overflow: 0.737322 HPWL: 1563946
+[NesterovSolve] Iter: 30 overflow: 0.737966 HPWL: 1566833
+[NesterovSolve] Iter: 40 overflow: 0.73563 HPWL: 1564667
+[NesterovSolve] Iter: 50 overflow: 0.736868 HPWL: 1565073
+[NesterovSolve] Finished with Overflow: 0.737261
 [WARN]: No CLOCK_PORT found. Skipping STA...

@@ -1,0 +1,426 @@
+OpenROAD 0.9.0 d03ebfc244
+This program is licensed under the BSD-3 license. See the LICENSE file for details. 
+Components of this program may be licensed under more restrictive licenses which must be honored.
+Error: cannot open '/.openroad'.
+Notice 0: Reading LEF file:  /project/openlane/morphle_yblock/runs/morphle_yblock/tmp/merged_unpadded.lef
+Notice 0:     Created 13 technology layers
+Notice 0:     Created 25 technology vias
+Notice 0:     Created 438 library cells
+Notice 0: Finished LEF file:  /project/openlane/morphle_yblock/runs/morphle_yblock/tmp/merged_unpadded.lef
+Warning: /project/openlane/morphle_yblock/runs/morphle_yblock/tmp/trimmed.lib, line 31 default_operating_condition tt_025C_1v80 not found.
+Notice 0: 
+Reading DEF file: /project/openlane/morphle_yblock/runs/morphle_yblock/tmp/placement/replace.def
+Notice 0: Design: yblock
+Notice 0:     Created 210 pins.
+Notice 0:     Created 80 components and 1888 component-terminals.
+Notice 0:     Created 810 nets and 1680 connections.
+Notice 0: Finished DEF file: /project/openlane/morphle_yblock/runs/morphle_yblock/tmp/placement/replace.def
+[PROC] End Parsing Global Config
+[PROC] Begin Extracting Macro Cells ...
+[PROC] End Extracting Macro Cells
+[INFO] NumMacros = 64
+[INFO] NumEdgeInSta = 1080
+[INFO] NumVertexInSta = 1906
+[INFO] NumEastPins = 57
+[INFO] NumWestPins = 44
+[INFO] NumNorthPins = 58
+[INFO] NumSouthPins = 51
+[WARN] Missing Liberty Detected.
+       TritonMP will place macros without timing information (MAPL-1)
+[PROC] Begin One Level Partition ...
+[PROC] Begin Partition ...
+[INFO] NumMacros = 64
+[INFO] NumCutLines = 6
+[INFO] CutLine = 5
+[INFO] RoundUpCutLine = 5
+[INFO] CutLine = 155
+[INFO] RoundUpCutLine = 155
+[INFO] CutLine = 305
+[INFO] RoundUpCutLine = 305
+[INFO] CutLine = 455
+[INFO] RoundUpCutLine = 455
+[INFO] CutLine = 605
+[INFO] RoundUpCutLine = 605
+[INFO] CutLine = 755
+[INFO] RoundUpCutLine = 755
+[PROC] End Partition
+[PROC] End One Level Partition
+[PROC] Begin Horizontal Partition ...
+[PROC] Begin East Partition ...
+[PROC] Begin Partition ...
+[INFO] NumMacros = 0
+[INFO] NumCutLines = 0
+[PROC] End Partition
+[PROC] End East Partition
+[PROC] Begin West Partition ...
+[PROC] Begin Partition ...
+[INFO] NumMacros = 64
+[INFO] NumCutLines = 6
+[INFO] CutLine = 10
+[INFO] RoundUpCutLine = 10
+[INFO] CutLine = 160
+[INFO] RoundUpCutLine = 160
+[INFO] CutLine = 310
+[INFO] RoundUpCutLine = 310
+[INFO] CutLine = 459
+[INFO] RoundUpCutLine = 459
+[INFO] CutLine = 609
+[INFO] RoundUpCutLine = 609
+[INFO] CutLine = 758
+[INFO] RoundUpCutLine = 758
+[PROC] End Partition
+[PROC] End West Partition
+[PROC] End Horizontal Partition
+[PROC] Begin Horizontal Partition ...
+[PROC] Begin East Partition ...
+[PROC] Begin Partition ...
+[INFO] NumMacros = 0
+[INFO] NumCutLines = 0
+[PROC] End Partition
+[PROC] End East Partition
+[PROC] Begin West Partition ...
+[PROC] Begin Partition ...
+[INFO] NumMacros = 64
+[INFO] NumCutLines = 6
+[INFO] CutLine = 10
+[INFO] RoundUpCutLine = 10
+[INFO] CutLine = 160
+[INFO] RoundUpCutLine = 160
+[INFO] CutLine = 310
+[INFO] RoundUpCutLine = 310
+[INFO] CutLine = 459
+[INFO] RoundUpCutLine = 459
+[INFO] Meets impossible partition, continue
+[INFO] CutLine = 609
+[INFO] RoundUpCutLine = 609
+[INFO] CutLine = 758
+[INFO] RoundUpCutLine = 758
+[PROC] End Partition
+[PROC] End West Partition
+[PROC] End Horizontal Partition
+[PROC] Begin Horizontal Partition ...
+[PROC] Begin East Partition ...
+[PROC] Begin Partition ...
+[INFO] NumMacros = 5
+[INFO] NumCutLines = 2
+[INFO] CutLine = 10
+[INFO] RoundUpCutLine = 10
+[INFO] CutLine = 758
+[INFO] RoundUpCutLine = 758
+[PROC] End Partition
+[PROC] End East Partition
+[PROC] Begin West Partition ...
+[PROC] Begin Partition ...
+[INFO] NumMacros = 59
+[INFO] NumCutLines = 5
+[INFO] CutLine = 10
+[INFO] RoundUpCutLine = 10
+[INFO] CutLine = 197
+[INFO] RoundUpCutLine = 198
+[INFO] Meets impossible partition, continue
+[INFO] CutLine = 384
+[INFO] RoundUpCutLine = 386
+[INFO] Meets impossible partition, continue
+[INFO] CutLine = 571
+[INFO] RoundUpCutLine = 571
+[INFO] Meets impossible partition, continue
+[INFO] CutLine = 758
+[INFO] RoundUpCutLine = 758
+[PROC] End Partition
+[PROC] End West Partition
+[PROC] End Horizontal Partition
+[PROC] Begin Horizontal Partition ...
+[PROC] Begin East Partition ...
+[PROC] Begin Partition ...
+[INFO] NumMacros = 46
+[INFO] NumCutLines = 5
+[INFO] CutLine = 10
+[INFO] RoundUpCutLine = 10
+[INFO] CutLine = 197
+[INFO] RoundUpCutLine = 198
+[INFO] CutLine = 384
+[INFO] RoundUpCutLine = 386
+[INFO] CutLine = 571
+[INFO] RoundUpCutLine = 571
+[INFO] CutLine = 758
+[INFO] RoundUpCutLine = 758
+[PROC] End Partition
+[PROC] End East Partition
+[PROC] Begin West Partition ...
+[PROC] Begin Partition ...
+[INFO] NumMacros = 18
+[INFO] NumCutLines = 3
+[INFO] CutLine = 10
+[INFO] RoundUpCutLine = 10
+[INFO] CutLine = 384
+[INFO] RoundUpCutLine = 386
+[INFO] CutLine = 758
+[INFO] RoundUpCutLine = 758
+[PROC] End Partition
+[PROC] End West Partition
+[PROC] End Horizontal Partition
+[PROC] Begin Horizontal Partition ...
+[PROC] Begin East Partition ...
+[PROC] Begin Partition ...
+[INFO] NumMacros = 64
+[INFO] NumCutLines = 6
+[INFO] CutLine = 10
+[INFO] RoundUpCutLine = 10
+[INFO] CutLine = 160
+[INFO] RoundUpCutLine = 160
+[INFO] CutLine = 310
+[INFO] RoundUpCutLine = 310
+[INFO] CutLine = 459
+[INFO] RoundUpCutLine = 459
+[INFO] Meets impossible partition, continue
+[INFO] CutLine = 609
+[INFO] RoundUpCutLine = 609
+[INFO] CutLine = 758
+[INFO] RoundUpCutLine = 758
+[PROC] End Partition
+[PROC] End East Partition
+[PROC] Begin West Partition ...
+[PROC] Begin Partition ...
+[INFO] NumMacros = 0
+[INFO] NumCutLines = 0
+[PROC] End Partition
+[PROC] End West Partition
+[PROC] End Horizontal Partition
+[PROC] Begin Horizontal Partition ...
+[PROC] Begin East Partition ...
+[PROC] Begin Partition ...
+[INFO] NumMacros = 64
+[INFO] NumCutLines = 6
+[INFO] CutLine = 10
+[INFO] RoundUpCutLine = 10
+[INFO] CutLine = 160
+[INFO] RoundUpCutLine = 160
+[INFO] CutLine = 310
+[INFO] RoundUpCutLine = 310
+[INFO] CutLine = 459
+[INFO] RoundUpCutLine = 459
+[INFO] CutLine = 609
+[INFO] RoundUpCutLine = 609
+[INFO] CutLine = 758
+[INFO] RoundUpCutLine = 758
+[PROC] End Partition
+[PROC] End East Partition
+[PROC] Begin West Partition ...
+[PROC] Begin Partition ...
+[INFO] NumMacros = 0
+[INFO] NumCutLines = 0
+[PROC] End Partition
+[PROC] End West Partition
+[PROC] End Horizontal Partition
+[INFO] NumExtractedSets = 41
+[PROC] Begin Parquet ...
+[PROC] End Parquet
+[INFO] SetId = 1
+[INFO] WeightedWL = 764384.125000
+[PROC] Begin Parquet ...
+[PROC] End Parquet
+[PROC] Begin Parquet ...
+[PROC] End Parquet
+[INFO] SetId = 2
+[INFO] WeightedWL = 749098.062500
+[PROC] Begin Parquet ...
+[PROC] End Parquet
+[PROC] Begin Parquet ...
+[INFO] Parquet BBOX exceed the given area
+[INFO] ParquetSolLayout = (1012.35, 625.68)
+[INFO] TargetLayout = (750.26, 448.8)
+[PROC] Begin Parquet ...
+[INFO] Parquet BBOX exceed the given area
+[INFO] ParquetSolLayout = (1012.35, 625.68)
+[INFO] TargetLayout = (750.26, 448.8)
+[PROC] Begin Parquet ...
+[PROC] End Parquet
+[INFO] SetId = 5
+[INFO] WeightedWL = 736198.437500
+[PROC] Begin Parquet ...
+[PROC] End Parquet
+[INFO] SetId = 6
+[INFO] WeightedWL = 761334.937500
+[PROC] Begin Parquet ...
+[PROC] End Parquet
+[INFO] SetId = 7
+[INFO] WeightedWL = 737165.187500
+[PROC] Begin Parquet ...
+[PROC] End Parquet
+[PROC] Begin Parquet ...
+[INFO] Parquet BBOX exceed the given area
+[INFO] ParquetSolLayout = (607.41, 625.68)
+[INFO] TargetLayout = (600.3, 598.4)
+[PROC] Begin Parquet ...
+[PROC] End Parquet
+[PROC] Begin Parquet ...
+[INFO] Parquet BBOX exceed the given area
+[INFO] ParquetSolLayout = (809.88, 625.68)
+[INFO] TargetLayout = (600.3, 448.8)
+[PROC] Begin Parquet ...
+[INFO] Parquet BBOX exceed the given area
+[INFO] ParquetSolLayout = (607.41, 625.68)
+[INFO] TargetLayout = (600.3, 598.4)
+[PROC] Begin Parquet ...
+[PROC] End Parquet
+[INFO] SetId = 11
+[INFO] WeightedWL = 735406.000000
+[PROC] Begin Parquet ...
+[PROC] End Parquet
+[PROC] Begin Parquet ...
+[INFO] Parquet BBOX exceed the given area
+[INFO] ParquetSolLayout = (472.43, 782.1)
+[INFO] TargetLayout = (450.34, 748)
+[PROC] Begin Parquet ...
+[PROC] End Parquet
+[PROC] Begin Parquet ...
+[INFO] Parquet BBOX exceed the given area
+[INFO] ParquetSolLayout = (472.43, 782.1)
+[INFO] TargetLayout = (450.34, 748)
+[PROC] Begin Parquet ...
+[PROC] End Parquet
+[PROC] Begin Parquet ...
+[INFO] Parquet BBOX exceed the given area
+[INFO] ParquetSolLayout = (472.43, 782.1)
+[INFO] TargetLayout = (450.34, 748)
+[PROC] Begin Parquet ...
+[PROC] End Parquet
+[PROC] Begin Parquet ...
+[INFO] Parquet BBOX exceed the given area
+[INFO] ParquetSolLayout = (472.43, 782.1)
+[INFO] TargetLayout = (450.34, 748)
+[PROC] Begin Parquet ...
+[PROC] End Parquet
+[PROC] Begin Parquet ...
+[PROC] End Parquet
+[INFO] SetId = 16
+[INFO] WeightedWL = 914616.750000
+[PROC] Begin Parquet ...
+[PROC] End Parquet
+[PROC] Begin Parquet ...
+[PROC] End Parquet
+[PROC] Begin Parquet ...
+[INFO] Parquet BBOX exceed the given area
+[INFO] ParquetSolLayout = (472.43, 625.68)
+[INFO] TargetLayout = (299.92, 372.64)
+[PROC] Begin Parquet ...
+[PROC] End Parquet
+[PROC] Begin Parquet ...
+[PROC] End Parquet
+[INFO] SetId = 18
+[INFO] WeightedWL = 936912.375000
+[PROC] Begin Parquet ...
+[PROC] End Parquet
+[PROC] Begin Parquet ...
+[INFO] Parquet BBOX exceed the given area
+[INFO] ParquetSolLayout = (539.92, 703.89)
+[INFO] TargetLayout = (450.34, 560.32)
+[PROC] Begin Parquet ...
+[PROC] End Parquet
+[PROC] Begin Parquet ...
+[INFO] Parquet BBOX exceed the given area
+[INFO] ParquetSolLayout = (539.92, 703.89)
+[INFO] TargetLayout = (450.34, 560.32)
+[PROC] Begin Parquet ...
+[PROC] End Parquet
+[PROC] Begin Parquet ...
+[INFO] Parquet BBOX exceed the given area
+[INFO] ParquetSolLayout = (539.92, 703.89)
+[INFO] TargetLayout = (450.34, 560.32)
+[PROC] Begin Parquet ...
+[INFO] Parquet BBOX exceed the given area
+[INFO] ParquetSolLayout = (539.92, 469.26)
+[INFO] TargetLayout = (450.34, 375.36)
+[PROC] Begin Parquet ...
+[INFO] Parquet BBOX exceed the given area
+[INFO] ParquetSolLayout = (539.92, 469.26)
+[INFO] TargetLayout = (450.34, 375.36)
+[PROC] Begin Parquet ...
+[INFO] Parquet BBOX exceed the given area
+[INFO] ParquetSolLayout = (539.92, 469.26)
+[INFO] TargetLayout = (450.34, 375.36)
+[PROC] Begin Parquet ...
+[INFO] Parquet BBOX exceed the given area
+[INFO] ParquetSolLayout = (539.92, 703.89)
+[INFO] TargetLayout = (450.34, 560.32)
+[PROC] Begin Parquet ...
+[INFO] Parquet BBOX exceed the given area
+[INFO] ParquetSolLayout = (539.92, 703.89)
+[INFO] TargetLayout = (450.34, 560.32)
+[PROC] Begin Parquet ...
+[INFO] Parquet BBOX exceed the given area
+[INFO] ParquetSolLayout = (539.92, 703.89)
+[INFO] TargetLayout = (450.34, 560.32)
+[PROC] Begin Parquet ...
+[PROC] End Parquet
+[PROC] Begin Parquet ...
+[PROC] End Parquet
+[INFO] SetId = 28
+[INFO] WeightedWL = 937121.437500
+[PROC] Begin Parquet ...
+[PROC] End Parquet
+[PROC] Begin Parquet ...
+[PROC] End Parquet
+[PROC] Begin Parquet ...
+[INFO] Parquet BBOX exceed the given area
+[INFO] ParquetSolLayout = (472.43, 625.68)
+[INFO] TargetLayout = (299.92, 372.64)
+[PROC] Begin Parquet ...
+[PROC] End Parquet
+[PROC] Begin Parquet ...
+[PROC] End Parquet
+[INFO] SetId = 30
+[INFO] WeightedWL = 912313.500000
+[PROC] Begin Parquet ...
+[PROC] End Parquet
+[INFO] SetId = 31
+[INFO] WeightedWL = 734267.062500
+[PROC] Begin Parquet ...
+[PROC] End Parquet
+[PROC] Begin Parquet ...
+[INFO] Parquet BBOX exceed the given area
+[INFO] ParquetSolLayout = (607.41, 625.68)
+[INFO] TargetLayout = (600.3, 598.4)
+[PROC] Begin Parquet ...
+[PROC] End Parquet
+[PROC] Begin Parquet ...
+[INFO] Parquet BBOX exceed the given area
+[INFO] ParquetSolLayout = (809.88, 625.68)
+[INFO] TargetLayout = (600.3, 448.8)
+[PROC] Begin Parquet ...
+[INFO] Parquet BBOX exceed the given area
+[INFO] ParquetSolLayout = (607.41, 625.68)
+[INFO] TargetLayout = (600.3, 598.4)
+[PROC] Begin Parquet ...
+[PROC] End Parquet
+[INFO] SetId = 35
+[INFO] WeightedWL = 732509.125000
+[PROC] Begin Parquet ...
+[PROC] End Parquet
+[INFO] SetId = 36
+[INFO] WeightedWL = 762072.687500
+[PROC] Begin Parquet ...
+[PROC] End Parquet
+[PROC] Begin Parquet ...
+[PROC] End Parquet
+[INFO] SetId = 37
+[INFO] WeightedWL = 747276.687500
+[PROC] Begin Parquet ...
+[PROC] End Parquet
+[PROC] Begin Parquet ...
+[INFO] Parquet BBOX exceed the given area
+[INFO] ParquetSolLayout = (1012.35, 625.68)
+[INFO] TargetLayout = (750.26, 448.8)
+[PROC] Begin Parquet ...
+[INFO] Parquet BBOX exceed the given area
+[INFO] ParquetSolLayout = (1012.35, 625.68)
+[INFO] TargetLayout = (750.26, 448.8)
+[PROC] Begin Parquet ...
+[PROC] End Parquet
+[INFO] SetId = 40
+[INFO] WeightedWL = 734641.562500
+[PROC] Begin Parquet ...
+[PROC] End Parquet
+[INFO] SetId = 41
+[INFO] WeightedWL = 758935.625000
+[INFO] NumFinalSols = 16

@@ -1602,7 +1602,7 @@ Mapping DFF cells in module `\ycell':
 
 11. Executing ABC pass (technology mapping using ABC).
 
-11.1. Extracting gate netlist of module `\ycell' to `/tmp/yosys-abc-mTs0rA/input.blif'..
+11.1. Extracting gate netlist of module `\ycell' to `/tmp/yosys-abc-EWoFsY/input.blif'..
 Breaking loop using new signal $abcloop$663: \hfsm.lmatch [1] -> $abc$541$new_n97_
                                              \hfsm.lmatch [1] -> $abc$541$new_n101_
                                              \hfsm.lmatch [1] -> $abc$541$new_n104_
@@ -1642,12 +1642,12 @@ Breaking loop using new signal $abcloop$676: \vfsm.nlmempty -> $abc$541$new_n118
 Extracted 104 gates and 134 wires to a netlist network with 30 inputs and 24 outputs.
 
 11.1.1. Executing ABC.
-Running ABC command: /build/bin/yosys-abc -s -f /tmp/yosys-abc-mTs0rA/abc.script 2>&1
-ABC: ABC command line: "source /tmp/yosys-abc-mTs0rA/abc.script".
+Running ABC command: /build/bin/yosys-abc -s -f /tmp/yosys-abc-EWoFsY/abc.script 2>&1
+ABC: ABC command line: "source /tmp/yosys-abc-EWoFsY/abc.script".
 ABC: 
-ABC: + read_blif /tmp/yosys-abc-mTs0rA/input.blif 
+ABC: + read_blif /tmp/yosys-abc-EWoFsY/input.blif 
 ABC: + read_lib -w /project/openlane/morphle_ycell/runs/morphle_ycell/tmp/trimmed.lib 
-ABC: Parsing finished successfully.  Parsing time =     0.03 sec
+ABC: Parsing finished successfully.  Parsing time =     0.02 sec
 ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbn_2".
 ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrbp_2".
 ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_4".
@@ -1704,7 +1704,7 @@ ABC: Path 14 --     154 : 2    1 sky130_fd_sc_hd__nor2_4 A =  11.26  Df =1891.4 
 ABC: Start-point = pi2 (\cfg.cnfg [0]).  End-point = po22 (\vfsm.nlmempty).
 ABC: + print_stats -m 
 ABC: netlist                       : i/o =   30/   24  lat =    0  nd =   103  edge =    221  area =884.81  delay =15.00  lev = 15
-ABC: + write_blif /tmp/yosys-abc-mTs0rA/output.blif 
+ABC: + write_blif /tmp/yosys-abc-EWoFsY/output.blif 
 
 11.1.2. Re-integrating ABC results.
 ABC RESULTS:   sky130_fd_sc_hd__a211o_4 cells:        2
@@ -1802,6 +1802,6 @@ found and reported 11 problems.
 Dumping module `\ycell'.
 
 Warnings: 60 unique messages, 60 total
-End of script. Logfile hash: 548c4bfa1f, CPU: user 0.88s system 0.04s, MEM: 43.75 MB peak
+End of script. Logfile hash: 98b7261f03, CPU: user 0.80s system 0.02s, MEM: 43.76 MB peak
 Yosys 0.9+3621 (git sha1 84e9fa7, gcc 8.3.1 -fPIC -Os)
-Time spent: 45% 4x stat (0 sec), 26% 2x abc (0 sec), ...
+Time spent: 45% 4x stat (0 sec), 25% 2x abc (0 sec), ...

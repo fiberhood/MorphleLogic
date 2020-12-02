@@ -131,6 +131,6 @@ Successfully finished Verilog frontend.
 Dumping module `\ycell'.
 
 Warnings: 95 unique messages, 95 total
-End of script. Logfile hash: 6f39103e7a, CPU: user 0.35s system 0.00s, MEM: 11.52 MB peak
+End of script. Logfile hash: 6f39103e7a, CPU: user 0.31s system 0.00s, MEM: 11.69 MB peak
 Yosys 0.9+3621 (git sha1 84e9fa7, gcc 8.3.1 -fPIC -Os)
 Time spent: 77% 2x write_verilog (0 sec), 22% 2x read_verilog (0 sec)

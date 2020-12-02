@@ -11,8 +11,5 @@ Notice 0:     Created 106 components and 757 component-terminals.
 Notice 0:     Created 121 nets and 333 connections.
 Notice 0: Finished DEF file: /project/openlane/morphle_ycell/runs/morphle_ycell/tmp/floorplan/verilog2def_openroad.def
 Top-level design name: ycell
-Warning: Some pins weren't matched by the config file
-Those are: ['hempty', 'vempty', 'din[0]', 'dout[0]', 'lin[0]', 'lout[0]', 'rin[0]', 'rout[0]', 'uin[0]', 'uout[0]', 'din[1]', 'dout[1]', 'lin[1]', 'lout[1]', 'rin[1]', 'rout[1]', 'uin[1]', 'uout[1]']
-Assigning random sides to the above pins
 Block boundaries: 0 0 67490 78210
 Writing /project/openlane/morphle_ycell/runs/morphle_ycell/tmp/floorplan/ioPlacer.def

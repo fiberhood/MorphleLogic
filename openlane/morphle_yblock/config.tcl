@@ -8,7 +8,7 @@ set ::env(FP_PIN_ORDER_CFG) $script_dir/pin_order.cfg
 set ::env(PDN_CFG) $script_dir/pdn.tcl
 set ::env(FP_PDN_CORE_RING) 1
 set ::env(FP_SIZING) absolute
-set ::env(DIE_AREA) "0 0 1400 1600"
+set ::env(DIE_AREA) "0 0 800 800"
 
 set ::unit 3
 set ::env(FP_IO_VEXTEND) [expr 2*$::unit]
@@ -36,10 +36,10 @@ set ::env(VERILOG_FILES_BLACKBOX) "\
 	$script_dir/../../verilog/morphle/ycell.v"
 
 set ::env(EXTRA_LEFS) "\
-	$script_dir/../../lef/ycell.lef"
+	$script_dir/../../lef/morphle_ycell.lef"
 
 set ::env(EXTRA_GDS_FILES) "\
-	$script_dir/../../gds/ycell.gds"
+	$script_dir/../../gds/morphle_ycell.gds"
 
 set ::env(CLOCK_PERIOD) "0"
 

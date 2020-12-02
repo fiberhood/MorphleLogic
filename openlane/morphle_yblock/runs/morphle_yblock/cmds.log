@@ -1,0 +1,26 @@
+Wed Dec 02 20:53:25 UTC 2020 - Executing "/openLANE_flow/scripts/mergeLef.py -i /opt/asic/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd.tlef /opt/asic/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef -o /project/openlane/morphle_yblock/runs/morphle_yblock/tmp/merged_unpadded.lef |& tee >&@stdout"
+
+Wed Dec 02 20:53:25 UTC 2020 - Executing "/openLANE_flow/scripts/mergeLef.py -i /project/openlane/morphle_yblock/runs/morphle_yblock/tmp/merged_unpadded.lef /project/openlane/morphle_yblock/../../lef/morphle_ycell.lef -o /project/openlane/morphle_yblock/runs/morphle_yblock/tmp/merged_unpadded.lef |& tee >&@stdout"
+
+Wed Dec 02 20:53:25 UTC 2020 - Executing "/openLANE_flow/scripts/libtrim.pl /opt/asic/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib /opt/asic/sky130A/libs.tech/openlane/sky130_fd_sc_hd/no_synth.cells > /project/openlane/morphle_yblock/runs/morphle_yblock/tmp/trimmed.lib"
+
+Wed Dec 02 20:53:25 UTC 2020 - Executing "yosys -c /openLANE_flow/scripts/synth.tcl -l /project/openlane/morphle_yblock/runs/morphle_yblock/logs/synthesis/yosys.log |& tee >&@stdout"
+
+Wed Dec 02 20:53:28 UTC 2020 - Executing "sed -i -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/project\/openlane\/morphle_yblock\/runs\/morphle_yblock\/results\/synthesis\/yblock.synthesis.v/} /project/openlane/morphle_yblock/runs/morphle_yblock/config.tcl"
+
+Wed Dec 02 20:53:28 UTC 2020 - Executing "sed -i -e {s/\(set ::env(PREV_NETLIST)\).*/\1 0/} /project/openlane/morphle_yblock/runs/morphle_yblock/config.tcl"
+
+Wed Dec 02 20:53:28 UTC 2020 - Executing "sed -ie /defparam/d /project/openlane/morphle_yblock/runs/morphle_yblock/results/synthesis/yblock.synthesis.v"
+
+Wed Dec 02 20:53:28 UTC 2020 - Executing "openroad -exit /openLANE_flow/scripts/openroad/or_floorplan.tcl |& tee >&@stdout /project/openlane/morphle_yblock/runs/morphle_yblock/logs/floorplan/verilog2def.openroad.log"
+
+Wed Dec 02 20:53:29 UTC 2020 - Executing "python3 /openLANE_flow/scripts/io_place.py --input-lef /project/openlane/morphle_yblock/runs/morphle_yblock/tmp/merged.lef --input-def /project/openlane/morphle_yblock/runs/morphle_yblock/tmp/floorplan/verilog2def_openroad.def --config /project/openlane/morphle_yblock/pin_order.cfg --hor-layer 4 --ver-layer 3 --ver-width-mult 4 --hor-width-mult 4 --hor-extension 6 --ver-extension 6 --length 3 -o /project/openlane/morphle_yblock/runs/morphle_yblock/tmp/floorplan/ioPlacer.def |& tee /project/openlane/morphle_yblock/runs/morphle_yblock/logs/floorplan/place_io_ol.log >&@stdout"
+
+Wed Dec 02 20:53:29 UTC 2020 - Executing "openroad -exit /openLANE_flow/scripts/openroad/or_replace.tcl |& tee >&@stdout /project/openlane/morphle_yblock/runs/morphle_yblock/logs/placement/replace.log"
+
+Wed Dec 02 20:53:30 UTC 2020 - Executing "openroad -exit /openLANE_flow/scripts/openroad/or_basic_mp.tcl |& tee >&@stdout /project/openlane/morphle_yblock/runs/morphle_yblock/logs/placement/basic_mp.log"
+
+Wed Dec 02 20:56:43 UTC 2020 - Executing "openroad -exit /openLANE_flow/scripts/openroad/or_tapcell.tcl |& tee >&@stdout /project/openlane/morphle_yblock/runs/morphle_yblock/logs/floorplan/tapcell.log"
+
+Wed Dec 02 20:56:55 UTC 2020 - Executing "openroad -exit /openLANE_flow/scripts/openroad/or_replace.tcl |& tee >&@stdout /project/openlane/morphle_yblock/runs/morphle_yblock/logs/placement/replace.log"
+

@@ -1,0 +1,18 @@
+Notice 0: Reading LEF file:  /project/openlane/morphle_yblock/runs/morphle_yblock/tmp/merged.lef
+Notice 0:     Created 13 technology layers
+Notice 0:     Created 25 technology vias
+Notice 0:     Created 438 library cells
+Notice 0: Finished LEF file:  /project/openlane/morphle_yblock/runs/morphle_yblock/tmp/merged.lef
+Notice 0: 
+Reading DEF file: /project/openlane/morphle_yblock/runs/morphle_yblock/tmp/floorplan/verilog2def_openroad.def
+Notice 0: Design: yblock
+Notice 0:     Created 210 pins.
+Notice 0:     Created 80 components and 1888 component-terminals.
+Notice 0:     Created 810 nets and 1680 connections.
+Notice 0: Finished DEF file: /project/openlane/morphle_yblock/runs/morphle_yblock/tmp/floorplan/verilog2def_openroad.def
+Top-level design name: yblock
+Warning: Some pins weren't matched by the config file
+Those are: ['cbitin[0]', 'cbitout[0]', 'dempty[0]', 'din[0]', 'dout[0]', 'dvempty[0]', 'lempty[0]', 'lhempty[0]', 'lin[0]', 'lout[0]', 'rempty[0]', 'rhempty[0]', 'rin[0]', 'rout[0]', 'uempty[0]', 'uin[0]', 'uout[0]', 'uvempty[0]', 'cbitin[1]', 'cbitout[1]', 'dempty[1]', 'din[1]', 'dout[1]', 'dvempty[1]', 'lempty[1]', 'lhempty[1]', 'lin[1]', 'lout[1]', 'rempty[1]', 'rhempty[1]', 'rin[1]', 'rout[1]', 'uempty[1]', 'uin[1]', 'uout[1]', 'uvempty[1]', 'cbitin[2]', 'cbitout[2]', 'dempty[2]', 'din[2]', 'dout[2]', 'dvempty[2]', 'lempty[2]', 'lhempty[2]', 'lin[2]', 'lout[2]', 'rempty[2]', 'rhempty[2]', 'rin[2]', 'rout[2]', 'uempty[2]', 'uin[2]', 'uout[2]', 'uvempty[2]', 'cbitin[3]', 'cbitout[3]', 'dempty[3]', 'din[3]', 'dout[3]', 'dvempty[3]', 'lempty[3]', 'lhempty[3]', 'lin[3]', 'lout[3]', 'rempty[3]', 'rhempty[3]', 'rin[3]', 'rout[3]', 'uempty[3]', 'uin[3]', 'uout[3]', 'uvempty[3]', 'cbitin[4]', 'cbitout[4]', 'dempty[4]', 'din[4]', 'dout[4]', 'dvempty[4]', 'lempty[4]', 'lhempty[4]', 'lin[4]', 'lout[4]', 'rempty[4]', 'rhempty[4]', 'rin[4]', 'rout[4]', 'uempty[4]', 'uin[4]', 'uout[4]', 'uvempty[4]', 'cbitin[5]', 'cbitout[5]', 'dempty[5]', 'din[5]', 'dout[5]', 'dvempty[5]', 'lempty[5]', 'lhempty[5]', 'lin[5]', 'lout[5]', 'rempty[5]', 'rhempty[5]', 'rin[5]', 'rout[5]', 'uempty[5]', 'uin[5]', 'uout[5]', 'uvempty[5]', 'cbitin[6]', 'cbitout[6]', 'dempty[6]', 'din[6]', 'dout[6]', 'dvempty[6]', 'lempty[6]', 'lhempty[6]', 'lin[6]', 'lout[6]', 'rempty[6]', 'rhempty[6]', 'rin[6]', 'rout[6]', 'uempty[6]', 'uin[6]', 'uout[6]', 'uvempty[6]', 'cbitin[7]', 'cbitout[7]', 'dempty[7]', 'din[7]', 'dout[7]', 'dvempty[7]', 'lempty[7]', 'lhempty[7]', 'lin[7]', 'lout[7]', 'rempty[7]', 'rhempty[7]', 'rin[7]', 'rout[7]', 'uempty[7]', 'uin[7]', 'uout[7]', 'uvempty[7]', 'din[8]', 'dout[8]', 'lin[8]', 'lout[8]', 'rin[8]', 'rout[8]', 'uin[8]', 'uout[8]', 'din[9]', 'dout[9]', 'lin[9]', 'lout[9]', 'rin[9]', 'rout[9]', 'uin[9]', 'uout[9]', 'din[10]', 'dout[10]', 'lin[10]', 'lout[10]', 'rin[10]', 'rout[10]', 'uin[10]', 'uout[10]', 'din[11]', 'dout[11]', 'lin[11]', 'lout[11]', 'rin[11]', 'rout[11]', 'uin[11]', 'uout[11]', 'din[12]', 'dout[12]', 'lin[12]', 'lout[12]', 'rin[12]', 'rout[12]', 'uin[12]', 'uout[12]', 'din[13]', 'dout[13]', 'lin[13]', 'lout[13]', 'rin[13]', 'rout[13]', 'uin[13]', 'uout[13]', 'din[14]', 'dout[14]', 'lin[14]', 'lout[14]', 'rin[14]', 'rout[14]', 'uin[14]', 'uout[14]', 'din[15]', 'dout[15]', 'lin[15]', 'lout[15]', 'rin[15]', 'rout[15]', 'uin[15]', 'uout[15]']
+Assigning random sides to the above pins
+Block boundaries: 0 0 761460 772180
+Writing /project/openlane/morphle_yblock/runs/morphle_yblock/tmp/floorplan/ioPlacer.def

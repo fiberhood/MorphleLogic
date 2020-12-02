@@ -11,11 +11,11 @@ Notice 0:
 Reading DEF file: /project/openlane/morphle_ycell/runs/morphle_ycell/results/routing/ycell.def
 Notice 0: Design: ycell
 Notice 0:     Created 28 pins.
-Notice 0:     Created 388 components and 1819 component-terminals.
+Notice 0:     Created 412 components and 1915 component-terminals.
 Notice 0:     Created 2 special nets and 0 connections.
 Notice 0:     Created 121 nets and 333 connections.
 Notice 0: Finished DEF file: /project/openlane/morphle_ycell/runs/morphle_ycell/results/routing/ycell.def
-Notice 0: Split top of 31 T shapes.
+Notice 0: Split top of 35 T shapes.
 Number of pins violated: 0
 Number of nets violated: 0
 Total number of nets: 121
