@@ -91,7 +91,7 @@ module ycconfig (
        
        always @*
          case(cnfg)
-           3'b000: r = 9'b110001000; // space is empty and blocked
+           default: r = 9'b110001000; // space is empty and blocked
            3'b001: r = 9'b000110011; // +     sync with don't cares
            3'b010: r = 9'b001001000; // -     horizontal short circuit
            3'b011: r = 9'b010000100; // |     vertical short circuit
@@ -154,18 +154,17 @@ module ycell(
                  .vblock(vblock), .vbypass(vbypass), .vmatch0(vmatch0), .vmatch1(vmatch1));
                  
   assign hempty = empty | hblock;
-  assign vempty = empty | vblock;
   wire hreset = reset | hblock; // perhaps "| hbypass" to save energy?
-  wire vreset = reset | vblock;
-  
-  // internal wiring
-  wire [1:0] vin;
-  wire [1:0] vout;
-  wire [1:0] vback;
   wire [1:0] hin;
   wire [1:0] hout;
   wire [1:0] hback;
-  
+
+  assign vempty = empty | vblock;
+  wire vreset = reset | vblock;
+  wire [1:0] vin;
+  wire [1:0] vout;
+  wire [1:0] vback;
+
   wire [1:0] hmatch = {vback[1]&hmatch1,vback[0]&hmatch0};
   ycfsm hfsm (.reset(hreset), .in(hin), .match(hmatch), .out(hout));
   wire [1:0] bhout = hbypass ? hin : hout;

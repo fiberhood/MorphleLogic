@@ -1,0 +1,166 @@
+// SPDX-FileCopyrightText: Copyright 2020 Jecel Mattos de Assumpcao Jr
+// 
+// SPDX-License-Identifier: Apache-2.0 
+// 
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+// 
+//     https://www.apache.org/licenses/LICENSE-2.0
+// 
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+// test vectors for user_proj_block 16x16 ycell block connected to
+// the rest of the Caravel chip using the logic analyzer pins.
+// The verilog test bench that reads this file is test005upblock.v
+//
+// each vector in the the format of 1+4+8+4+8 = 25 hex digits
+//
+// The first three groups are the values to be sent from Caravel's
+// logic analyzer to the block while the last two groups are the
+// results that the block is expected to send to the logic analyzer.
+//
+// The first digit only controls two bits, so only 0 to 3 are valid
+// values. Bit 0 is the configuration clock and bit 1 is reset. The
+// top two bits of the digit disable comparisons with the fourth
+// and fifth group respectively, which has to be done for the first
+// few vectors while the circuit under test is outputting unknowns
+//
+// The second group is the configuration bits for the 16 columns of
+// ycells
+//
+// The third group is the uin data to be injected into the 16 columns
+// with two bits each. The two bits can be 0 (empty), 1 (value 0) or
+// 2 (value 1). While 3 is not supposed to be used, it might be a good
+// idea to see what happens
+//
+// The fourth group is the expected value from the configuration bits
+// coming out of the bottom of the 16 columns. They should be the same
+// value as 3*BLOCKHEIGHT (48 in the default case of 16 rows) bits ago
+// for the configuration in
+//
+// The fifth (and last) group is the expected value from uout coming
+// from the 16 columns with two bits each
+//
+// example configuration:
+// ................
+// ................
+// ................
+// ................
+// ................
+// ................
+// ................
+// ................
+// ................
+// ................
+// ................
+// ................
+// ................
+// ................
+// ................
+// ................
+
+C_0000_00000000_0000_00000000  // first three vectors have the output ignored to settle down
+E_0000_00000000_0000_00000000  // reset everything
+E_0000_00000000_0000_00000000  // msb bit 15: ................
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // middle bit
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // lsb bit
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // msb bit 14: ................
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // middle bit
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // lsb bit
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // msb bit 13: ................
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // middle bit
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // lsb bit
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // msb bit 12: ................
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // middle bit
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // lsb bit
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // msb bit 11: ................
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // middle bit
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // lsb bit
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // msb bit 10: ................
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // middle bit
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // lsb bit
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // msb bit 09: ................
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // middle bit
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // lsb bit
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // msb bit 08: ................
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // middle bit
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // lsb bit
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // msb bit 07: ................
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // middle bit
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // lsb bit
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // msb bit 06: ................
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // middle bit
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // lsb bit
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // msb bit 05: ................
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // middle bit
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // lsb bit
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // msb bit 04: ................
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // middle bit
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // lsb bit
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // msb bit 03: ................
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // middle bit
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // lsb bit
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // msb bit 0A: ................
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // middle bit
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // lsb bit
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // msb bit 01: ................
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // middle bit
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // lsb bit
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // msb bit 00: ................
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // middle bit
+B_0000_00000000_0000_00000000
+A_0000_00000000_0000_00000000  // lsb bit
+B_0000_00000000_0000_00000000
+0_0000_00000000_0000_00000000  // normal operation!
+

@@ -81,7 +81,7 @@ module user_proj_example (
                 if (wbs_sel_i[3]) store[31:24] <= wbs_dat_i[31:24];
             end
             wbs_dat_o <= store;
-            wbs_ack_o <= valid & !wb_ack_o;
+            wbs_ack_o <= valid & !wbs_ack_o;
         end
     end
 
@@ -126,7 +126,7 @@ module user_proj_example (
     yblock #(.BLOCKWIDTH(BLOCKWIDTH), .BLOCKHEIGHT(BLOCKHEIGHT))
         blk (.reset(reset), .confclk(confclk), .cbitin(cbitin), .cbitout(cbitout),
              .lhempty(lhempty), .uvempty(uvempty),
-             .rempty(rhempty), .dvempty(dvempty),
+             .rhempty(rhempty), .dvempty(dvempty),
              .uempty(uempty), .uin(uin), .uout(uout),
              .dempty(dempty), .din(din), .dout(dout),
              .lempty(lempty), .lin(lin), .lout(lout),
