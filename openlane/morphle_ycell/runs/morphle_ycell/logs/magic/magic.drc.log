@@ -1,0 +1,86 @@
+
+Magic 8.3 revision 87 - Compiled on Mon Nov 23 17:53:03 UTC 2020.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+Using NULL graphics device.
+Processing system .magicrc file
+Sourcing design .magicrc for technology sky130A ...
+2 Magic internal units = 1 Lambda
+Input style sky130: scaleFactor=2, multiplier=2
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading sky130A Device Generator Menu ...
+Loading "/openLANE_flow/scripts/magic_drc.tcl" from command line.
+Warning: Calma reading is not undoable!  I hope that's OK.
+Library written using GDS-II Release 3.0
+Library name: ycell
+Reading "sky130_fd_sc_hd__decap_12".
+Error while reading cell "sky130_fd_sc_hd__decap_12" (byte position 138): Unknown layer/datatype in boundary, layer=236 type=0
+Reading "sky130_fd_sc_hd__decap_3".
+Error while reading cell "sky130_fd_sc_hd__decap_3" (byte position 4272): Unknown layer/datatype in boundary, layer=236 type=0
+Reading "sky130_fd_sc_hd__decap_4".
+Error while reading cell "sky130_fd_sc_hd__decap_4" (byte position 6934): Unknown layer/datatype in boundary, layer=236 type=0
+Reading "sky130_fd_sc_hd__tapvpwrvgnd_1".
+Reading "sky130_fd_sc_hd__fill_2".
+Reading "sky130_fd_sc_hd__decap_8".
+Error while reading cell "sky130_fd_sc_hd__decap_8" (byte position 12818): Unknown layer/datatype in boundary, layer=236 type=0
+Reading "sky130_fd_sc_hd__decap_6".
+Error while reading cell "sky130_fd_sc_hd__decap_6" (byte position 16344): Unknown layer/datatype in boundary, layer=236 type=0
+Reading "sky130_fd_sc_hd__nor2_2".
+Error while reading cell "sky130_fd_sc_hd__nor2_2" (byte position 19486): Unknown layer/datatype in boundary, layer=236 type=0
+Reading "sky130_fd_sc_hd__fill_1".
+Reading "sky130_fd_sc_hd__nand2_2".
+Error while reading cell "sky130_fd_sc_hd__nand2_2" (byte position 25568): Unknown layer/datatype in boundary, layer=236 type=0
+Reading "sky130_fd_sc_hd__or2_2".
+Error while reading cell "sky130_fd_sc_hd__or2_2" (byte position 30602): Unknown layer/datatype in boundary, layer=236 type=0
+Reading "sky130_fd_sc_hd__inv_8".
+Error while reading cell "sky130_fd_sc_hd__inv_8" (byte position 35014): Unknown layer/datatype in boundary, layer=236 type=0
+Reading "sky130_fd_sc_hd__buf_2".
+Error while reading cell "sky130_fd_sc_hd__buf_2" (byte position 42568): Unknown layer/datatype in boundary, layer=236 type=0
+Reading "sky130_fd_sc_hd__and2_2".
+Error while reading cell "sky130_fd_sc_hd__and2_2" (byte position 47060): Unknown layer/datatype in boundary, layer=236 type=0
+Reading "sky130_fd_sc_hd__or3_2".
+Error while reading cell "sky130_fd_sc_hd__or3_2" (byte position 52500): Unknown layer/datatype in boundary, layer=236 type=0
+Reading "sky130_fd_sc_hd__nor3_2".
+Error while reading cell "sky130_fd_sc_hd__nor3_2" (byte position 58170): Unknown layer/datatype in boundary, layer=236 type=0
+Reading "sky130_fd_sc_hd__and3_4".
+Error while reading cell "sky130_fd_sc_hd__and3_4" (byte position 64774): Unknown layer/datatype in boundary, layer=236 type=0
+Reading "sky130_fd_sc_hd__or2_4".
+Error while reading cell "sky130_fd_sc_hd__or2_4" (byte position 71664): Unknown layer/datatype in boundary, layer=236 type=0
+Reading "sky130_fd_sc_hd__buf_1".
+Error while reading cell "sky130_fd_sc_hd__buf_1" (byte position 77420): Unknown layer/datatype in boundary, layer=236 type=0
+Reading "sky130_fd_sc_hd__and3_2".
+Error while reading cell "sky130_fd_sc_hd__and3_2" (byte position 81384): Unknown layer/datatype in boundary, layer=236 type=0
+Reading "sky130_fd_sc_hd__or3_4".
+Error while reading cell "sky130_fd_sc_hd__or3_4" (byte position 87262): Unknown layer/datatype in boundary, layer=236 type=0
+Reading "sky130_fd_sc_hd__nor2_4".
+Error while reading cell "sky130_fd_sc_hd__nor2_4" (byte position 94376): Unknown layer/datatype in boundary, layer=236 type=0
+Reading "sky130_fd_sc_hd__buf_6".
+Error while reading cell "sky130_fd_sc_hd__buf_6" (byte position 101476): Unknown layer/datatype in boundary, layer=236 type=0
+Reading "sky130_fd_sc_hd__nand3_2".
+Error while reading cell "sky130_fd_sc_hd__nand3_2" (byte position 108510): Unknown layer/datatype in boundary, layer=236 type=0
+Reading "sky130_fd_sc_hd__o21a_4".
+Error while reading cell "sky130_fd_sc_hd__o21a_4" (byte position 115792): Unknown layer/datatype in boundary, layer=236 type=0
+Reading "sky130_fd_sc_hd__nor4_2".
+Error while reading cell "sky130_fd_sc_hd__nor4_2" (byte position 123772): Unknown layer/datatype in boundary, layer=236 type=0
+Reading "sky130_fd_sc_hd__a211o_4".
+Error while reading cell "sky130_fd_sc_hd__a211o_4" (byte position 131478): Unknown layer/datatype in boundary, layer=236 type=0
+Reading "sky130_fd_sc_hd__o22a_4".
+Error while reading cell "sky130_fd_sc_hd__o22a_4" (byte position 140594): Unknown layer/datatype in boundary, layer=236 type=0
+Reading "sky130_fd_sc_hd__dfxtp_4".
+Error while reading cell "sky130_fd_sc_hd__dfxtp_4" (byte position 150276): Unknown layer/datatype in boundary, layer=236 type=0
+Reading "sky130_fd_sc_hd__a32o_4".
+Error while reading cell "sky130_fd_sc_hd__a32o_4" (byte position 164432): Unknown layer/datatype in boundary, layer=236 type=0
+Reading "ycell".
+    100 uses
+    200 uses
+    300 uses
+[INFO]: Loading ycell
+
+DRC style is now "drc(full)"
+Loading DRC CIF style.
+No errors found.
+[INFO]: COUNT: 0
+[INFO]: Should be divided by 3 or 4
+[INFO]: DRC Checking DONE (/project/openlane/morphle_ycell/runs/morphle_ycell/logs/magic/magic.drc)
+[INFO]: Saving mag view with DRC errors(/project/openlane/morphle_ycell/runs/morphle_ycell/results/magic/ycell.drc.mag)
+[INFO]: Saved

@@ -1,0 +1,23 @@
+
+10. Printing statistics.
+
+=== ycell ===
+
+   Number of wires:                109
+   Number of wire bits:            125
+   Number of public wires:          29
+   Number of public wire bits:      45
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                107
+     $_ANDNOT_                      37
+     $_AND_                          7
+     $_MUX_                         12
+     $_NAND_                         1
+     $_NOR_                         17
+     $_NOT_                          7
+     $_ORNOT_                        3
+     $_OR_                          20
+     sky130_fd_sc_hd__dfxtp_4        3
+

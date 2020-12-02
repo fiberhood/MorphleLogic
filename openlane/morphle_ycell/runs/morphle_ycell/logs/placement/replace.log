@@ -1,0 +1,60 @@
+OpenROAD 0.9.0 d03ebfc244
+This program is licensed under the BSD-3 license. See the LICENSE file for details. 
+Components of this program may be licensed under more restrictive licenses which must be honored.
+Error: cannot open '/.openroad'.
+Notice 0: Reading LEF file:  /project/openlane/morphle_ycell/runs/morphle_ycell/tmp/merged_unpadded.lef
+Notice 0:     Created 13 technology layers
+Notice 0:     Created 25 technology vias
+Notice 0:     Created 437 library cells
+Notice 0: Finished LEF file:  /project/openlane/morphle_ycell/runs/morphle_ycell/tmp/merged_unpadded.lef
+Notice 0: 
+Reading DEF file: /project/openlane/morphle_ycell/runs/morphle_ycell/results/floorplan/ycell.floorplan.def
+Notice 0: Design: ycell
+Notice 0:     Created 26 pins.
+Notice 0:     Created 179 components and 983 component-terminals.
+Notice 0:     Created 121 nets and 333 connections.
+Notice 0: Finished DEF file: /project/openlane/morphle_ycell/runs/morphle_ycell/results/floorplan/ycell.floorplan.def
+[INFO] DBU = 1000
+[INFO] SiteSize = (460, 2720)
+[INFO] CoreAreaLxLy = (5520, 10880)
+[INFO] CoreAreaUxUy = (61640, 65280)
+[INFO] NumInstances = 179
+[INFO] NumPlaceInstances = 106
+[INFO] NumFixedInstances = 73
+[INFO] NumDummyInstances = 0
+[INFO] NumNets = 121
+[INFO] NumPins = 359
+[INFO] DieAreaLxLy = (0, 0)
+[INFO] DieAreaUxUy = (67490, 78210)
+[INFO] CoreAreaLxLy = (5520, 10880)
+[INFO] CoreAreaUxUy = (61640, 65280)
+[INFO] CoreArea = 3052928000
+[INFO] NonPlaceInstsArea = 191433600
+[INFO] PlaceInstsArea = 955916800
+[INFO] Util(%) = 33.406212
+[INFO] StdInstsArea = 955916800
+[INFO] MacroInstsArea = 0
+[InitialPlace]  Iter: 1 CG Error: 7.69626e-08 HPWL: 2995870
+[InitialPlace]  Iter: 2 CG Error: 8.73537e-08 HPWL: 2201138
+[InitialPlace]  Iter: 3 CG Error: 4.71638e-08 HPWL: 2171557
+[InitialPlace]  Iter: 4 CG Error: 8.6324e-08 HPWL: 2139718
+[InitialPlace]  Iter: 5 CG Error: 6.80926e-08 HPWL: 2120926
+[INFO] FillerInit: NumGCells = 179
+[INFO] FillerInit: NumGNets = 121
+[INFO] FillerInit: NumGPins = 359
+[INFO] TargetDensity = 0.550000
+[INFO] AveragePlaceInstArea = 9018083
+[INFO] IdealBinArea = 16396514
+[INFO] IdealBinCnt = 186
+[INFO] TotalBinArea = 3052928000
+[INFO] BinCnt = (64, 64)
+[INFO] BinSize = (877, 850)
+[INFO] NumBins = 4096
+[NesterovSolve] Iter: 1 overflow: 0.807637 HPWL: 1552187
+[NesterovSolve] Iter: 10 overflow: 0.77406 HPWL: 1552052
+[NesterovSolve] Iter: 20 overflow: 0.773955 HPWL: 1554841
+[NesterovSolve] Iter: 30 overflow: 0.7752 HPWL: 1555913
+[NesterovSolve] Iter: 40 overflow: 0.774698 HPWL: 1555843
+[NesterovSolve] Iter: 50 overflow: 0.773988 HPWL: 1555586
+[NesterovSolve] Finished with Overflow: 0.773974
+[WARN]: No CLOCK_PORT found. Skipping STA...

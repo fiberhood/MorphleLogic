@@ -1,0 +1,136 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Wolf <claire@symbioticeda.com>          |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.9+3621 (git sha1 84e9fa7, gcc 8.3.1 -fPIC -Os)
+
+[TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
+[TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
+[TCL: yosys -import] Command name collision: found pre-existing command `exec' -> skip.
+[TCL: yosys -import] Command name collision: found pre-existing command `read' -> skip.
+[TCL: yosys -import] Command name collision: found pre-existing command `trace' -> skip.
+
+1. Executing Verilog-2005 frontend: /project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v
+Parsing Verilog input from `/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v' to AST representation.
+Generating RTLIL representation for module `\ycell'.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:42: Warning: Identifier `\hfsm.lmatch[1]' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:43: Warning: Identifier `\hfsm.lmatch[0]' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:44: Warning: Identifier `\_041_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:49: Warning: Identifier `\hfsm.lin[1]' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:50: Warning: Identifier `\hfsm.lin[0]' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:52: Warning: Identifier `\_042_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:57: Warning: Identifier `\hfsm.nlmempty' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:59: Warning: Identifier `\_043_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:64: Warning: Identifier `\cfg.cnfg[1]' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:65: Warning: Identifier `\_044_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:70: Warning: Identifier `\cfg.cnfg[0]' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:71: Warning: Identifier `\_045_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:78: Warning: Identifier `\_046_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:84: Warning: Identifier `\_047_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:91: Warning: Identifier `\_048_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:98: Warning: Identifier `\_049_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:105: Warning: Identifier `\_050_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:111: Warning: Identifier `\_051_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:117: Warning: Identifier `\_052_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:125: Warning: Identifier `\_053_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:139: Warning: Identifier `\_054_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:145: Warning: Identifier `\_055_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:151: Warning: Identifier `\_056_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:158: Warning: Identifier `\_057_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:164: Warning: Identifier `\_058_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:170: Warning: Identifier `\_059_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:175: Warning: Identifier `\vfsm.lmatch[1]' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:176: Warning: Identifier `\vfsm.lin[1]' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:178: Warning: Identifier `\vfsm.in[1]' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:197: Warning: Identifier `\_060_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:203: Warning: Identifier `\_061_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:210: Warning: Identifier `\_062_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:217: Warning: Identifier `\_063_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:223: Warning: Identifier `\vfsm.lin[0]' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:224: Warning: Identifier `\_064_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:231: Warning: Identifier `\vfsm.lmatch[0]' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:232: Warning: Identifier `\_065_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:240: Warning: Identifier `\_066_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:247: Warning: Identifier `\_067_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:260: Warning: Identifier `\_068_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:267: Warning: Identifier `\_069_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:281: Warning: Identifier `\_070_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:288: Warning: Identifier `\_071_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:295: Warning: Identifier `\_072_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:302: Warning: Identifier `\_073_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:310: Warning: Identifier `\_074_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:324: Warning: Identifier `\_075_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:329: Warning: Identifier `\vfsm.clear' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:336: Warning: Identifier `\vfsm.nlmempty' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:337: Warning: Identifier `\_076_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:344: Warning: Identifier `\_077_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:351: Warning: Identifier `\_078_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:359: Warning: Identifier `\_000_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:373: Warning: Identifier `\_001_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:379: Warning: Identifier `\_002_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:385: Warning: Identifier `\_003_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:393: Warning: Identifier `\hfsm.in[1]' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:410: Warning: Identifier `\_004_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:418: Warning: Identifier `\_005_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:425: Warning: Identifier `\_006_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:432: Warning: Identifier `\_007_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:446: Warning: Identifier `\_008_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:459: Warning: Identifier `\_009_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:466: Warning: Identifier `\_010_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:473: Warning: Identifier `\_011_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:480: Warning: Identifier `\_012_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:488: Warning: Identifier `\_013_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:496: Warning: Identifier `\_014_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:503: Warning: Identifier `\_015_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:516: Warning: Identifier `\_016_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:523: Warning: Identifier `\_017_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:530: Warning: Identifier `\_018_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:539: Warning: Identifier `\_019_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:546: Warning: Identifier `\_020_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:553: Warning: Identifier `\_021_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:566: Warning: Identifier `\_022_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:573: Warning: Identifier `\_023_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:580: Warning: Identifier `\_024_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:585: Warning: Identifier `\hfsm.clear' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:594: Warning: Identifier `\_025_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:602: Warning: Identifier `\_026_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:616: Warning: Identifier `\_027_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:623: Warning: Identifier `\_028_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:637: Warning: Identifier `\_029_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:651: Warning: Identifier `\_030_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:666: Warning: Identifier `\_031_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:680: Warning: Identifier `\_032_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:694: Warning: Identifier `\_033_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:703: Warning: Identifier `\_034_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:719: Warning: Identifier `\_035_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:727: Warning: Identifier `\_036_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:734: Warning: Identifier `\_037_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:742: Warning: Identifier `\_038_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:756: Warning: Identifier `\_039_' is implicitly declared.
+/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v:765: Warning: Identifier `\_040_' is implicitly declared.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog backend.
+Dumping module `\ycell'.
+
+Warnings: 95 unique messages, 95 total
+End of script. Logfile hash: 6f39103e7a, CPU: user 0.35s system 0.00s, MEM: 11.52 MB peak
+Yosys 0.9+3621 (git sha1 84e9fa7, gcc 8.3.1 -fPIC -Os)
+Time spent: 77% 2x write_verilog (0 sec), 22% 2x read_verilog (0 sec)

@@ -1,0 +1,40 @@
+OpenROAD 0.9.0 d03ebfc244
+This program is licensed under the BSD-3 license. See the LICENSE file for details. 
+Components of this program may be licensed under more restrictive licenses which must be honored.
+Error: cannot open '/.openroad'.
+Notice 0: Reading LEF file:  /project/openlane/morphle_ycell/runs/morphle_ycell/tmp/merged_unpadded.lef
+Notice 0:     Created 13 technology layers
+Notice 0:     Created 25 technology vias
+Notice 0:     Created 437 library cells
+Notice 0: Finished LEF file:  /project/openlane/morphle_ycell/runs/morphle_ycell/tmp/merged_unpadded.lef
+Notice 0: 
+Reading DEF file: /project/openlane/morphle_ycell/runs/morphle_ycell/tmp/placement/openphysyn.def
+Notice 0: Design: ycell
+Notice 0:     Created 26 pins.
+Notice 0:     Created 179 components and 983 component-terminals.
+Notice 0:     Created 121 nets and 333 connections.
+Notice 0: Finished DEF file: /project/openlane/morphle_ycell/runs/morphle_ycell/tmp/placement/openphysyn.def
+Warning: could not find power special net
+Design Stats
+--------------------------------
+total instances           179
+multi row instances         0
+fixed instances            73
+nets                      121
+design area            3052.9 u^2
+fixed area              191.4 u^2
+movable area            955.9 u^2
+utilization                33 %
+utilization padded         70 %
+rows                       20
+row height                2.7 u
+
+Placement Analysis
+--------------------------------
+total displacement     2857.5 u
+average displacement     16.0 u
+max displacement         52.0 u
+original HPWL          1557.1 u
+legalized HPWL         4619.5 u
+delta HPWL                197 %
+

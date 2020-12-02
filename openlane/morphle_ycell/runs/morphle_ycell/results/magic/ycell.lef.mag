@@ -1,0 +1,142 @@
+magic
+tech sky130A
+magscale 1 2
+timestamp 1606941355
+<< obsli1 >>
+rect 1104 2159 12328 13073
+<< obsm1 >>
+rect 474 2128 12958 14748
+<< metal2 >>
+rect 478 14842 534 15642
+rect 1490 14842 1546 15642
+rect 2502 14842 2558 15642
+rect 3514 14842 3570 15642
+rect 4618 14842 4674 15642
+rect 5630 14842 5686 15642
+rect 6642 14842 6698 15642
+rect 7746 14842 7802 15642
+rect 8758 14842 8814 15642
+rect 9770 14842 9826 15642
+rect 10874 14842 10930 15642
+rect 11886 14842 11942 15642
+rect 12898 14842 12954 15642
+rect 1306 0 1362 800
+rect 3974 0 4030 800
+rect 6642 0 6698 800
+rect 9402 0 9458 800
+rect 12070 0 12126 800
+<< obsm2 >>
+rect 590 14786 1434 14842
+rect 1602 14786 2446 14842
+rect 2614 14786 3458 14842
+rect 3626 14786 4562 14842
+rect 4730 14786 5574 14842
+rect 5742 14786 6586 14842
+rect 6754 14786 7690 14842
+rect 7858 14786 8702 14842
+rect 8870 14786 9714 14842
+rect 9882 14786 10818 14842
+rect 10986 14786 11830 14842
+rect 11998 14786 12842 14842
+rect 480 856 12952 14786
+rect 480 800 1250 856
+rect 1418 800 3918 856
+rect 4086 800 6586 856
+rect 6754 800 9346 856
+rect 9514 800 12014 856
+rect 12182 800 12952 856
+<< metal3 >>
+rect 12698 14016 13498 14136
+rect 0 12928 800 13048
+rect 12698 10888 13498 11008
+rect 0 7760 800 7880
+rect 12698 7760 13498 7880
+rect 12698 4632 13498 4752
+rect 0 2592 800 2712
+rect 12698 1504 13498 1624
+<< obsm3 >>
+rect 800 13936 12618 14109
+rect 800 13128 12698 13936
+rect 880 12848 12698 13128
+rect 800 11088 12698 12848
+rect 800 10808 12618 11088
+rect 800 7960 12698 10808
+rect 880 7680 12618 7960
+rect 800 4832 12698 7680
+rect 800 4552 12618 4832
+rect 800 2792 12698 4552
+rect 880 2512 12698 2792
+rect 800 1704 12698 2512
+rect 800 1531 12618 1704
+<< metal4 >>
+rect 2815 2128 3135 13104
+rect 4685 2128 5005 13104
+<< obsm4 >>
+rect 3215 2128 4605 13104
+rect 5085 2128 10617 13104
+<< labels >>
+rlabel metal2 s 2502 14842 2558 15642 6 cbitin
+port 1 nsew default input
+rlabel metal2 s 1306 0 1362 800 6 cbitout
+port 2 nsew default output
+rlabel metal2 s 1490 14842 1546 15642 6 confclk
+port 3 nsew default input
+rlabel metal2 s 3974 0 4030 800 6 dempty
+port 4 nsew default input
+rlabel metal2 s 6642 14842 6698 15642 6 din[0]
+port 5 nsew default input
+rlabel metal3 s 12698 10888 13498 11008 6 din[1]
+port 6 nsew default input
+rlabel metal3 s 12698 4632 13498 4752 6 dout[0]
+port 7 nsew default output
+rlabel metal2 s 9770 14842 9826 15642 6 dout[1]
+port 8 nsew default output
+rlabel metal2 s 4618 14842 4674 15642 6 hempty
+port 9 nsew default output
+rlabel metal3 s 0 2592 800 2712 6 lempty
+port 10 nsew default input
+rlabel metal3 s 0 7760 800 7880 6 lin[0]
+port 11 nsew default input
+rlabel metal3 s 0 12928 800 13048 6 lin[1]
+port 12 nsew default input
+rlabel metal2 s 7746 14842 7802 15642 6 lout[0]
+port 13 nsew default output
+rlabel metal3 s 12698 14016 13498 14136 6 lout[1]
+port 14 nsew default output
+rlabel metal3 s 12698 1504 13498 1624 6 rempty
+port 15 nsew default input
+rlabel metal2 s 478 14842 534 15642 6 reset
+port 16 nsew default input
+rlabel metal3 s 12698 7760 13498 7880 6 rin[0]
+port 17 nsew default input
+rlabel metal2 s 10874 14842 10930 15642 6 rin[1]
+port 18 nsew default input
+rlabel metal2 s 8758 14842 8814 15642 6 rout[0]
+port 19 nsew default output
+rlabel metal2 s 11886 14842 11942 15642 6 rout[1]
+port 20 nsew default output
+rlabel metal2 s 3514 14842 3570 15642 6 uempty
+port 21 nsew default input
+rlabel metal2 s 6642 0 6698 800 6 uin[0]
+port 22 nsew default input
+rlabel metal2 s 12898 14842 12954 15642 6 uin[1]
+port 23 nsew default input
+rlabel metal2 s 9402 0 9458 800 6 uout[0]
+port 24 nsew default output
+rlabel metal2 s 12070 0 12126 800 6 uout[1]
+port 25 nsew default output
+rlabel metal2 s 5630 14842 5686 15642 6 vempty
+port 26 nsew default output
+rlabel metal4 s 2815 2128 3135 13104 6 VPWR
+port 27 nsew power input
+rlabel metal4 s 4685 2128 5005 13104 6 VGND
+port 28 nsew ground input
+<< properties >>
+string LEFclass BLOCK
+string FIXED_BBOX 0 0 13498 15642
+string LEFview TRUE
+string GDS_FILE /project/openlane/morphle_ycell/runs/morphle_ycell/results/magic/ycell.gds
+string GDS_END 532056
+string GDS_START 176590
+<< end >>
+
