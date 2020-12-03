@@ -65,18 +65,18 @@ module yblock #(parameter
   // this makes assigning chunks much simpler
   
   // ----[]----[]----[]----
-  //  0     1     2     3     BLOCKHEIGHT+1   vcbit
+  //  0     1     2     3     BLOCKHEIGHT+1   vcbit, he, he2, ve, ve2, rst, cclk
   //
   // ====[]====[]====[]====
   // 1,0    3,2   5,4   7,6   (BLOCKHEIGHT+1)*2  hs, hb, vs, vb
-  //
-  // u    [ued]     [ued]    [ued]   d
-  // \-----/| \------+|+------/|\----/
-  // uv-----+--------/ \-------+-----dv   BLOCKHEIGHT+2  he, ve
     
   wire [HMSB:0] vcbit[BLOCKHEIGHT:0];
-  wire [HMSB:0] ve[BLOCKHEIGHT+1:0]; // first and last rows go outside
-  wire [VMSB:0] he[BLOCKWIDTH+1:0]; // first and last columns go outside
+  wire [HMSB:0] ve[BLOCKHEIGHT:0];
+  wire [VMSB:0] he[BLOCKWIDTH:0];
+  wire [HMSB:0] rst[BLOCKHEIGHT:0];
+  wire [HMSB:0] cclk[BLOCKHEIGHT:0];
+  wire [HMSB:0] ve2[BLOCKHEIGHT:0];
+  wire [VMSB:0] he2[BLOCKWIDTH:0];
   wire [HMSB2:0] vs[BLOCKHEIGHT:0]; // signal pairs
   wire [HMSB2:0] vb[BLOCKHEIGHT:0]; // signal pairs back
   wire [VMSB2:0] hs[BLOCKWIDTH:0]; // signal pairs
@@ -88,17 +88,20 @@ module yblock #(parameter
   generate
     for (x = 0 ; x < BLOCKWIDTH ; x = x + 1) begin : generate_columns
       for (y = 0 ; y < BLOCKHEIGHT ; y = y + 1) begin : generate_rows
-        ycell gencell (.reset(reset), .confclk(confclk),
+        ycell gencell (.reset(rst[y][x]), .reseto(rst[y+1][x]),
+             .confclk(cclk[y][x]), .confclko(cclk[y+1][x]),
              // cbitin, cbitout,
              .cbitin(vcbit[y][x]), .cbitout(vcbit[y+1][x]),
-             // hempty, vempty,
-             .hempty(he[x+1][y]), .vempty(ve[y+1][x]),
+             // hempty, vempty, (L, U)
+             .hempty(he2[x][y]), .vempty(ve2[y][x]),
+             // hempty2, vempty2, (R, D)
+             .hempty2(he[x+1][y]), .vempty2(ve[y+1][x]),
              // uempty, uin, uout,
              .uempty(ve[y][x]),
              .uin(vs[y][2*x+1:2*x]),
              .uout(vb[y][2*x+1:2*x]),
              // dempty, din, dout,
-             .dempty(ve[y+2][x]),
+             .dempty(ve2[y+1][x]),
              .din(vb[y+1][2*x+1:2*x]),
              .dout(vs[y+1][2*x+1:2*x]),
              // lempty, lin, lout,
@@ -106,35 +109,40 @@ module yblock #(parameter
              .lin(hs[x][2*y+1:2*y]),
              .lout(hb[x][2*y+1:2*y]),
              // rempty, rin, rout
-             .rempty(he[x+2][y]),
-             .rin(hb[x][2*y+1:2*y]),
-             .rout(hs[x][2*y+1:2*y])
+             .rempty(he2[x+1][y]),
+             .rin(hb[x+1][2*y+1:2*y]),
+             .rout(hs[x+1][2*y+1:2*y])
              );
       end
     end
   endgenerate
 
+//   he[0]---l[0]h2--he[1]----l[1]h2---he[2]
+//   he2[0]--h[0]r---he2[1]---h[1]r----he2[2]
+
   // the ends of the arrays of wire go to the outside
+  assign rst[0] = {BLOCKWIDTH{reset}};
+  assign cclk[0] = {BLOCKWIDTH{confclk}};
   
   assign vcbit[0] = cbitin;   
   assign cbitout = vcbit[BLOCKHEIGHT]; 
   // UP
   assign ve[0] = uempty;
-  assign uvempty = ve[1]; 
+  assign uvempty = ve2[0]; 
   assign vs[0] = uin;
   assign uout = vb[0];
   // DOWN
-  assign ve[BLOCKHEIGHT+1] = dempty;
+  assign ve2[BLOCKHEIGHT] = dempty;
   assign dvempty = ve[BLOCKHEIGHT]; 
   assign vb[BLOCKHEIGHT] = din;
   assign dout = vs[BLOCKHEIGHT];
   // LEFT
   assign he[0] = lempty;
-  assign lhempty = he[1];   
+  assign lhempty = he2[0];   
   assign hs[0] = lin;
   assign lout = hb[0];
   // RIGHT
-  assign he[BLOCKWIDTH+1] = rempty;
+  assign he2[BLOCKWIDTH] = rempty;
   assign rhempty = he[BLOCKWIDTH];  
   assign hb[BLOCKWIDTH] = rin;
   assign rout = hs[BLOCKWIDTH];

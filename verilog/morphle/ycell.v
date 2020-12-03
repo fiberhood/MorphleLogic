@@ -122,11 +122,15 @@ endmodule
 module ycell(
   // control
   input reset,    // freezes the cell operations and clears everything
+  output reseto,  // pass through to help routing
   input confclk,   // a strobe to enter one configuration bit
+  output confclko,
   input cbitin,   // new configuration bit from previous cell (U)
   output cbitout, // configuration bit to next cell (D)
   output hempty,  // this cell interrupts horizontal signals
+  output hempty2,
   output vempty,  // this cell interrupts vertical signals
+  output vempty2,
   // UP
   input uempty,    // cell U is empty, so we are the topmost of a signal
   input [1:0] uin,
@@ -143,6 +147,12 @@ module ycell(
   input rempty,    // cell D is empty, so we are the rightmost of a signal
   input [1:0] rin,
   output [1:0] rout);
+  
+  // bypass to pins on opposite side of the circuit (could add buffers?)
+  assign reseto = reset;
+  assign confclko = confclk;
+  assign hempty2 = hempty;
+  assign vempty2 = vempty;
   
   // configuration signals decoded
   wire empty;
