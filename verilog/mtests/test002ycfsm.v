@@ -25,7 +25,7 @@
 // https://syssec.ethz.ch/content/dam/ethz/special-interest/infk/inst-infsec/system-security-group-dam/education/Digitaltechnik_14/14_Verilog_Testbenches.pdf
 
 `timescale 1ns/1ps
-`include "ycell.v"
+`include "../morphle/ycell.v"
 
 module test002fsm;
 

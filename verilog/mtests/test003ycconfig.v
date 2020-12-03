@@ -19,7 +19,7 @@
 // checked for the desired value
 
 `timescale 1ns/1ps
-`include "ycell.v"
+`include "../morphle/ycell.v"
 
 module test003config;
 

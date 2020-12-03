@@ -16,7 +16,7 @@
 
 FILE_SIZE_LIMIT_MB = 10
 LARGE_FILES := $(shell find . -type f -size +$(FILE_SIZE_LIMIT_MB)M -not -path "./.git/*")
-=======
+
 # cannot commit files larger than 100 MB to GitHub 
 FILE_SIZE_LIMIT_MB = 100
 LARGE_FILES := $(shell find ./gds -type f -name "*.gds")
@@ -57,19 +57,23 @@ clean:
 verify:
 	echo "verify"
 
-.PHONY: copy_config_block
-copy_config_block:
+.PHONY: copy_block
+copy_block:
 	@echo
-	@echo "       overwritting config.tcl in user_proj_example"
+	@echo "       overwritting user_proj_example with 16x16 block"
 	@echo
-	cp verilog/morphle/config_block.tcl openlane/user_proj_example/config.tcl
+	cp ol_templates/config_block.tcl openlane/user_proj_example/config.tcl
+	cp ol_templates/pdn.tcl openlane/user_proj_example/pdn.tcl
+	cp ol_templates/pin_order.cfg openlane/user_proj_example/pin_order.cfg
 
-.PHONY: copy_config_block2
-copy_config_block2:
+.PHONY: copy_block2
+copy_block2:
 	@echo
-	@echo "       overwritting config.tcl in user_proj_example"
+	@echo "       overwritting user_proj_example with black box 16x16 block"
 	@echo
-	cp verilog/morphle/config_block2.tcl openlane/user_proj_example/config.tcl
+	cp ol_templates/config_block2.tcl openlane/user_proj_example/config.tcl
+	cp ol_templates/pdn.tcl openlane/user_proj_example/pdn.tcl
+	cp ol_templates/pin_order.cfg openlane/user_proj_example/pin_order.cfg
 
 .PHONY: help
 help:

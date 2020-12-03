@@ -20,7 +20,7 @@
 // experiement in generating a waveform file
 
 `timescale 1ns/1ps
-`include "ycell.v"
+`include "../morphle/ycell.v"
 
 module test001fsm;
 

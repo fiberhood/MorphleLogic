@@ -27,9 +27,9 @@
 
 `timescale 1ns/1ps
 `include "../rtl/defines.v"
-`include "ycell.v"
-`include "yblock.v"
-`include "user_proj_block.v"
+`include "../morphle/ycell.v"
+`include "../morphle/yblock.v"
+`include "../morphle/user_proj_block.v"
 
 module test005upblock;
 
