@@ -16,6 +16,11 @@
 
 FILE_SIZE_LIMIT_MB = 10
 LARGE_FILES := $(shell find . -type f -size +$(FILE_SIZE_LIMIT_MB)M -not -path "./.git/*")
+=======
+# cannot commit files larger than 100 MB to GitHub 
+FILE_SIZE_LIMIT_MB = 100
+LARGE_FILES := $(shell find ./gds -type f -name "*.gds")
+LARGE_FILES += $(shell find . -type f -size +$(FILE_SIZE_LIMIT_MB)M -not -path "./.git/*" -not -path "./gds/*" -not -path "./openlane/*")
 
 LARGE_FILES_GZ := $(addsuffix .gz, $(LARGE_FILES))
 
@@ -27,8 +32,8 @@ THREADS ?= $(shell nproc)
 STD_CELL_LIBRARY ?= sky130_fd_sc_hd
 SPECIAL_VOLTAGE_LIBRARY ?= sky130_fd_sc_hvl
 IO_LIBRARY ?= sky130_fd_io
-SKYWATER_COMMIT ?= ca58d58c07ab2dac53488df393da633fd5fb9a02
-OPEN_PDKS_COMMIT ?= b427e3bd10dcdc36891ae270a1ef0bd02602c553
+SKYWATER_COMMIT ?= 3d7617a1acb92ea883539bcf22a632d6361a5de4
+OPEN_PDKS_COMMIT ?= 3959de867a4acb6867df376dac495e33bb0734f1
 
 .DEFAULT_GOAL := ship
 # We need portable GDS_FILE pointers...
@@ -37,6 +42,7 @@ ship: check-env uncompress
 	@echo "###############################################"
 	@echo "Generating Caravel GDS (sources are in the 'gds' directory)"
 	@sleep 1
+	@cp gds/caravel.gds gds/caravel.old.gds && echo "Copying old Caravel to gds/caravel.old.gds" || true
 	@cd gds && MAGTYPE=mag magic -rcfile ${PDK_ROOT}/sky130A/libs.tech/magic/current/sky130A.magicrc -noc -dnull gen_caravel.tcl < /dev/null
 
 
@@ -57,6 +63,13 @@ copy_config_block:
 	@echo "       overwritting config.tcl in user_proj_example"
 	@echo
 	cp verilog/morphle/config_block.tcl openlane/user_proj_example/config.tcl
+
+.PHONY: copy_config_block2
+copy_config_block2:
+	@echo
+	@echo "       overwritting config.tcl in user_proj_example"
+	@echo
+	cp verilog/morphle/config_block2.tcl openlane/user_proj_example/config.tcl
 
 .PHONY: help
 help:

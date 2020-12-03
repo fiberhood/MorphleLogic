@@ -14,6 +14,6 @@ set ::env(GLB_RT_MAXLAYER) 5
 set ::env(FP_PIN_ORDER_CFG) $script_dir/pin_order.cfg
 set ::env(CLOCK_TREE_SYNTH) 0
 set ::env(FP_SIZING) relative
-set ::env(FP_CORE_UTIL) 30
+set ::env(FP_CORE_UTIL) 35
 set ::env(PL_BASIC_PLACEMENT) 1
 set ::env(PL_TARGET_DENSITY) 0.55

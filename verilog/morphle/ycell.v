@@ -91,7 +91,7 @@ module ycconfig (
        
        always @*
          case(cnfg)
-           default: r = 9'b110001000; // space is empty and blocked
+           default: r = 9'b110001000; // . is empty and blocked
            3'b001: r = 9'b000110011; // +     sync with don't cares
            3'b010: r = 9'b001001000; // -     horizontal short circuit
            3'b011: r = 9'b010000100; // |     vertical short circuit

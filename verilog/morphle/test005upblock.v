@@ -128,12 +128,12 @@ module test005upblock;
   // check results on falling edge of clk
   always @(negedge clk)
   begin
+    $display("testing vector %d %h %h", vectornum, tvout, xtvin);
     if (xtvin === 48'bx)
     begin
       $display("%d tests completed with %d errors", vectornum, errors);
       $finish;   // End simulation
     end
-    $display("testing vector %d", vectornum);
     if ((!tvout[51] & la_data_out[47:32] !== xtvin[47:32]) |
         (!tvout[50] & la_data_out[31:0] !== xtvin[31:0])) 
     begin
@@ -145,7 +145,7 @@ module test005upblock;
       errors = errors + 1;
     end
       // increment array index and read next testvector
-    vectornum= vectornum+ 1;
+    vectornum= vectornum + 1;
   end
   
 endmodule
