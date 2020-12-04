@@ -29,3 +29,6 @@ The basic element is *ycell* ("yellow cell", named so because of the first illus
 
 ## user_proj_block.v
 
+This generates a block that will be used by *../rtl/user_project_wrapper.v* and so must define all the pins expected by that circuit. These include io pins (digital and analog) which are left unconnected (inputs) or set to 0 (outputs and enables). There is also a dummy wishbone interface with a single 32 bit register that allows anything written to it (with individual byte selects) to be read back.
+
+The actual circuit is a 16x16 block of interconnected yellow cells. The left, right and bottom sides of the array are also left dangling (outputs) or connected to 0 (inputs), while the top is connected to the logic analyzer pins. The configuration out bits also go to the logic analyzer even though they are on the down side of the block.

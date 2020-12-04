@@ -1,13 +1,17 @@
 module ycell (cbitin,
     cbitout,
     confclk,
+    confclko,
     dempty,
     hempty,
+    hempty2,
     lempty,
     rempty,
     reset,
+    reseto,
     uempty,
     vempty,
+    vempty2,
     din,
     dout,
     lin,
@@ -19,13 +23,17 @@ module ycell (cbitin,
  input cbitin;
  output cbitout;
  input confclk;
+ output confclko;
  input dempty;
  output hempty;
+ output hempty2;
  input lempty;
  input rempty;
  input reset;
+ output reseto;
  input uempty;
  output vempty;
+ output vempty2;
  input [1:0] din;
  output [1:0] dout;
  input [1:0] lin;
@@ -359,13 +367,21 @@ module ycell (cbitin,
     .B(hempty),
     .C(_040_),
     .X(\hfsm.clear ));
- sky130_fd_sc_hd__dfxtp_4 _182_ (.D(cbitin),
+ sky130_fd_sc_hd__buf_2 _182_ (.A(confclk),
+    .X(confclko));
+ sky130_fd_sc_hd__buf_2 _183_ (.A(hempty),
+    .X(hempty2));
+ sky130_fd_sc_hd__buf_2 _184_ (.A(reset),
+    .X(reseto));
+ sky130_fd_sc_hd__buf_2 _185_ (.A(vempty),
+    .X(vempty2));
+ sky130_fd_sc_hd__dfxtp_4 _186_ (.D(cbitin),
     .Q(\cfg.cnfg[0] ),
     .CLK(confclk));
- sky130_fd_sc_hd__dfxtp_4 _183_ (.D(\cfg.cnfg[0] ),
+ sky130_fd_sc_hd__dfxtp_4 _187_ (.D(\cfg.cnfg[0] ),
     .Q(\cfg.cnfg[1] ),
     .CLK(confclk));
- sky130_fd_sc_hd__dfxtp_4 _184_ (.D(\cfg.cnfg[1] ),
+ sky130_fd_sc_hd__dfxtp_4 _188_ (.D(\cfg.cnfg[1] ),
     .Q(cbitout),
     .CLK(confclk));
  sky130_fd_sc_hd__decap_3 PHY_0 ();
@@ -406,8 +422,8 @@ module ycell (cbitin,
  sky130_fd_sc_hd__decap_3 PHY_35 ();
  sky130_fd_sc_hd__decap_3 PHY_36 ();
  sky130_fd_sc_hd__decap_3 PHY_37 ();
- sky130_fd_sc_hd__decap_3 PHY_38 ();
- sky130_fd_sc_hd__decap_3 PHY_39 ();
+ sky130_fd_sc_hd__tapvpwrvgnd_1 PHY_38 ();
+ sky130_fd_sc_hd__tapvpwrvgnd_1 PHY_39 ();
  sky130_fd_sc_hd__tapvpwrvgnd_1 PHY_40 ();
  sky130_fd_sc_hd__tapvpwrvgnd_1 PHY_41 ();
  sky130_fd_sc_hd__tapvpwrvgnd_1 PHY_42 ();
@@ -437,8 +453,4 @@ module ycell (cbitin,
  sky130_fd_sc_hd__tapvpwrvgnd_1 PHY_66 ();
  sky130_fd_sc_hd__tapvpwrvgnd_1 PHY_67 ();
  sky130_fd_sc_hd__tapvpwrvgnd_1 PHY_68 ();
- sky130_fd_sc_hd__tapvpwrvgnd_1 PHY_69 ();
- sky130_fd_sc_hd__tapvpwrvgnd_1 PHY_70 ();
- sky130_fd_sc_hd__tapvpwrvgnd_1 PHY_71 ();
- sky130_fd_sc_hd__tapvpwrvgnd_1 PHY_72 ();
 endmodule

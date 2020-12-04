@@ -63,6 +63,8 @@ module user_proj_example (
   parameter VMSB = BLOCKHEIGHT-1;
   parameter VMSB2 = (2*BLOCKHEIGHT)-1;
 
+  assign io_out = {`MPRJ_IO_PADS{1'b0}};
+  assign io_oeb = {`MPRJ_IO_PADS{1'b0}};
 
 // dummy wishbone: you read back what you write
 

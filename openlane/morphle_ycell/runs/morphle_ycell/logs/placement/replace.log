@@ -10,51 +10,51 @@ Notice 0: Finished LEF file:  /project/openlane/morphle_ycell/runs/morphle_ycell
 Notice 0: 
 Reading DEF file: /project/openlane/morphle_ycell/runs/morphle_ycell/results/floorplan/ycell.floorplan.def
 Notice 0: Design: ycell
-Notice 0:     Created 26 pins.
-Notice 0:     Created 179 components and 983 component-terminals.
-Notice 0:     Created 121 nets and 333 connections.
+Notice 0:     Created 30 pins.
+Notice 0:     Created 179 components and 995 component-terminals.
+Notice 0:     Created 125 nets and 341 connections.
 Notice 0: Finished DEF file: /project/openlane/morphle_ycell/runs/morphle_ycell/results/floorplan/ycell.floorplan.def
 [INFO] DBU = 1000
 [INFO] SiteSize = (460, 2720)
 [INFO] CoreAreaLxLy = (5520, 10880)
-[INFO] CoreAreaUxUy = (61640, 65280)
+[INFO] CoreAreaUxUy = (57960, 62560)
 [INFO] NumInstances = 179
-[INFO] NumPlaceInstances = 106
-[INFO] NumFixedInstances = 73
+[INFO] NumPlaceInstances = 110
+[INFO] NumFixedInstances = 69
 [INFO] NumDummyInstances = 0
-[INFO] NumNets = 121
-[INFO] NumPins = 359
+[INFO] NumNets = 125
+[INFO] NumPins = 371
 [INFO] DieAreaLxLy = (0, 0)
-[INFO] DieAreaUxUy = (67490, 78210)
+[INFO] DieAreaUxUy = (63845, 74565)
 [INFO] CoreAreaLxLy = (5520, 10880)
-[INFO] CoreAreaUxUy = (61640, 65280)
-[INFO] CoreArea = 3052928000
-[INFO] NonPlaceInstsArea = 191433600
-[INFO] PlaceInstsArea = 955916800
-[INFO] Util(%) = 33.406212
-[INFO] StdInstsArea = 955916800
+[INFO] CoreAreaUxUy = (57960, 62560)
+[INFO] CoreArea = 2710099200
+[INFO] NonPlaceInstsArea = 181424000
+[INFO] PlaceInstsArea = 975936000
+[INFO] Util(%) = 38.594753
+[INFO] StdInstsArea = 975936000
 [INFO] MacroInstsArea = 0
-[InitialPlace]  Iter: 1 CG Error: 6.59921e-08 HPWL: 2708790
-[InitialPlace]  Iter: 2 CG Error: 9.62714e-08 HPWL: 2225171
-[InitialPlace]  Iter: 3 CG Error: 8.55354e-08 HPWL: 2214989
-[InitialPlace]  Iter: 4 CG Error: 9.22672e-08 HPWL: 2215850
-[InitialPlace]  Iter: 5 CG Error: 5.64912e-08 HPWL: 2209561
-[INFO] FillerInit: NumGCells = 179
-[INFO] FillerInit: NumGNets = 121
-[INFO] FillerInit: NumGPins = 359
+[InitialPlace]  Iter: 1 CG Error: 1.07491e-07 HPWL: 2826185
+[InitialPlace]  Iter: 2 CG Error: 7.3381e-08 HPWL: 2346910
+[InitialPlace]  Iter: 3 CG Error: 9.57167e-08 HPWL: 2324950
+[InitialPlace]  Iter: 4 CG Error: 7.39914e-08 HPWL: 2310419
+[InitialPlace]  Iter: 5 CG Error: 6.57975e-08 HPWL: 2304657
+[INFO] FillerInit: NumGCells = 159
+[INFO] FillerInit: NumGNets = 125
+[INFO] FillerInit: NumGPins = 371
 [INFO] TargetDensity = 0.550000
-[INFO] AveragePlaceInstArea = 9018083
-[INFO] IdealBinArea = 16396514
-[INFO] IdealBinCnt = 186
-[INFO] TotalBinArea = 3052928000
+[INFO] AveragePlaceInstArea = 8872145
+[INFO] IdealBinArea = 16131172
+[INFO] IdealBinCnt = 168
+[INFO] TotalBinArea = 2710099200
 [INFO] BinCnt = (64, 64)
-[INFO] BinSize = (877, 850)
+[INFO] BinSize = (820, 808)
 [INFO] NumBins = 4096
-[NesterovSolve] Iter: 1 overflow: 0.768503 HPWL: 1656971
-[NesterovSolve] Iter: 10 overflow: 0.736488 HPWL: 1569549
-[NesterovSolve] Iter: 20 overflow: 0.737322 HPWL: 1563946
-[NesterovSolve] Iter: 30 overflow: 0.737966 HPWL: 1566833
-[NesterovSolve] Iter: 40 overflow: 0.73563 HPWL: 1564667
-[NesterovSolve] Iter: 50 overflow: 0.736868 HPWL: 1565073
-[NesterovSolve] Finished with Overflow: 0.737261
+[NesterovSolve] Iter: 1 overflow: 0.76459 HPWL: 1704249
+[NesterovSolve] Iter: 10 overflow: 0.744657 HPWL: 1626187
+[NesterovSolve] Iter: 20 overflow: 0.741682 HPWL: 1621889
+[NesterovSolve] Iter: 30 overflow: 0.742971 HPWL: 1621267
+[NesterovSolve] Iter: 40 overflow: 0.743687 HPWL: 1622544
+[NesterovSolve] Iter: 50 overflow: 0.743145 HPWL: 1621566
+[NesterovSolve] Finished with Overflow: 0.743002
 [WARN]: No CLOCK_PORT found. Skipping STA...

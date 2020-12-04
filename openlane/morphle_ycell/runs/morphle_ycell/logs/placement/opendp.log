@@ -10,31 +10,31 @@ Notice 0: Finished LEF file:  /project/openlane/morphle_ycell/runs/morphle_ycell
 Notice 0: 
 Reading DEF file: /project/openlane/morphle_ycell/runs/morphle_ycell/tmp/placement/openphysyn.def
 Notice 0: Design: ycell
-Notice 0:     Created 26 pins.
-Notice 0:     Created 179 components and 983 component-terminals.
-Notice 0:     Created 121 nets and 333 connections.
+Notice 0:     Created 30 pins.
+Notice 0:     Created 179 components and 995 component-terminals.
+Notice 0:     Created 125 nets and 341 connections.
 Notice 0: Finished DEF file: /project/openlane/morphle_ycell/runs/morphle_ycell/tmp/placement/openphysyn.def
 Warning: could not find power special net
 Design Stats
 --------------------------------
 total instances           179
 multi row instances         0
-fixed instances            73
-nets                      121
-design area            3052.9 u^2
-fixed area              191.4 u^2
-movable area            955.9 u^2
-utilization                33 %
-utilization padded         52 %
-rows                       20
+fixed instances            69
+nets                      125
+design area            2710.1 u^2
+fixed area              181.4 u^2
+movable area            975.9 u^2
+utilization                39 %
+utilization padded         82 %
+rows                       19
 row height                2.7 u
 
 Placement Analysis
 --------------------------------
-total displacement     1350.7 u
-average displacement      7.5 u
-max displacement         28.9 u
-original HPWL          1566.5 u
-legalized HPWL         3603.4 u
-delta HPWL                130 %
+total displacement     1761.8 u
+average displacement      9.8 u
+max displacement         35.9 u
+original HPWL          1622.4 u
+legalized HPWL         4250.6 u
+delta HPWL                162 %
 

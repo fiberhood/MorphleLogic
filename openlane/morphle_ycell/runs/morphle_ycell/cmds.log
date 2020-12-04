@@ -1,80 +1,80 @@
-Wed Dec 02 22:57:12 UTC 2020 - Executing "/openLANE_flow/scripts/mergeLef.py -i /opt/asic/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd.tlef /opt/asic/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef -o /project/openlane/morphle_ycell/runs/morphle_ycell/tmp/merged_unpadded.lef |& tee >&@stdout"
+Thu Dec 03 04:22:13 UTC 2020 - Executing "/openLANE_flow/scripts/mergeLef.py -i /opt/asic/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd.tlef /opt/asic/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef -o /project/openlane/morphle_ycell/runs/morphle_ycell/tmp/merged_unpadded.lef |& tee >&@stdout"
 
-Wed Dec 02 22:57:12 UTC 2020 - Executing "/openLANE_flow/scripts/libtrim.pl /opt/asic/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib /opt/asic/sky130A/libs.tech/openlane/sky130_fd_sc_hd/no_synth.cells > /project/openlane/morphle_ycell/runs/morphle_ycell/tmp/trimmed.lib"
+Thu Dec 03 04:22:13 UTC 2020 - Executing "/openLANE_flow/scripts/libtrim.pl /opt/asic/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib /opt/asic/sky130A/libs.tech/openlane/sky130_fd_sc_hd/no_synth.cells > /project/openlane/morphle_ycell/runs/morphle_ycell/tmp/trimmed.lib"
 
-Wed Dec 02 22:57:12 UTC 2020 - Executing "yosys -c /openLANE_flow/scripts/synth.tcl -l /project/openlane/morphle_ycell/runs/morphle_ycell/logs/synthesis/yosys.log |& tee >&@stdout"
+Thu Dec 03 04:22:13 UTC 2020 - Executing "yosys -c /openLANE_flow/scripts/synth.tcl -l /project/openlane/morphle_ycell/runs/morphle_ycell/logs/synthesis/yosys.log |& tee >&@stdout"
 
-Wed Dec 02 22:57:13 UTC 2020 - Executing "sed -i -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/project\/openlane\/morphle_ycell\/runs\/morphle_ycell\/results\/synthesis\/ycell.synthesis.v/} /project/openlane/morphle_ycell/runs/morphle_ycell/config.tcl"
+Thu Dec 03 04:22:14 UTC 2020 - Executing "sed -i -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/project\/openlane\/morphle_ycell\/runs\/morphle_ycell\/results\/synthesis\/ycell.synthesis.v/} /project/openlane/morphle_ycell/runs/morphle_ycell/config.tcl"
 
-Wed Dec 02 22:57:13 UTC 2020 - Executing "sed -i -e {s/\(set ::env(PREV_NETLIST)\).*/\1 0/} /project/openlane/morphle_ycell/runs/morphle_ycell/config.tcl"
+Thu Dec 03 04:22:14 UTC 2020 - Executing "sed -i -e {s/\(set ::env(PREV_NETLIST)\).*/\1 0/} /project/openlane/morphle_ycell/runs/morphle_ycell/config.tcl"
 
-Wed Dec 02 22:57:13 UTC 2020 - Executing "sed -ie /defparam/d /project/openlane/morphle_ycell/runs/morphle_ycell/results/synthesis/ycell.synthesis.v"
+Thu Dec 03 04:22:14 UTC 2020 - Executing "sed -ie /defparam/d /project/openlane/morphle_ycell/runs/morphle_ycell/results/synthesis/ycell.synthesis.v"
 
-Wed Dec 02 22:57:13 UTC 2020 - Executing "openroad -exit /openLANE_flow/scripts/openroad/or_floorplan.tcl |& tee >&@stdout /project/openlane/morphle_ycell/runs/morphle_ycell/logs/floorplan/verilog2def.openroad.log"
+Thu Dec 03 04:22:14 UTC 2020 - Executing "openroad -exit /openLANE_flow/scripts/openroad/or_floorplan.tcl |& tee >&@stdout /project/openlane/morphle_ycell/runs/morphle_ycell/logs/floorplan/verilog2def.openroad.log"
 
-Wed Dec 02 22:57:14 UTC 2020 - Executing "python3 /openLANE_flow/scripts/io_place.py --input-lef /project/openlane/morphle_ycell/runs/morphle_ycell/tmp/merged.lef --input-def /project/openlane/morphle_ycell/runs/morphle_ycell/tmp/floorplan/verilog2def_openroad.def --config /project/openlane/morphle_ycell/pin_order.cfg --hor-layer 4 --ver-layer 3 --ver-width-mult 2 --hor-width-mult 2 --hor-extension -1 --ver-extension -1 --length 4 -o /project/openlane/morphle_ycell/runs/morphle_ycell/tmp/floorplan/ioPlacer.def |& tee /project/openlane/morphle_ycell/runs/morphle_ycell/logs/floorplan/place_io_ol.log >&@stdout"
+Thu Dec 03 04:22:15 UTC 2020 - Executing "python3 /openLANE_flow/scripts/io_place.py --input-lef /project/openlane/morphle_ycell/runs/morphle_ycell/tmp/merged.lef --input-def /project/openlane/morphle_ycell/runs/morphle_ycell/tmp/floorplan/verilog2def_openroad.def --config /project/openlane/morphle_ycell/pin_order.cfg --hor-layer 4 --ver-layer 3 --ver-width-mult 2 --hor-width-mult 2 --hor-extension -1 --ver-extension -1 --length 4 -o /project/openlane/morphle_ycell/runs/morphle_ycell/tmp/floorplan/ioPlacer.def |& tee /project/openlane/morphle_ycell/runs/morphle_ycell/logs/floorplan/place_io_ol.log >&@stdout"
 
-Wed Dec 02 22:57:14 UTC 2020 - Executing "openroad -exit /openLANE_flow/scripts/openroad/or_tapcell.tcl |& tee >&@stdout /project/openlane/morphle_ycell/runs/morphle_ycell/logs/floorplan/tapcell.log"
+Thu Dec 03 04:22:15 UTC 2020 - Executing "openroad -exit /openLANE_flow/scripts/openroad/or_tapcell.tcl |& tee >&@stdout /project/openlane/morphle_ycell/runs/morphle_ycell/logs/floorplan/tapcell.log"
 
-Wed Dec 02 22:57:15 UTC 2020 - Executing "openroad -exit /openLANE_flow/scripts/openroad/or_replace.tcl |& tee >&@stdout /project/openlane/morphle_ycell/runs/morphle_ycell/logs/placement/replace.log"
+Thu Dec 03 04:22:16 UTC 2020 - Executing "openroad -exit /openLANE_flow/scripts/openroad/or_replace.tcl |& tee >&@stdout /project/openlane/morphle_ycell/runs/morphle_ycell/logs/placement/replace.log"
 
-Wed Dec 02 22:57:16 UTC 2020 - Executing "/openLANE_flow/scripts/libtrim.pl /opt/asic/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ss_100C_1v60.lib /opt/asic/sky130A/libs.tech/openlane/sky130_fd_sc_hd/no_synth.cells > /project/openlane/morphle_ycell/runs/morphle_ycell/tmp/opt.lib"
+Thu Dec 03 04:22:17 UTC 2020 - Executing "/openLANE_flow/scripts/libtrim.pl /opt/asic/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ss_100C_1v60.lib /opt/asic/sky130A/libs.tech/openlane/sky130_fd_sc_hd/no_synth.cells > /project/openlane/morphle_ycell/runs/morphle_ycell/tmp/opt.lib"
 
-Wed Dec 02 22:57:16 UTC 2020 - Executing "Psn /openLANE_flow/scripts/openPhySyn.tcl |& tee >&@stdout /project/openlane/morphle_ycell/runs/morphle_ycell/logs/placement/openphysyn.log"
+Thu Dec 03 04:22:17 UTC 2020 - Executing "Psn /openLANE_flow/scripts/openPhySyn.tcl |& tee >&@stdout /project/openlane/morphle_ycell/runs/morphle_ycell/logs/placement/openphysyn.log"
 
-Wed Dec 02 22:57:17 UTC 2020 - Executing "openroad -exit /openLANE_flow/scripts/openroad/or_write_verilog.tcl |& tee >&@stdout /project/openlane/morphle_ycell/runs/morphle_ycell/logs/write_verilog.log"
+Thu Dec 03 04:22:18 UTC 2020 - Executing "openroad -exit /openLANE_flow/scripts/openroad/or_write_verilog.tcl |& tee >&@stdout /project/openlane/morphle_ycell/runs/morphle_ycell/logs/write_verilog.log"
 
-Wed Dec 02 22:57:17 UTC 2020 - Executing "sed -i -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/project\/openlane\/morphle_ycell\/runs\/morphle_ycell\/results\/synthesis\/ycell.synthesis_optimized.v/} /project/openlane/morphle_ycell/runs/morphle_ycell/config.tcl"
+Thu Dec 03 04:22:18 UTC 2020 - Executing "sed -i -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/project\/openlane\/morphle_ycell\/runs\/morphle_ycell\/results\/synthesis\/ycell.synthesis_optimized.v/} /project/openlane/morphle_ycell/runs/morphle_ycell/config.tcl"
 
-Wed Dec 02 22:57:17 UTC 2020 - Executing "sed -i -e {s/\(set ::env(PREV_NETLIST)\).*/\1 \/project\/openlane\/morphle_ycell\/runs\/morphle_ycell\/results\/synthesis\/ycell.synthesis.v/} /project/openlane/morphle_ycell/runs/morphle_ycell/config.tcl"
+Thu Dec 03 04:22:18 UTC 2020 - Executing "sed -i -e {s/\(set ::env(PREV_NETLIST)\).*/\1 \/project\/openlane\/morphle_ycell\/runs\/morphle_ycell\/results\/synthesis\/ycell.synthesis.v/} /project/openlane/morphle_ycell/runs/morphle_ycell/config.tcl"
 
-Wed Dec 02 22:57:17 UTC 2020 - Executing "openroad -exit /openLANE_flow/scripts/openroad/or_opendp.tcl |& tee >&@stdout /project/openlane/morphle_ycell/runs/morphle_ycell/logs/placement/opendp.log"
+Thu Dec 03 04:22:18 UTC 2020 - Executing "openroad -exit /openLANE_flow/scripts/openroad/or_opendp.tcl |& tee >&@stdout /project/openlane/morphle_ycell/runs/morphle_ycell/logs/placement/opendp.log"
 
-Wed Dec 02 22:57:18 UTC 2020 - Executing "openroad -exit /openLANE_flow/scripts/new_pdn.tcl |& tee >&@stdout /project/openlane/morphle_ycell/runs/morphle_ycell/logs/floorplan/pdn.log"
+Thu Dec 03 04:22:19 UTC 2020 - Executing "openroad -exit /openLANE_flow/scripts/new_pdn.tcl |& tee >&@stdout /project/openlane/morphle_ycell/runs/morphle_ycell/logs/floorplan/pdn.log"
 
-Wed Dec 02 22:57:19 UTC 2020 - Executing "openroad -exit /openLANE_flow/scripts/openroad/or_route.tcl |& tee >&@stdout /project/openlane/morphle_ycell/runs/morphle_ycell/logs/routing/fastroute.log"
+Thu Dec 03 04:22:20 UTC 2020 - Executing "openroad -exit /openLANE_flow/scripts/openroad/or_route.tcl |& tee >&@stdout /project/openlane/morphle_ycell/runs/morphle_ycell/logs/routing/fastroute.log"
 
-Wed Dec 02 22:57:20 UTC 2020 - Executing "openroad -exit /openLANE_flow/scripts/openroad/or_route.tcl |& tee >&@stdout /project/openlane/morphle_ycell/runs/morphle_ycell/logs/routing/fastroute_post_antenna.log"
+Thu Dec 03 04:22:21 UTC 2020 - Executing "openroad -exit /openLANE_flow/scripts/openroad/or_route.tcl |& tee >&@stdout /project/openlane/morphle_ycell/runs/morphle_ycell/logs/routing/fastroute_post_antenna.log"
 
-Wed Dec 02 22:57:21 UTC 2020 - Executing "openroad -exit /openLANE_flow/scripts/openroad/or_fill.tcl |& tee >&@stdout /project/openlane/morphle_ycell/runs/morphle_ycell/logs/routing/addspacers.log"
+Thu Dec 03 04:22:22 UTC 2020 - Executing "openroad -exit /openLANE_flow/scripts/openroad/or_fill.tcl |& tee >&@stdout /project/openlane/morphle_ycell/runs/morphle_ycell/logs/routing/addspacers.log"
 
-Wed Dec 02 22:57:21 UTC 2020 - Executing "openroad -exit /openLANE_flow/scripts/openroad/or_write_verilog.tcl |& tee >&@stdout /project/openlane/morphle_ycell/runs/morphle_ycell/logs/write_verilog.log"
+Thu Dec 03 04:22:22 UTC 2020 - Executing "openroad -exit /openLANE_flow/scripts/openroad/or_write_verilog.tcl |& tee >&@stdout /project/openlane/morphle_ycell/runs/morphle_ycell/logs/write_verilog.log"
 
-Wed Dec 02 22:57:22 UTC 2020 - Executing "sed -i -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/project\/openlane\/morphle_ycell\/runs\/morphle_ycell\/results\/synthesis\/ycell.synthesis_preroute.v/} /project/openlane/morphle_ycell/runs/morphle_ycell/config.tcl"
+Thu Dec 03 04:22:23 UTC 2020 - Executing "sed -i -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/project\/openlane\/morphle_ycell\/runs\/morphle_ycell\/results\/synthesis\/ycell.synthesis_preroute.v/} /project/openlane/morphle_ycell/runs/morphle_ycell/config.tcl"
 
-Wed Dec 02 22:57:22 UTC 2020 - Executing "sed -i -e {s/\(set ::env(PREV_NETLIST)\).*/\1 \/project\/openlane\/morphle_ycell\/runs\/morphle_ycell\/results\/synthesis\/ycell.synthesis_optimized.v/} /project/openlane/morphle_ycell/runs/morphle_ycell/config.tcl"
+Thu Dec 03 04:22:23 UTC 2020 - Executing "sed -i -e {s/\(set ::env(PREV_NETLIST)\).*/\1 \/project\/openlane\/morphle_ycell\/runs\/morphle_ycell\/results\/synthesis\/ycell.synthesis_optimized.v/} /project/openlane/morphle_ycell/runs/morphle_ycell/config.tcl"
 
-Wed Dec 02 22:57:22 UTC 2020 - Executing "envsubst < /openLANE_flow/scripts/tritonRoute.param > /project/openlane/morphle_ycell/runs/morphle_ycell/tmp/routing/tritonRoute.param"
+Thu Dec 03 04:22:23 UTC 2020 - Executing "envsubst < /openLANE_flow/scripts/tritonRoute.param > /project/openlane/morphle_ycell/runs/morphle_ycell/tmp/routing/tritonRoute.param"
 
-Wed Dec 02 22:57:22 UTC 2020 - Executing "TritonRoute /project/openlane/morphle_ycell/runs/morphle_ycell/tmp/routing/tritonRoute.param |& tee >&@stdout /project/openlane/morphle_ycell/runs/morphle_ycell/logs/routing/tritonRoute.log"
+Thu Dec 03 04:22:23 UTC 2020 - Executing "TritonRoute /project/openlane/morphle_ycell/runs/morphle_ycell/tmp/routing/tritonRoute.param |& tee >&@stdout /project/openlane/morphle_ycell/runs/morphle_ycell/logs/routing/tritonRoute.log"
 
-Wed Dec 02 22:57:31 UTC 2020 - Executing "python3 /openLANE_flow/scripts/tr2klayout.py -i /project/openlane/morphle_ycell/runs/morphle_ycell/reports/routing/tritonRoute.drc -o /project/openlane/morphle_ycell/runs/morphle_ycell/reports/routing/tritonRoute.klayout.xml --design-name ycell"
+Thu Dec 03 04:22:30 UTC 2020 - Executing "python3 /openLANE_flow/scripts/tr2klayout.py -i /project/openlane/morphle_ycell/runs/morphle_ycell/reports/routing/tritonRoute.drc -o /project/openlane/morphle_ycell/runs/morphle_ycell/reports/routing/tritonRoute.klayout.xml --design-name ycell"
 
-Wed Dec 02 22:57:31 UTC 2020 - Executing "python3 /openLANE_flow/scripts/spef_extractor/main.py -l /project/openlane/morphle_ycell/runs/morphle_ycell/tmp/merged_unpadded.lef -d /project/openlane/morphle_ycell/runs/morphle_ycell/results/routing/ycell.def -mw L -ec 1 |& tee >&@stdout /project/openlane/morphle_ycell/runs/morphle_ycell/logs/routing/spef_extraction.log"
+Thu Dec 03 04:22:30 UTC 2020 - Executing "python3 /openLANE_flow/scripts/spef_extractor/main.py -l /project/openlane/morphle_ycell/runs/morphle_ycell/tmp/merged_unpadded.lef -d /project/openlane/morphle_ycell/runs/morphle_ycell/results/routing/ycell.def -mw L -ec 1 |& tee >&@stdout /project/openlane/morphle_ycell/runs/morphle_ycell/logs/routing/spef_extraction.log"
 
-Wed Dec 02 22:57:31 UTC 2020 - Executing "python3 /openLANE_flow/scripts/write_powered_def.py -d /project/openlane/morphle_ycell/runs/morphle_ycell/results/routing/ycell.def -l /project/openlane/morphle_ycell/runs/morphle_ycell/tmp/merged.lef -v VPWR -g VGND -o /project/openlane/morphle_ycell/runs/morphle_ycell/tmp/routing/ycell.powered.def |& tee >&@stdout /project/openlane/morphle_ycell/runs/morphle_ycell/logs/lvs/write_powered_verilog.log"
+Thu Dec 03 04:22:30 UTC 2020 - Executing "python3 /openLANE_flow/scripts/write_powered_def.py -d /project/openlane/morphle_ycell/runs/morphle_ycell/results/routing/ycell.def -l /project/openlane/morphle_ycell/runs/morphle_ycell/tmp/merged.lef -v VPWR -g VGND -o /project/openlane/morphle_ycell/runs/morphle_ycell/tmp/routing/ycell.powered.def |& tee >&@stdout /project/openlane/morphle_ycell/runs/morphle_ycell/logs/lvs/write_powered_verilog.log"
 
-Wed Dec 02 22:57:32 UTC 2020 - Executing "openroad -exit /openLANE_flow/scripts/openroad/or_write_verilog.tcl |& tee >&@stdout /project/openlane/morphle_ycell/runs/morphle_ycell/logs/write_verilog.log"
+Thu Dec 03 04:22:31 UTC 2020 - Executing "openroad -exit /openLANE_flow/scripts/openroad/or_write_verilog.tcl |& tee >&@stdout /project/openlane/morphle_ycell/runs/morphle_ycell/logs/write_verilog.log"
 
-Wed Dec 02 22:57:32 UTC 2020 - Executing "yosys -c /openLANE_flow/scripts/yosys_rewrite_verilog.tcl -l /project/openlane/morphle_ycell/runs/morphle_ycell/logs/synthesis/yosys_rewrite_verilog.log"
+Thu Dec 03 04:22:31 UTC 2020 - Executing "yosys -c /openLANE_flow/scripts/yosys_rewrite_verilog.tcl -l /project/openlane/morphle_ycell/runs/morphle_ycell/logs/synthesis/yosys_rewrite_verilog.log"
 
-Wed Dec 02 22:57:33 UTC 2020 - Executing "sed -i -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/project\/openlane\/morphle_ycell\/runs\/morphle_ycell\/results\/lvs\/ycell.lvs.powered.v/} /project/openlane/morphle_ycell/runs/morphle_ycell/config.tcl"
+Thu Dec 03 04:22:31 UTC 2020 - Executing "sed -i -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/project\/openlane\/morphle_ycell\/runs\/morphle_ycell\/results\/lvs\/ycell.lvs.powered.v/} /project/openlane/morphle_ycell/runs/morphle_ycell/config.tcl"
 
-Wed Dec 02 22:57:33 UTC 2020 - Executing "sed -i -e {s/\(set ::env(PREV_NETLIST)\).*/\1 \/project\/openlane\/morphle_ycell\/runs\/morphle_ycell\/results\/synthesis\/ycell.synthesis_preroute.v/} /project/openlane/morphle_ycell/runs/morphle_ycell/config.tcl"
+Thu Dec 03 04:22:31 UTC 2020 - Executing "sed -i -e {s/\(set ::env(PREV_NETLIST)\).*/\1 \/project\/openlane\/morphle_ycell\/runs\/morphle_ycell\/results\/synthesis\/ycell.synthesis_preroute.v/} /project/openlane/morphle_ycell/runs/morphle_ycell/config.tcl"
 
-Wed Dec 02 22:57:33 UTC 2020 - Executing "magic -noconsole -dnull -rcfile /opt/asic/sky130A/libs.tech/magic/sky130A.magicrc /openLANE_flow/scripts/magic.tcl </dev/null |& tee >&@stdout /project/openlane/morphle_ycell/runs/morphle_ycell/logs/magic/magic.log"
+Thu Dec 03 04:22:31 UTC 2020 - Executing "magic -noconsole -dnull -rcfile /opt/asic/sky130A/libs.tech/magic/sky130A.magicrc /openLANE_flow/scripts/magic.tcl </dev/null |& tee >&@stdout /project/openlane/morphle_ycell/runs/morphle_ycell/logs/magic/magic.log"
 
-Wed Dec 02 22:57:33 UTC 2020 - Executing "magic -noconsole -dnull -rcfile /opt/asic/sky130A/libs.tech/magic/sky130A.magicrc /openLANE_flow/scripts/magic_mag.tcl </dev/null |& tee >&@stdout /project/openlane/morphle_ycell/runs/morphle_ycell/logs/magic/magic.log"
+Thu Dec 03 04:22:32 UTC 2020 - Executing "magic -noconsole -dnull -rcfile /opt/asic/sky130A/libs.tech/magic/sky130A.magicrc /openLANE_flow/scripts/magic_mag.tcl </dev/null |& tee >&@stdout /project/openlane/morphle_ycell/runs/morphle_ycell/logs/magic/magic.log"
 
-Wed Dec 02 22:57:33 UTC 2020 - Executing "magic -noconsole -dnull -rcfile /opt/asic/sky130A/libs.tech/magic/sky130A.magicrc /openLANE_flow/scripts/magic_maglef.tcl </dev/null |& tee >&@stdout /project/openlane/morphle_ycell/runs/morphle_ycell/logs/magic/magic.maglef.log"
+Thu Dec 03 04:22:32 UTC 2020 - Executing "magic -noconsole -dnull -rcfile /opt/asic/sky130A/libs.tech/magic/sky130A.magicrc /openLANE_flow/scripts/magic_maglef.tcl </dev/null |& tee >&@stdout /project/openlane/morphle_ycell/runs/morphle_ycell/logs/magic/magic.maglef.log"
 
-Wed Dec 02 22:57:34 UTC 2020 - Executing "magic -noconsole -dnull -rcfile /opt/asic/sky130A/libs.tech/magic/sky130A.magicrc /project/openlane/morphle_ycell/runs/morphle_ycell/tmp/magic_spice.tcl </dev/null |& tee >&@stdout /project/openlane/morphle_ycell/runs/morphle_ycell/logs/magic/magic_spice.log"
+Thu Dec 03 04:22:32 UTC 2020 - Executing "magic -noconsole -dnull -rcfile /opt/asic/sky130A/libs.tech/magic/sky130A.magicrc /project/openlane/morphle_ycell/runs/morphle_ycell/tmp/magic_spice.tcl </dev/null |& tee >&@stdout /project/openlane/morphle_ycell/runs/morphle_ycell/logs/magic/magic_spice.log"
 
-Wed Dec 02 22:57:34 UTC 2020 - Executing "magic -noconsole -dnull -rcfile /opt/asic/sky130A/libs.tech/magic/sky130A.magicrc /openLANE_flow/scripts/magic_drc.tcl </dev/null |& tee >&@stdout /project/openlane/morphle_ycell/runs/morphle_ycell/logs/magic/magic.drc.log"
+Thu Dec 03 04:22:33 UTC 2020 - Executing "magic -noconsole -dnull -rcfile /opt/asic/sky130A/libs.tech/magic/sky130A.magicrc /openLANE_flow/scripts/magic_drc.tcl </dev/null |& tee >&@stdout /project/openlane/morphle_ycell/runs/morphle_ycell/logs/magic/magic.drc.log"
 
-Wed Dec 02 22:57:35 UTC 2020 - Executing "netgen -batch lvs {/project/openlane/morphle_ycell/runs/morphle_ycell/results/magic/ycell.spice ycell} {/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v ycell} /opt/asic/sky130A/libs.tech/netgen/sky130A_setup.tcl /project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.log -json |& tee >&@stdout /project/openlane/morphle_ycell/runs/morphle_ycell/logs/lvs/lvs.log"
+Thu Dec 03 04:22:34 UTC 2020 - Executing "netgen -batch lvs {/project/openlane/morphle_ycell/runs/morphle_ycell/results/magic/ycell.spice ycell} {/project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.powered.v ycell} /opt/asic/sky130A/libs.tech/netgen/sky130A_setup.tcl /project/openlane/morphle_ycell/runs/morphle_ycell/results/lvs/ycell.lvs.log -json |& tee >&@stdout /project/openlane/morphle_ycell/runs/morphle_ycell/logs/lvs/lvs.log"
 
-Wed Dec 02 22:57:35 UTC 2020 - Executing "openroad -exit /openLANE_flow/scripts/openroad/or_antenna_check.tcl |& tee >&@stdout /project/openlane/morphle_ycell/runs/morphle_ycell/logs/routing/or_antenna.log"
+Thu Dec 03 04:22:34 UTC 2020 - Executing "openroad -exit /openLANE_flow/scripts/openroad/or_antenna_check.tcl |& tee >&@stdout /project/openlane/morphle_ycell/runs/morphle_ycell/logs/routing/or_antenna.log"
 
-Wed Dec 02 22:57:36 UTC 2020 - Executing "python3 /openLANE_flow/report_generation_wrapper.py -d /project/openlane/morphle_ycell -dn ycell -t morphle_ycell -o /project/openlane/morphle_ycell/runs/morphle_ycell/reports/final_summary_report.csv -r /project/openlane/morphle_ycell/runs/morphle_ycell"
+Thu Dec 03 04:22:35 UTC 2020 - Executing "python3 /openLANE_flow/report_generation_wrapper.py -d /project/openlane/morphle_ycell -dn ycell -t morphle_ycell -o /project/openlane/morphle_ycell/runs/morphle_ycell/reports/final_summary_report.csv -r /project/openlane/morphle_ycell/runs/morphle_ycell"
 

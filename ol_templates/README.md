@@ -17,7 +17,7 @@
 --->
 # Templates for OpenLane configuration files
 
-Several files are used for each possible project to be included in the Caravel chip. One is a Verilog file that is used to generate *user_proj_example.gds* (the name must be this as it is what *user_project_wrapper* expects) and another is a Tcl configuration file that must be copied to *../../openlane/user_proj_example/config.tcl* so openlane can do its job.
+Several files are used for each possible project to be included in the Caravel chip. One is a Verilog file that is used to generate *user_proj_example.gds* (the name must be this as it is what *user_project_wrapper* expects) and another is a Tcl configuration file that must be copied to *../openlane/user_proj_example/config.tcl* so openlane can do its job.
 
 Other files are *pdn.tcl* and *pin_order.cfg*.
 

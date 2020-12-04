@@ -117,8 +117,8 @@ Removed 0 unused cells and 44 unused wires.
 4.6. Executing CHECK pass (checking for obvious problems).
 checking module ycell..
 Warning: found logic loop in module ycell:
-    cell $and$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:168$36 ($and)
-    cell $and$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:176$44 ($and)
+    cell $and$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:178$36 ($and)
+    cell $and$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:186$44 ($and)
     cell $flatten\hfsm.$and$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:49$5 ($and)
     cell $flatten\hfsm.$and$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:49$7 ($and)
     cell $flatten\hfsm.$and$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:57$15 ($and)
@@ -153,10 +153,10 @@ Warning: found logic loop in module ycell:
     cell $flatten\vfsm.$or$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:60$20 ($or)
     cell $flatten\vfsm.$or$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:65$29 ($or)
     cell $flatten\vfsm.$reduce_or$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:46$3 ($reduce_or)
-    cell $ternary$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:170$38 ($mux)
-    cell $ternary$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:173$43 ($mux)
-    cell $ternary$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:178$46 ($mux)
-    cell $ternary$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:181$51 ($mux)
+    cell $ternary$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:180$38 ($mux)
+    cell $ternary$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:183$43 ($mux)
+    cell $ternary$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:188$46 ($mux)
+    cell $ternary$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:191$51 ($mux)
     wire $flatten\hfsm.$and$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:49$5_Y
     wire $flatten\hfsm.$and$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:49$7_Y
     wire $flatten\hfsm.$and$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:57$15_Y [0]
@@ -434,46 +434,46 @@ Warning: found logic loop in module ycell:
     wire \vfsm.lmatch [1]
     wire \vfsm.nlmatch [0]
 Warning: found logic loop in module ycell:
-    cell $not$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:172$40 ($not)
-    cell $or$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:172$39 ($or)
-    cell $ternary$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:170$38 ($mux)
-    cell $ternary$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:172$41 ($mux)
-    cell $ternary$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:173$43 ($mux)
-    wire $not$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:172$40_Y
-    wire $or$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:172$39_Y
+    cell $not$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:182$40 ($not)
+    cell $or$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:182$39 ($or)
+    cell $ternary$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:180$38 ($mux)
+    cell $ternary$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:182$41 ($mux)
+    cell $ternary$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:183$43 ($mux)
+    wire $not$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:182$40_Y
+    wire $or$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:182$39_Y
     wire \bhout [0]
     wire \hback [0]
     wire \hfsm.in [0]
 Warning: found logic loop in module ycell:
-    cell $not$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:172$40 ($not)
-    cell $or$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:172$39 ($or)
-    cell $ternary$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:170$38 ($mux)
-    cell $ternary$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:172$41 ($mux)
-    cell $ternary$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:173$43 ($mux)
-    wire $not$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:172$40_Y
-    wire $or$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:172$39_Y
+    cell $not$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:182$40 ($not)
+    cell $or$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:182$39 ($or)
+    cell $ternary$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:180$38 ($mux)
+    cell $ternary$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:182$41 ($mux)
+    cell $ternary$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:183$43 ($mux)
+    wire $not$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:182$40_Y
+    wire $or$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:182$39_Y
     wire \bhout [0]
     wire \hback [1]
     wire \hfsm.in [0]
 Warning: found logic loop in module ycell:
-    cell $not$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:180$48 ($not)
-    cell $or$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:180$47 ($or)
-    cell $ternary$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:178$46 ($mux)
-    cell $ternary$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:180$49 ($mux)
-    cell $ternary$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:181$51 ($mux)
-    wire $not$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:180$48_Y
-    wire $or$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:180$47_Y
+    cell $not$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:190$48 ($not)
+    cell $or$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:190$47 ($or)
+    cell $ternary$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:188$46 ($mux)
+    cell $ternary$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:190$49 ($mux)
+    cell $ternary$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:191$51 ($mux)
+    wire $not$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:190$48_Y
+    wire $or$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:190$47_Y
     wire \bvout [0]
     wire \vback [0]
     wire \vfsm.in [0]
 Warning: found logic loop in module ycell:
-    cell $not$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:180$48 ($not)
-    cell $or$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:180$47 ($or)
-    cell $ternary$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:178$46 ($mux)
-    cell $ternary$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:180$49 ($mux)
-    cell $ternary$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:181$51 ($mux)
-    wire $not$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:180$48_Y
-    wire $or$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:180$47_Y
+    cell $not$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:190$48 ($not)
+    cell $or$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:190$47 ($or)
+    cell $ternary$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:188$46 ($mux)
+    cell $ternary$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:190$49 ($mux)
+    cell $ternary$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:191$51 ($mux)
+    wire $not$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:190$48_Y
+    wire $or$/project/openlane/morphle_ycell/../../verilog/morphle/ycell.v:190$47_Y
     wire \bvout [0]
     wire \vback [1]
     wire \vfsm.in [0]
@@ -865,10 +865,10 @@ Removed 0 unused modules.
 
 === ycell ===
 
-   Number of wires:                120
-   Number of wire bits:            144
-   Number of public wires:          40
-   Number of public wire bits:      64
+   Number of wires:                124
+   Number of wire bits:            148
+   Number of public wires:          44
+   Number of public wire bits:      68
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -1531,10 +1531,10 @@ Removed 0 unused cells and 11 unused wires.
 
 === ycell ===
 
-   Number of wires:                109
-   Number of wire bits:            125
-   Number of public wires:          29
-   Number of public wire bits:      45
+   Number of wires:                113
+   Number of wire bits:            129
+   Number of public wires:          33
+   Number of public wire bits:      49
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -1582,10 +1582,10 @@ Mapping DFF cells in module `\ycell':
 
 === ycell ===
 
-   Number of wires:                109
-   Number of wire bits:            125
-   Number of public wires:          29
-   Number of public wire bits:      45
+   Number of wires:                113
+   Number of wire bits:            129
+   Number of public wires:          33
+   Number of public wire bits:      49
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -1602,7 +1602,7 @@ Mapping DFF cells in module `\ycell':
 
 11. Executing ABC pass (technology mapping using ABC).
 
-11.1. Extracting gate netlist of module `\ycell' to `/tmp/yosys-abc-EWoFsY/input.blif'..
+11.1. Extracting gate netlist of module `\ycell' to `/tmp/yosys-abc-lSCGP5/input.blif'..
 Breaking loop using new signal $abcloop$663: \hfsm.lmatch [1] -> $abc$541$new_n97_
                                              \hfsm.lmatch [1] -> $abc$541$new_n101_
                                              \hfsm.lmatch [1] -> $abc$541$new_n104_
@@ -1642,12 +1642,12 @@ Breaking loop using new signal $abcloop$676: \vfsm.nlmempty -> $abc$541$new_n118
 Extracted 104 gates and 134 wires to a netlist network with 30 inputs and 24 outputs.
 
 11.1.1. Executing ABC.
-Running ABC command: /build/bin/yosys-abc -s -f /tmp/yosys-abc-EWoFsY/abc.script 2>&1
-ABC: ABC command line: "source /tmp/yosys-abc-EWoFsY/abc.script".
+Running ABC command: /build/bin/yosys-abc -s -f /tmp/yosys-abc-lSCGP5/abc.script 2>&1
+ABC: ABC command line: "source /tmp/yosys-abc-lSCGP5/abc.script".
 ABC: 
-ABC: + read_blif /tmp/yosys-abc-EWoFsY/input.blif 
+ABC: + read_blif /tmp/yosys-abc-lSCGP5/input.blif 
 ABC: + read_lib -w /project/openlane/morphle_ycell/runs/morphle_ycell/tmp/trimmed.lib 
-ABC: Parsing finished successfully.  Parsing time =     0.02 sec
+ABC: Parsing finished successfully.  Parsing time =     0.03 sec
 ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbn_2".
 ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrbp_2".
 ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_4".
@@ -1704,7 +1704,7 @@ ABC: Path 14 --     154 : 2    1 sky130_fd_sc_hd__nor2_4 A =  11.26  Df =1891.4 
 ABC: Start-point = pi2 (\cfg.cnfg [0]).  End-point = po22 (\vfsm.nlmempty).
 ABC: + print_stats -m 
 ABC: netlist                       : i/o =   30/   24  lat =    0  nd =   103  edge =    221  area =884.81  delay =15.00  lev = 15
-ABC: + write_blif /tmp/yosys-abc-EWoFsY/output.blif 
+ABC: + write_blif /tmp/yosys-abc-lSCGP5/output.blif 
 
 11.1.2. Re-integrating ABC results.
 ABC RESULTS:   sky130_fd_sc_hd__a211o_4 cells:        2
@@ -1745,41 +1745,49 @@ Removed 0 unused cells and 151 unused wires.
 <suppressed ~4 debug messages>
 
 16. Executing INSBUF pass (insert buffer cells for connected wires).
+Added ycell.$auto$insbuf.cc:79:execute$780: \confclk -> \confclko
+Added ycell.$auto$insbuf.cc:79:execute$781: \hempty -> \hempty2
+Added ycell.$auto$insbuf.cc:79:execute$782: \reset -> \reseto
+Added ycell.$auto$insbuf.cc:79:execute$783: \vempty -> \vempty2
 
 17. Executing CHECK pass (checking for obvious problems).
 checking module ycell..
+Warning: Wire ycell.\vempty2 is used but has no driver.
 Warning: Wire ycell.\vempty is used but has no driver.
 Warning: Wire ycell.\uout [1] is used but has no driver.
 Warning: Wire ycell.\uout [0] is used but has no driver.
 Warning: Wire ycell.\rout [1] is used but has no driver.
 Warning: Wire ycell.\rout [0] is used but has no driver.
+Warning: Wire ycell.\reseto is used but has no driver.
 Warning: Wire ycell.\lout [1] is used but has no driver.
 Warning: Wire ycell.\lout [0] is used but has no driver.
+Warning: Wire ycell.\hempty2 is used but has no driver.
 Warning: Wire ycell.\hempty is used but has no driver.
 Warning: Wire ycell.\dout [1] is used but has no driver.
 Warning: Wire ycell.\dout [0] is used but has no driver.
+Warning: Wire ycell.\confclko is used but has no driver.
 Warning: Wire ycell.\cbitout is used but has no driver.
-found and reported 11 problems.
+found and reported 15 problems.
 
 18. Printing statistics.
 
 === ycell ===
 
-   Number of wires:                113
-   Number of wire bits:            121
-   Number of public wires:          34
-   Number of public wire bits:      42
+   Number of wires:                117
+   Number of wire bits:            125
+   Number of public wires:          38
+   Number of public wire bits:      46
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:                106
+   Number of cells:                110
      sky130_fd_sc_hd__a211o_4        2
      sky130_fd_sc_hd__a32o_4         2
      sky130_fd_sc_hd__and2_2         7
      sky130_fd_sc_hd__and3_2         3
      sky130_fd_sc_hd__and3_4         1
      sky130_fd_sc_hd__buf_1          2
-     sky130_fd_sc_hd__buf_2          1
+     sky130_fd_sc_hd__buf_2          5
      sky130_fd_sc_hd__buf_6          3
      sky130_fd_sc_hd__dfxtp_4        3
      sky130_fd_sc_hd__inv_8         12
@@ -1796,12 +1804,12 @@ found and reported 11 problems.
      sky130_fd_sc_hd__or3_2          3
      sky130_fd_sc_hd__or3_4          2
 
-   Chip area for module '\ycell': 955.916800
+   Chip area for module '\ycell': 975.936000
 
 19. Executing Verilog backend.
 Dumping module `\ycell'.
 
-Warnings: 60 unique messages, 60 total
-End of script. Logfile hash: 98b7261f03, CPU: user 0.80s system 0.02s, MEM: 43.76 MB peak
+Warnings: 64 unique messages, 64 total
+End of script. Logfile hash: 03869296e2, CPU: user 0.80s system 0.02s, MEM: 43.77 MB peak
 Yosys 0.9+3621 (git sha1 84e9fa7, gcc 8.3.1 -fPIC -Os)
 Time spent: 45% 4x stat (0 sec), 25% 2x abc (0 sec), ...

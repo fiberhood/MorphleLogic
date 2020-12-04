@@ -25,7 +25,7 @@ set ::env(SYNTH_STRATEGY) "2"
 set ::env(CLOCK_BUFFER_FANOUT) "16"
 set ::env(BASE_SDC_FILE) "/openLANE_flow/scripts/base.sdc"
 # Floorplan config
-set ::env(FP_CORE_UTIL) "60"
+set ::env(FP_CORE_UTIL) "50"
 set ::env(FP_ASPECT_RATIO) "1"
 set ::env(FP_CORE_MARGIN) "0"
 set ::env(FP_IO_HMETAL) "4"
@@ -38,7 +38,7 @@ set ::env(FP_PDN_HOFFSET) "16.65"
 set ::env(FP_PDN_HPITCH) "153.18"
 set ::env(FP_TAPCELL_DIST) "14"
 # Placement config
-set ::env(PL_TARGET_DENSITY) "0.65"
+set ::env(PL_TARGET_DENSITY) "0.15"
 set ::env(PL_TIME_DRIVEN) "0"
 set ::env(PL_LIB) "/opt/asic/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
 set ::env(PL_BASIC_PLACEMENT) "1"
@@ -79,6 +79,6 @@ set ::env(CHECK_ASSIGN_STATEMENTS) "0"
 set ::env(CHECK_UNMAPPED_CELLS) "1"
 set ::env(USE_ARC_ANTENNA_CHECK) "1"
 set ::env(RUN_SPEF_EXTRACTION) "1"
-set ::env(CURRENT_DEF) /project/openlane/morphle_yblock/runs/morphle_yblock/results/floorplan/yblock.floorplan.def
+set ::env(CURRENT_DEF) /project/openlane/morphle_yblock/runs/morphle_yblock/tmp/routing/fastroute.def
 set ::env(CURRENT_NETLIST) /project/openlane/morphle_yblock/runs/morphle_yblock/results/synthesis/yblock.synthesis.v
 set ::env(PREV_NETLIST) 0

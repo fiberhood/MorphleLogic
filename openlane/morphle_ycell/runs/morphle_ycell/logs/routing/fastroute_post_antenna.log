@@ -11,10 +11,10 @@ Notice 0: Finished LEF file:  /project/openlane/morphle_ycell/runs/morphle_ycell
 Notice 0: 
 Reading DEF file: /project/openlane/morphle_ycell/runs/morphle_ycell/tmp/routing/fastroute.def
 Notice 0: Design: ycell
-Notice 0:     Created 28 pins.
-Notice 0:     Created 179 components and 983 component-terminals.
+Notice 0:     Created 32 pins.
+Notice 0:     Created 179 components and 995 component-terminals.
 Notice 0:     Created 2 special nets and 0 connections.
-Notice 0:     Created 121 nets and 333 connections.
+Notice 0:     Created 125 nets and 341 connections.
 Notice 0: Finished DEF file: /project/openlane/morphle_ycell/runs/morphle_ycell/tmp/routing/fastroute.def
 [PARAMS] Min routing layer: 2
 [PARAMS] Max routing layer: 5
@@ -22,25 +22,25 @@ Notice 0: Finished DEF file: /project/openlane/morphle_ycell/runs/morphle_ycell/
 [PARAMS] Unidirectional routing: 1
 [PARAMS] Grid origin: (-1, -1)
 [INFO] #DB Obstructions: 0
-[INFO] #DB Obstacles: 3909
+[INFO] #DB Obstacles: 3957
 [INFO] #DB Macros: 0
 [INFO] Found 0 clock nets
 [INFO] Minimum degree: 2
 [INFO] Maximum degree: 6
-[INFO] Processing 3010 obstacles on layer 1
-[INFO] Processing 421 obstacles on layer 2
+[INFO] Processing 3058 obstacles on layer 1
+[INFO] Processing 420 obstacles on layer 2
 [INFO] Processing 5 obstacles on layer 5
 [INFO] Reducing resources of layer 1 by 99%
-[INFO] WIRELEN : 514, WIRELEN1 : 0
-[INFO] NumSeg  : 260
+[INFO] WIRELEN : 598, WIRELEN1 : 0
+[INFO] NumSeg  : 271
 [INFO] NumShift: 0
 First L Route
-[INFO] WIRELEN : 514, WIRELEN1 : 514
-[INFO] NumSeg  : 257
-[INFO] NumShift: 9
-[Overflow Report] Total hCap    : 2372
-[Overflow Report] Total vCap    : 2090
-[Overflow Report] Total Usage   : 514
+[INFO] WIRELEN : 598, WIRELEN1 : 598
+[INFO] NumSeg  : 264
+[INFO] NumShift: 6
+[Overflow Report] Total hCap    : 2262
+[Overflow Report] Total vCap    : 1769
+[Overflow Report] Total Usage   : 598
 [Overflow Report] Max H Overflow: 0
 [Overflow Report] Max V Overflow: 0
 [Overflow Report] Max Overflow  : 0
@@ -50,9 +50,9 @@ First L Route
 [Overflow Report] Final Overflow: 0
 
 Second L Route
-[Overflow Report] Total hCap    : 2372
-[Overflow Report] Total vCap    : 2090
-[Overflow Report] Total Usage   : 514
+[Overflow Report] Total hCap    : 2262
+[Overflow Report] Total vCap    : 1769
+[Overflow Report] Total Usage   : 598
 [Overflow Report] Max H Overflow: 0
 [Overflow Report] Max V Overflow: 0
 [Overflow Report] Max Overflow  : 0
@@ -62,9 +62,9 @@ Second L Route
 [Overflow Report] Final Overflow: 0
 
 First Z Route
-[Overflow Report] Total hCap    : 2372
-[Overflow Report] Total vCap    : 2090
-[Overflow Report] Total Usage   : 514
+[Overflow Report] Total hCap    : 2262
+[Overflow Report] Total vCap    : 1769
+[Overflow Report] Total Usage   : 598
 [Overflow Report] Max H Overflow: 0
 [Overflow Report] Max V Overflow: 0
 [Overflow Report] Max Overflow  : 0
@@ -75,7 +75,7 @@ First Z Route
 
 [INFO] LV routing round 0, enlarge 10 
 [INFO] 10 threshold, 10 expand
-[Overflow Report] total Usage   : 514
+[Overflow Report] total Usage   : 598
 [Overflow Report] Max H Overflow: 0
 [Overflow Report] Max V Overflow: 0
 [Overflow Report] Max Overflow  : 0
@@ -86,7 +86,7 @@ First Z Route
 
 [INFO] LV routing round 1, enlarge 15 
 [INFO] 5 threshold, 15 expand
-[Overflow Report] total Usage   : 514
+[Overflow Report] total Usage   : 598
 [Overflow Report] Max H Overflow: 0
 [Overflow Report] Max V Overflow: 0
 [Overflow Report] Max Overflow  : 0
@@ -97,7 +97,7 @@ First Z Route
 
 [INFO] LV routing round 2, enlarge 20 
 [INFO] 1 threshold, 20 expand
-[Overflow Report] total Usage   : 514
+[Overflow Report] total Usage   : 598
 [Overflow Report] Max H Overflow: 0
 [Overflow Report] Max V Overflow: 0
 [Overflow Report] Max Overflow  : 0
@@ -110,7 +110,7 @@ Usage checked
 Maze routing finished
 [INFO] P3 runtime: 0.000000 sec
 [INFO] Final 2D results: 
-[Overflow Report] total Usage   : 514
+[Overflow Report] total Usage   : 598
 [Overflow Report] Max H Overflow: 0
 [Overflow Report] Max V Overflow: 0
 [Overflow Report] Max Overflow  : 0
@@ -125,30 +125,30 @@ Layer assignment finished
 Post Processing Begins 
 Post Processsing finished
  Starting via filling
-[INFO] Via related to pin nodes 504
-[INFO] Via related stiner nodes 33
+[INFO] Via related to pin nodes 505
+[INFO] Via related stiner nodes 35
 Via filling finished
 
 Final usage/overflow report: 
 [INFO] Usage per layer: 
     Layer 1 usage: 0
-    Layer 2 usage: 271
-    Layer 3 usage: 233
-    Layer 4 usage: 13
+    Layer 2 usage: 319
+    Layer 3 usage: 284
+    Layer 4 usage: 0
     Layer 5 usage: 0
 
 [INFO] Capacity per layer: 
     Layer 1 capacity: 0
-    Layer 2 capacity: 1476
-    Layer 3 capacity: 1450
-    Layer 4 capacity: 896
-    Layer 5 capacity: 640
+    Layer 2 capacity: 1406
+    Layer 3 capacity: 1233
+    Layer 4 capacity: 856
+    Layer 5 capacity: 536
 
 [INFO] Use percentage per layer: 
     Layer 1 use percentage: 0.0%
-    Layer 2 use percentage: 18.36%
-    Layer 3 use percentage: 16.07%
-    Layer 4 use percentage: 1.45%
+    Layer 2 use percentage: 22.69%
+    Layer 3 use percentage: 23.03%
+    Layer 4 use percentage: 0.00%
     Layer 5 use percentage: 0.00%
 
 [INFO] Overflow per layer: 
@@ -158,8 +158,8 @@ Final usage/overflow report:
     Layer 4 overflow: 0
     Layer 5 overflow: 0
 
-[Overflow Report] Total Usage   : 517
-[Overflow Report] Total Capacity: 4462
+[Overflow Report] Total Usage   : 603
+[Overflow Report] Total Capacity: 4031
 [Overflow Report] Max H Overflow: 0
 [Overflow Report] Max V Overflow: 0
 [Overflow Report] Max Overflow  : 0
@@ -167,9 +167,9 @@ Final usage/overflow report:
 [Overflow Report] V   Overflow  : 0
 [Overflow Report] Final Overflow: 0
 
-[INFO] Final usage          : 517
-[INFO] Final number of vias : 611
-[INFO] Final usage 3D       : 2350
-[INFO] Total wirelength: 6354 um
-[INFO] Num routed nets: 121
+[INFO] Final usage          : 603
+[INFO] Final number of vias : 627
+[INFO] Final usage 3D       : 2484
+[INFO] Total wirelength: 7203 um
+[INFO] Num routed nets: 125
 [WARN]: No CLOCK_PORT found. Skipping STA...

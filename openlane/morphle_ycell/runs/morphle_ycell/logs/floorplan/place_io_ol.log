@@ -6,10 +6,10 @@ Notice 0: Finished LEF file:  /project/openlane/morphle_ycell/runs/morphle_ycell
 Notice 0: 
 Reading DEF file: /project/openlane/morphle_ycell/runs/morphle_ycell/tmp/floorplan/verilog2def_openroad.def
 Notice 0: Design: ycell
-Notice 0:     Created 26 pins.
-Notice 0:     Created 106 components and 757 component-terminals.
-Notice 0:     Created 121 nets and 333 connections.
+Notice 0:     Created 30 pins.
+Notice 0:     Created 110 components and 781 component-terminals.
+Notice 0:     Created 125 nets and 341 connections.
 Notice 0: Finished DEF file: /project/openlane/morphle_ycell/runs/morphle_ycell/tmp/floorplan/verilog2def_openroad.def
 Top-level design name: ycell
-Block boundaries: 0 0 67490 78210
+Block boundaries: 0 0 63845 74565
 Writing /project/openlane/morphle_ycell/runs/morphle_ycell/tmp/floorplan/ioPlacer.def

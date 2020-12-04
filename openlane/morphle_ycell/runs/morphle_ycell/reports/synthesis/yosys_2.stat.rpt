@@ -3,21 +3,21 @@
 
 === ycell ===
 
-   Number of wires:                113
-   Number of wire bits:            121
-   Number of public wires:          34
-   Number of public wire bits:      42
+   Number of wires:                117
+   Number of wire bits:            125
+   Number of public wires:          38
+   Number of public wire bits:      46
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:                106
+   Number of cells:                110
      sky130_fd_sc_hd__a211o_4        2
      sky130_fd_sc_hd__a32o_4         2
      sky130_fd_sc_hd__and2_2         7
      sky130_fd_sc_hd__and3_2         3
      sky130_fd_sc_hd__and3_4         1
      sky130_fd_sc_hd__buf_1          2
-     sky130_fd_sc_hd__buf_2          1
+     sky130_fd_sc_hd__buf_2          5
      sky130_fd_sc_hd__buf_6          3
      sky130_fd_sc_hd__dfxtp_4        3
      sky130_fd_sc_hd__inv_8         12
@@ -34,5 +34,5 @@
      sky130_fd_sc_hd__or3_2          3
      sky130_fd_sc_hd__or3_4          2
 
-   Chip area for module '\ycell': 955.916800
+   Chip area for module '\ycell': 975.936000
 
