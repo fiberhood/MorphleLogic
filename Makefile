@@ -14,8 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FILE_SIZE_LIMIT_MB = 10
-LARGE_FILES := $(shell find . -type f -size +$(FILE_SIZE_LIMIT_MB)M -not -path "./.git/*")
 
 # cannot commit files larger than 100 MB to GitHub 
 FILE_SIZE_LIMIT_MB = 100
