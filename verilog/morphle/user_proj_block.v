@@ -100,7 +100,7 @@ module user_proj_example (
   wire [HMSB:0] dvempty;   // this cell interrupts vertical signals to down
 
   // UP
-  wire [HMSB:0] uempty = {HMSB{1'b0}};    // cell U is not empty, so the LA is above us
+  wire [HMSB:0] uempty = {BLOCKWIDTH{1'b0}};    // cell U is not empty, so the LA is above us
   wire [HMSB2:0] uout;
   wire [HMSB:0] cbitout; // configuration bit to next cell (D)
   assign la_data_out = {{80{1'b0}},cbitout,uout};
@@ -111,19 +111,19 @@ module user_proj_example (
   wire [HMSB2:0] uin = la_data_in[95:64];
 
   // DOWN
-  wire [HMSB:0] dempty = {HMSB{1'b1}};    // cell D is empty, so we are the bottommost of a signal
+  wire [HMSB:0] dempty = {BLOCKWIDTH{1'b1}};    // cell D is empty, so we are the bottommost of a signal
   wire [HMSB2:0] dout;                    // left dangling to avoid loops that confuse the tools
-  wire [HMSB2:0] din = {HMSB2{1'b0}};
+  wire [HMSB2:0] din = {(2*BLOCKWIDTH){1'b0}};
 
   // LEFT
-  wire [VMSB:0] lempty = {VMSB{1'b1}};    // cell L is empty, so we are the leftmost of a signal
+  wire [VMSB:0] lempty = {BLOCKHEIGHT{1'b1}};    // cell L is empty, so we are the leftmost of a signal
   wire [VMSB2:0] lout;
-  wire [VMSB2:0] lin = {VMSB2{1'b0}};
+  wire [VMSB2:0] lin = {(2*BLOCKHEIGHT){1'b0}};
 
   // RIGHT
-  wire [VMSB:0] rempty = {VMSB{1'b1}};    // cell D is empty, so we are the rightmost of a signal
+  wire [VMSB:0] rempty = {BLOCKHEIGHT{1'b1}};    // cell D is empty, so we are the rightmost of a signal
   wire [VMSB2:0] rout;
-  wire [VMSB2:0] rin = {VMSB2{1'b0}};
+  wire [VMSB2:0] rin = {(2*BLOCKHEIGHT){1'b0}};
 
     yblock #(.BLOCKWIDTH(BLOCKWIDTH), .BLOCKHEIGHT(BLOCKHEIGHT))
         blk (.reset(reset), .confclk(confclk), .cbitin(cbitin), .cbitout(cbitout),

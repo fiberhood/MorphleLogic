@@ -55,19 +55,26 @@ clean:
 verify:
 	echo "verify"
 
-.PHONY: copy_block
-copy_block:
+.PHONY: init_block_flat
+init_block_flat:
+	@echo
+	@echo "       clearing user_projec_example"
+	@echo
+	rm -fR openlane/user_proj_example/*
 	@echo
 	@echo "       overwritting user_proj_example with 16x16 block"
 	@echo
 	cp ol_templates/config_block.tcl openlane/user_proj_example/config.tcl
-	cp ol_templates/pdn.tcl openlane/user_proj_example/pdn.tcl
 	cp ol_templates/pin_order.cfg openlane/user_proj_example/pin_order.cfg
 
-.PHONY: copy_block2
-copy_block2:
+.PHONY: init_block_cells
+init_block_cells:
 	@echo
-	@echo "       overwritting user_proj_example with black box 16x16 block"
+	@echo "       clearing user_projec_example"
+	@echo
+	rm -fR openlane/user_proj_example/*
+	@echo
+	@echo "       overwritting user_proj_example with 16x16 block using black box cells"
 	@echo
 	cp ol_templates/config_block2.tcl openlane/user_proj_example/config.tcl
 	cp ol_templates/pdn.tcl openlane/user_proj_example/pdn.tcl

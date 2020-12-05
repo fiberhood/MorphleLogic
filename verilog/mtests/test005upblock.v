@@ -121,6 +121,12 @@ module test005upblock;
   always @(posedge clk)
   begin
     #1; {tvout,xtvin} = testvectors[vectornum][99:0];
+    $display("just read vector %d %h %h", vectornum, tvout, xtvin);
+    if (xtvin === 48'bx)
+    begin
+      $display("%d tests completed with %d errors", vectornum-1, errors);
+      $finish;   // End simulation
+    end
   end
   
   wire reset = la_data_in[113];
@@ -129,11 +135,6 @@ module test005upblock;
   always @(negedge clk)
   begin
     $display("testing vector %d %h %h", vectornum, tvout, xtvin);
-    if (xtvin === 48'bx)
-    begin
-      $display("%d tests completed with %d errors", vectornum, errors);
-      $finish;   // End simulation
-    end
     if ((!tvout[51] & la_data_out[47:32] !== xtvin[47:32]) |
         (!tvout[50] & la_data_out[31:0] !== xtvin[31:0])) 
     begin
@@ -144,8 +145,45 @@ module test005upblock;
                xtvin[47:32], xtvin[31:0]);
       errors = errors + 1;
     end
+      $display(" uin0 = %b", DUT.blk.vs[0]);
+      $display(" uin1 = %b", DUT.blk.vs[1]);
+      $display(" uin2 = %b", DUT.blk.vs[2]);
+      $display(" uin3 = %b", DUT.blk.vs[3]);
+      $display(" lin0 = %b", DUT.blk.hs[0]);
+      $display(" lin1 = %b", DUT.blk.hs[1]);
+      $display(" lin2 = %b", DUT.blk.hs[2]);
+      $display(" lin3 = %b", DUT.blk.hs[3]);
+      $display(" lin4 = %b", DUT.blk.hs[4]);
+      $display(" lin5 = %b", DUT.blk.hs[5]);
+      $display(" lin6 = %b", DUT.blk.hs[6]);
+      $display(" lin7 = %b", DUT.blk.hs[7]);
+      $display(" ve0 = %b", DUT.blk.ve[0]);
+      $display(" ve1 = %b", DUT.blk.ve[1]);
+      $display(" ve2 = %b", DUT.blk.ve[2]);
+      $display(" ve3 = %b", DUT.blk.ve[3]);
+      $display(" he0 = %b", DUT.blk.he[0]);
+      $display(" he1 = %b", DUT.blk.he[1]);
+      $display(" he2 = %b", DUT.blk.he[2]);
+      $display(" he3 = %b", DUT.blk.he[3]);
+      $display(" he4 = %b", DUT.blk.he[4]);
+      $display(" he5 = %b", DUT.blk.he[5]);
+      $display(" he6 = %b", DUT.blk.he[6]);
+      $display(" he7 = %b", DUT.blk.he[7]);
+      $display(" back ve0 = %b", DUT.blk.ve2[0]);
+      $display(" ve1 = %b", DUT.blk.ve2[1]);
+      $display(" ve2 = %b", DUT.blk.ve2[2]);
+      $display(" ve3 = %b", DUT.blk.ve2[3]);
+      $display(" he0 = %b", DUT.blk.he2[0]);
+      $display(" he1 = %b", DUT.blk.he2[1]);
+      $display(" he2 = %b", DUT.blk.he2[2]);
+      $display(" he3 = %b", DUT.blk.he2[3]);
+      $display(" he4 = %b", DUT.blk.he2[4]);
+      $display(" he5 = %b", DUT.blk.he2[5]);
+      $display(" he6 = %b", DUT.blk.he2[6]);
+      $display(" he7 = %b", DUT.blk.he2[7]);
       // increment array index and read next testvector
     vectornum= vectornum + 1;
+    $display("testing vector %d next", vectornum);
   end
   
 endmodule

@@ -92,13 +92,13 @@ module ycconfig (
        always @*
          case(cnfg)
            default: r = 9'b110001000; // . is empty and blocked
-           3'b001: r = 9'b000110011; // +     sync with don't cares
+           3'b001: r = 9'b001000100; // +     short circuit both
            3'b010: r = 9'b001001000; // -     horizontal short circuit
            3'b011: r = 9'b010000100; // |     vertical short circuit
-           3'b100: r = 9'b000110001; // 1     1 vertical, X horizontal
-           3'b101: r = 9'b000110010; // 0     0 vertical, X horizontal
-           3'b110: r = 9'b000010011; // Y     X vertical, 1 horizontal     
-           3'b111: r = 9'b000100011; // N     X vertical, 0 horizontal
+           3'b100: r = 9'b000000101; // 1     1 vertical and short
+           3'b101: r = 9'b000000110; // 0     0 vertical and short
+           3'b110: r = 9'b001010000; // Y     1 horizontal and short    
+           3'b111: r = 9'b001100000; // N     0 horizontal and short
          endcase
        
 endmodule
