@@ -1,20 +1,3 @@
-# SPDX-FileCopyrightText: Copyright 2020 eFabless
-# 
-# SPDX-License-Identifier: Apache-2.0
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-# 
-#     https://www.apache.org/licenses/LICENSE-2.0
-# 
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
-
 # cannot commit files larger than 100 MB to GitHub 
 FILE_SIZE_LIMIT_MB = 100
 LARGE_FILES := $(shell find ./gds -type f -name "*.gds")
@@ -24,6 +7,7 @@ LARGE_FILES_GZ := $(addsuffix .gz, $(LARGE_FILES))
 
 ARCHIVES := $(shell find . -type f -name "*.gz")
 ARCHIVE_SOURCES := $(basename $(ARCHIVES))
+
 
 # PDK setup configs
 THREADS ?= $(shell nproc)
@@ -55,36 +39,6 @@ clean:
 verify:
 	echo "verify"
 
-.PHONY: init_block_flat
-init_block_flat:
-	@echo
-	@echo "       clearing user_projec_example"
-	@echo
-	rm -fR openlane/user_proj_example/*
-	@echo
-	@echo "       overwritting user_proj_example with 16x16 block"
-	@echo
-	cp ol_templates/config_block.tcl openlane/user_proj_example/config.tcl
-	cp ol_templates/pin_order.cfg openlane/user_proj_example/pin_order.cfg
-
-.PHONY: init_block_cells
-init_block_cells:
-	@echo
-	@echo "       clearing user_projec_example"
-	@echo
-	rm -fR openlane/user_proj_example/*
-	@echo
-	@echo "       overwritting user_proj_example with 16x16 block using black box cells"
-	@echo
-	cp ol_templates/config_block2.tcl openlane/user_proj_example/config.tcl
-	cp ol_templates/pdn.tcl openlane/user_proj_example/pdn.tcl
-	cp ol_templates/pin_order.cfg openlane/user_proj_example/pin_order.cfg
-
-.PHONY: help
-help:
-	@echo "      available commands (do 'make <command>')"
-	@echo
-	@awk '/^.PHONY/{print "    " $$2}' Makefile
 
 
 $(LARGE_FILES_GZ): %.gz: %
@@ -108,6 +62,38 @@ $(ARCHIVE_SOURCES): %: %.gz
 uncompress: $(ARCHIVE_SOURCES)
 	@echo "All files are uncompressed!"
 
+
+# LVS
+NETGEN_SETUP=$(PDK_ROOT)/sky130A/libs.tech/netgen/sky130A_setup.tcl
+
+BLOCKS = $(shell cd openlane && find * -maxdepth 0 -type d)
+LVS_BLOCKS = $(foreach block, $(BLOCKS), lvs-$(block))
+$(LVS_BLOCKS): lvs-% : ./mag/%.mag ./verilog/gl/%.v ./spi/lvs/%.spice
+	echo "Extracting $*"
+	mkdir -p ./mag/tmp
+	echo "load $* -dereference;\
+		extract no all;\
+		extract do local;\
+		extract;\
+		ext2spice lvs;\
+		ext2spice;\
+		feedback save extract_$*.log;\
+		exit;" > ./mag/extract_$*.tcl
+	cd mag && MAGTYPE=maglef magic -rcfile ${PDK_ROOT}/sky130A/libs.tech/magic/current/sky130A.magicrc -noc -dnull extract_$*.tcl
+	mv ./mag/$*.spice ./spi/lvs
+	mv -f ./mag/extract_$*.{tcl,log} ./mag/*.ext ./mag/tmp
+	####
+	mkdir -p ./spi/lvs/tmp
+	sh ./spi/lvs/run_lvs.sh ./verilog/gl/$*.v ./spi/lvs/$*.spice $*
+	mv -f ./spi/lvs/*{.out,.json,.log} ./spi/lvs/tmp
+	
+
+.PHONY: help
+help:
+	@$(MAKE) -pRrq -f $(lastword $(MAKEFILE_LIST)) : 2>/dev/null | awk -v RS= -F: '/^# File/,/^# Finished Make data base/ {if ($$1 !~ "^[#.]") {print $$1}}' | sort | egrep -v -e '^[^[:alnum:]]' -e '^$@$$'
+
+		
+###########################################################################
 .PHONY: pdk
 pdk: skywater-pdk skywater-library open_pdks build-pdk
 

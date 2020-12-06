@@ -35,13 +35,13 @@ To build the modified Caravel chip that includes Morphle Logic instead of the su
 
     export PDK_ROOT=<path where the various PDK projects will be placed>
 
-If the supplied *user_proj_example* is still present in the openlane subdirectory, then this will patch it to use Morphle Logic verilog files instead by replacing only the *config.tcl* file:
+If the supplied *user_proj_example* is still present in the openlane subdirectory, then this will patch it to use Morphle Logic verilog files instead by replacing everything in that subdirectory with new versions of the needed files:
 
-    make copy_config_block
+    cd ol_templates
+    make init_block_flat
+    cd ..
 
-If you need a reminder of the possible targets for *make* just do:
-
-    make help
+In the *ol_templates* subdirectory, you can "make help" to see other options. One such is "make init_block_cells" which will copy the files needed so that *user_proj_example* will be built using the yellow cells as block boxes instead of doing the whole circuit at once. This will require having previously generated the ycell files.
 
 If the various PDK packages have been installed with the correct versions then this step can be skipped:
 
@@ -58,9 +58,11 @@ If OpenLane has not yet been installed in the indicated place you can:
 
     make openlane
 
-Be sure that you have the latest version of the *magic* tool, otherwise you will get some very hard to understand errors.
+If the project is going to be built using the yellow cells as black boxes, then they have to be generated first:
 
-The first actual step is to generate all the files for the example project:
+    make morphle_ycell
+
+The next step (which is the first non optional one) is to generate all the files for the example project:
 
     make user_proj_example
 
@@ -70,6 +72,7 @@ Note that this uses files generated in the *user_project_wrapper* subproject (de
     make user_project_wrapper
 
 Now we have the *gds/user_project_wrapper.gds* file that the main script needs.
+Be sure that you have the latest version of the *magic* tool, otherwise you will get some very hard to understand errors.
 
     cd ..
     make ship
