@@ -41,7 +41,7 @@
 //
 // the fifth digit is: din,xdout (two bits each)
 // the sixth digit is: lin,xlout (two bits each)
-// the seventh digit is: rin,xrout (two bits each 
+// the seventh digit is: rin,xrout (two bits each)
 
 0000000  // first two vectors have the output ignored to settle down
 0080000  // reset everything [1]*
@@ -103,5 +103,22 @@
 20E0000  // clock in a 1 (thinks it is 011 = |)
 20A0000
 00F0000  // another 1 - configured to 111 (N)
-0010000  // out of reset
+0010000  // out of reset with no empty neighbors
+0014000  // uin = 0
+0010000
+0011400  // din = 0 ==> dout = 0
+0010000
+0010041  // lin = 0 ==> rout = 0
+0010000
+0010014  // rin = 0 ==> lout = 0
+0010000
+0011482  // din = 0, lin = 1 (what we are looking for) ==> rout = 1, dout = 0
+0011400  // lin = empty, but previous result was supposed to be latched
+0010000
+0011482  // repeat
+0010082  // din = empty
+0012882  // din = 1 (mismatch for next time)
+0012800  // lin = empty ==> rout = empty
+0012882  // lin = 1 ==> rout = 1 (0 hout was bypassed)
+0010000
 0090000  // reset

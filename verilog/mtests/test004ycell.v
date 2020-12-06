@@ -104,7 +104,8 @@ module test004ycell;
       $display("%d tests completed with %d errors", vectornum, errors);
       $finish;   // End simulation
     end
-    $display("testing vector %d", vectornum);
+    $display("testing vector %d vmatch %b hmatch %b vin %b vout %b hin %b hout %b",
+              vectornum, DUT.vmatch, DUT.hmatch, DUT.vin, DUT.vout, DUT.hin, DUT.hout);
     if (vectornum>6)        // skip six entries to settle down since we
                             // can't expect unknown values
     begin

@@ -165,29 +165,31 @@ module ycell(
                  
   assign hempty = empty | hblock;
   wire hreset = reset | hblock; // perhaps "| hbypass" to save energy?
+  wire hosc = ~hreset & ~(lempty & rempty); // safe to "oscillate" if not isolated
   wire [1:0] hin;
   wire [1:0] hout;
   wire [1:0] hback;
 
   assign vempty = empty | vblock;
   wire vreset = reset | vblock;
+  wire vosc = ~vreset & ~(uempty & dempty); // safe to "oscillate" if not isolated
   wire [1:0] vin;
   wire [1:0] vout;
   wire [1:0] vback;
 
-  wire [1:0] hmatch = {vback[1]&hmatch1,vback[0]&hmatch0};
+  wire [1:0] hmatch = {(vback[1]&hmatch1)|(vback[0]&hmatch0),(vback[1]&~hmatch1&hmatch0)|(vback[0]&~hmatch0&hmatch1)};
   ycfsm hfsm (.reset(hreset), .in(hin), .match(hmatch), .out(hout));
   wire [1:0] bhout = hbypass ? hin : hout;
   assign rout = bhout;
-  assign hin = lempty ? {~(hback[1]|hback[1'b0]),1'b0} : lin;
+  assign hin = lempty ? {hosc&(~(hback[1]|hback[1'b0])),1'b0} : lin; // no oscillation on reset
   assign hback = (rempty | hempty) ? bhout : rin; // don't propagate when rightmost or empty
   assign lout = hback;
   
-  wire [1:0] vmatch = {hback[1]&vmatch1,hback[0]&vmatch0};
+  wire [1:0] vmatch = {(hback[1]&vmatch1)|(hback[0]&vmatch0),(hback[1]&~vmatch1&vmatch0)|(hback[0]&~vmatch0&vmatch1)};
   ycfsm vfsm (.reset(vreset), .in(vin), .match(vmatch), .out(vout));
   wire [1:0] bvout = vbypass ? vin : vout;
   assign dout = bvout;
-  assign vin = uempty ? {~(vback[1]|vback[1'b0]),1'b0} : uin;
+  assign vin = uempty ? {vosc&(~(vback[1]|vback[1'b0])),1'b0} : uin; // no oscillation on reset
   assign vback = (dempty | vempty) ? bvout : din; // don't propagate when bottommost or empty
   assign uout = vback;
 
