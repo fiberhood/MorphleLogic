@@ -41,6 +41,7 @@ set ::env(SYNTH_READ_BLACKBOX_LIB) 1
 set ::env(CLOCK_PORT) "wb_clk_i"
 set ::env(CLOCK_PERIOD) "200"
 
+set ::env(MACRO_PLACEMENT_CFG) $script_dir/macro_placement.cfg
 set ::env(FP_PIN_ORDER_CFG) $script_dir/pin_order.cfg
 set ::env(CLOCK_TREE_SYNTH) 0
 set ::env(FP_CONTEXT_DEF) $script_dir/../user_project_wrapper/runs/user_project_wrapper/tmp/floorplan/ioPlacer.def.macro_placement.def
