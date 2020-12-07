@@ -181,7 +181,7 @@ module ycell(
   ycfsm hfsm (.reset(hreset), .in(hin), .match(hmatch), .out(hout));
   wire [1:0] bhout = hbypass ? hin : hout;
   assign rout = bhout;
-  assign hin = lempty ? {hosc&(~(hback[1]|hback[1'b0])),1'b0} : lin; // no oscillation on reset
+  assign #1 hin = lempty ? {hosc&(~(hback[1]|hback[1'b0])),1'b0} : lin; // no oscillation on reset
   assign hback = (rempty | hempty) ? bhout : rin; // don't propagate when rightmost or empty
   assign lout = hback;
   
@@ -189,7 +189,7 @@ module ycell(
   ycfsm vfsm (.reset(vreset), .in(vin), .match(vmatch), .out(vout));
   wire [1:0] bvout = vbypass ? vin : vout;
   assign dout = bvout;
-  assign vin = uempty ? {vosc&(~(vback[1]|vback[1'b0])),1'b0} : uin; // no oscillation on reset
+  assign #1 vin = uempty ? {vosc&(~(vback[1]|vback[1'b0])),1'b0} : uin; // no oscillation on reset
   assign vback = (dempty | vempty) ? bvout : din; // don't propagate when bottommost or empty
   assign uout = vback;
 

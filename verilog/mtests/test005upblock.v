@@ -36,6 +36,7 @@ module test005upblock;
   reg [51:0] tvout;
   reg [47:0] xtvin;
   
+  integer r, c;  // for printing rows and columns
 
   reg[31:0] vectornum, errors;   // bookkeeping variables
   reg[99:0]  testvectors[10000:0];// array of testvectors/
@@ -121,7 +122,6 @@ module test005upblock;
   always @(posedge clk)
   begin
     #1; {tvout,xtvin} = testvectors[vectornum][99:0];
-    $display("just read vector %d %h %h", vectornum, tvout, xtvin);
     if (xtvin === 48'bx)
     begin
       $display("%d tests completed with %d errors", vectornum-1, errors);
@@ -130,13 +130,23 @@ module test005upblock;
   end
   
   wire reset = la_data_in[113];
-  
+
+  wire [2:0] cfg [0:15][0:15];
+
+  genvar row, col;
+  generate
+  for (row = 0; row < 16; row = row + 1) begin : vertical
+      for (col = 0; col < 16; col = col + 1) begin : horizontal
+          assign cfg[row][col] = DUT.blk.column[col].row[row].yc.cfg.cnfg;
+      end
+  end
+  endgenerate
+      
   // check results on falling edge of clk
   always @(negedge clk)
   begin
-    $display("testing vector %d %h %h", vectornum, tvout, xtvin);
-    if ((!tvout[51] & la_data_out[47:32] !== xtvin[47:32]) |
-        (!tvout[50] & la_data_out[31:0] !== xtvin[31:0])) 
+    $display("testing vector %d", vectornum);
+    if ((!tvout[51] & la_data_out[47:0] !== xtvin[47:0])) 
     begin
       $display("Error: sent = %b %b %h %h",
                la_data_in[113], la_data_in[112], la_data_in[111:96], la_data_in[95:64]);
@@ -145,35 +155,48 @@ module test005upblock;
                xtvin[47:32], xtvin[31:0]);
       errors = errors + 1;
     end
-      $display(" u0  = %b %b", DUT.blk.vs[0], DUT.blk.vb[0]);
-      $display(" u1  = %b %b", DUT.blk.vs[1], DUT.blk.vb[1]);
-      $display(" u2  = %b %b", DUT.blk.vs[2], DUT.blk.vb[2]);
-      $display(" u3  = %b %b", DUT.blk.vs[3], DUT.blk.vb[3]);
-      $display(" l8  = %b %b", DUT.blk.hs[8], DUT.blk.hb[8]);
-      $display(" l9  = %b %b", DUT.blk.hs[9], DUT.blk.hb[9]);
-      $display(" l10 = %b %b", DUT.blk.hs[10], DUT.blk.hb[10]);
-      $display(" l11 = %b %b", DUT.blk.hs[11], DUT.blk.hb[11]);
-      $display(" l12 = %b %b", DUT.blk.hs[12], DUT.blk.hb[12]);
-      $display(" l13 = %b %b", DUT.blk.hs[13], DUT.blk.hb[13]);
-      $display(" l14 = %b %b", DUT.blk.hs[14], DUT.blk.hb[14]);
-      $display(" l15 = %b %b", DUT.blk.hs[15], DUT.blk.hb[15]);
-      $display(" r15 = %b %b", DUT.blk.hs[16], DUT.blk.hb[16]);
-      $display(" ve0 = %b", DUT.blk.ve[0]);
-      $display(" ve1 = %b", DUT.blk.ve[1]);
-      $display(" ve2 = %b", DUT.blk.ve[2]);
-      $display(" ve3 = %b", DUT.blk.ve[3]);
-      $display(" he8  = %b", DUT.blk.he[8]);
-      $display(" he9  = %b", DUT.blk.he[9]);
-      $display(" he10 = %b", DUT.blk.he[10]);
-      $display(" he11 = %b", DUT.blk.he[11]);
-      $display(" he12 = %b", DUT.blk.he[12]);
-      $display(" he13 = %b", DUT.blk.he[13]);
-      $display(" he14 = %b", DUT.blk.he[14]);
-      $display(" he15 = %b", DUT.blk.he[15]);
-      $display(" he16 = %b", DUT.blk.he[16]);
+    if (tvout[50]) // set this bit to pretty print cells
+    begin
+      for (r = 0; r < 6; r = r + 1) begin // top to bottom
+        for (c = 15; c > 1; c = c - 1) begin // left to right
+          $write("   %b%b %b%b ", DUT.blk.vs[r][1+2*c], DUT.blk.vs[r][2*c],
+                                  DUT.blk.vb[r][1+2*c], DUT.blk.vb[r][2*c]);
+        end
+        $display("  ");
+        for (c = 15; c > 1; c = c - 1) begin // left to right
+          $write("  +--%b--+", DUT.blk.ve2[r][c]);
+        end
+        $display("  ");
+        for (c = 15; c > 1; c = c - 1) begin // left to right
+          $write("%b%b|     |", DUT.blk.hb[c+1][1+2*r], DUT.blk.hb[c+1][2*r]);
+        end
+        $display("  ");
+        for (c = 15; c > 1; c = c - 1) begin // left to right
+          $write("  %b  ", DUT.blk.he2[c][r]);
+          if (cfg[r][c] == 3'b000) $write(".");
+          else if (cfg[r][c] == 3'b001) $write("+");
+          else if (cfg[r][c] == 3'b010) $write("-");
+          else if (cfg[r][c] == 3'b011) $write("|");
+          else if (cfg[r][c] == 3'b100) $write("1");
+          else if (cfg[r][c] == 3'b101) $write("0");
+          else if (cfg[r][c] == 3'b110) $write("Y");
+          else if (cfg[r][c] == 3'b111) $write("N");
+          else $write("?");
+          $write("  %b", DUT.blk.he2[c][r]);
+        end
+        $display("  ");
+        for (c = 15; c > 1; c = c - 1) begin // left to right
+          $write("%b%b|     |", DUT.blk.hs[c+1][1+2*r], DUT.blk.hs[c+1][2*r]);
+        end
+        $display("  ");
+        for (c = 15; c > 1; c = c - 1) begin // left to right
+          $write("  +--%b--+", DUT.blk.ve[r+1][c]);
+        end
+        $display("  ");
+      end
+    end
       // increment array index and read next testvector
     vectornum= vectornum + 1;
-    $display("testing vector %d next", vectornum);
   end
   
 endmodule
