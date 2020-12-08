@@ -172,7 +172,7 @@ module test005upblock;
         end
         $display("  ");
         for (c = 15; c > 1; c = c - 1) begin // left to right
-          $write("  %b  ", DUT.blk.he2[c][r]);
+          $write("  %b  ", DUT.blk.he[c][r]);
           if (cfg[r][c] == 3'b000) $write(".");
           else if (cfg[r][c] == 3'b001) $write("+");
           else if (cfg[r][c] == 3'b010) $write("-");
@@ -182,7 +182,7 @@ module test005upblock;
           else if (cfg[r][c] == 3'b110) $write("Y");
           else if (cfg[r][c] == 3'b111) $write("N");
           else $write("?");
-          $write("  %b", DUT.blk.he2[c][r]);
+          $write("  %b", DUT.blk.he[c][r]);
         end
         $display("  ");
         for (c = 15; c > 1; c = c - 1) begin // left to right

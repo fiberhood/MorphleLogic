@@ -98,9 +98,9 @@ module yblock #(parameter
              // cbitin, cbitout,
              .cbitin(vcbit[y][x]), .cbitout(vcbit[y+1][x]),
              // hempty, vempty, (R, U)
-             .hempty(he2[x][y]), .vempty(ve2[y][x]),
+             .hempty(he2[x+1][y]), .vempty(ve2[y][x]),
              // hempty2, vempty2, (L, D)
-             .hempty2(he[x+1][y]), .vempty2(ve[y+1][x]),
+             .hempty2(he[x][y]), .vempty2(ve[y+1][x]),
              // uempty, uin, uout,
              .uempty(ve[y][x]),
              .uin(vs[y][2*x+1:2*x]),
@@ -110,11 +110,11 @@ module yblock #(parameter
              .din(vb[y+1][2*x+1:2*x]),
              .dout(vs[y+1][2*x+1:2*x]),
              // lempty, lin, lout,
-             .lempty(he2[x+1][y]),
+             .lempty(he[x+1][y]),
              .lin(hs[x+1][2*y+1:2*y]),
              .lout(hb[x+1][2*y+1:2*y]),
              // rempty, rin, rout
-             .rempty(he[x][y]),
+             .rempty(he2[x][y]),
              .rin(hb[x][2*y+1:2*y]),
              .rout(hs[x][2*y+1:2*y])
              );
@@ -142,13 +142,13 @@ module yblock #(parameter
   assign vb[BLOCKHEIGHT] = din;
   assign dout = vs[BLOCKHEIGHT];
   // RIGHT
-  assign he[0] = rempty;
-  assign rhempty = he2[0];   
+  assign he2[0] = rempty;
+  assign rhempty = he[0];   
   assign hb[0] = rin;
   assign rout = hs[0];
   // LEFT
-  assign he2[BLOCKWIDTH] = lempty;
-  assign lhempty = he[BLOCKWIDTH];  
+  assign he[BLOCKWIDTH] = lempty;
+  assign lhempty = he2[BLOCKWIDTH];  
   assign hs[BLOCKWIDTH] = lin;
   assign lout = hb[BLOCKWIDTH];
   

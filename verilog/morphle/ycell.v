@@ -177,7 +177,7 @@ module ycell(
   wire [1:0] vout;
   wire [1:0] vback;
 
-  wire [1:0] hmatch = {(vback[1]&hmatch1)|(vback[0]&hmatch0),(vback[1]&~hmatch1&hmatch0)|(vback[0]&~hmatch0&hmatch1)};
+  wire [1:0] hmatch = {(vback[1]&vmatch1)|(vback[0]&vmatch0),(vback[1]&~vmatch1&vmatch0)|(vback[0]&~vmatch0&vmatch1)};
   ycfsm hfsm (.reset(hreset), .in(hin), .match(hmatch), .out(hout));
   wire [1:0] bhout = hbypass ? hin : hout;
   assign rout = bhout;
@@ -185,7 +185,7 @@ module ycell(
   assign hback = (rempty | hempty) ? bhout : rin; // don't propagate when rightmost or empty
   assign lout = hback;
   
-  wire [1:0] vmatch = {(hback[1]&vmatch1)|(hback[0]&vmatch0),(hback[1]&~vmatch1&vmatch0)|(hback[0]&~vmatch0&vmatch1)};
+  wire [1:0] vmatch = {(hback[1]&hmatch1)|(hback[0]&hmatch0),(hback[1]&~hmatch1&hmatch0)|(hback[0]&~hmatch0&hmatch1)};
   ycfsm vfsm (.reset(vreset), .in(vin), .match(vmatch), .out(vout));
   wire [1:0] bvout = vbypass ? vin : vout;
   assign dout = bvout;

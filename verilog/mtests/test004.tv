@@ -90,6 +90,7 @@
 10A0000
 00F0000  // another 1 - configured to 101 (0)
 0010000  // out of reset
+0215502  // left empty, uin = 0, din = 0 ==> rout = 1
 00B0000  // reset
 20E0000  // clock in a 1 (thinks it is 011 = |)
 20A0000
@@ -110,7 +111,7 @@
 0010000
 0010041  // lin = 0 ==> rout = 0
 0010000
-0010014  // rin = 0 ==> lout = 0
+0010114  // rin = 0 ==> lout = 0, dout = 0
 0010000
 0011482  // din = 0, lin = 1 (what we are looking for) ==> rout = 1, dout = 0
 0011400  // lin = empty, but previous result was supposed to be latched

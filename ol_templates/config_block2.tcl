@@ -16,8 +16,8 @@ set ::env(EXTRA_LEFS) "\
 set ::env(EXTRA_GDS_FILES) "\
         $script_dir/../../gds/morphle_ycell.gds"
 
-set ::env(PDN_CFG) $script_dir/pdn.tcl
-set ::env(FP_PDN_CORE_RING) 1
+#set ::env(PDN_CFG) $script_dir/pdn.tcl
+#set ::env(FP_PDN_CORE_RING) 1
 
 set ::unit 3
 set ::env(FP_IO_VEXTEND) [expr 2*$::unit]
@@ -29,7 +29,7 @@ set ::env(FP_IO_VTHICKNESS_MULT) 4
 set ::env(FP_IO_HTHICKNESS_MULT) 4
 
 set ::env(PL_OPENPHYSYN_OPTIMIZATIONS) 0
-set ::env(DIODE_INSERTION_STRATEGY) 0
+set ::env(DIODE_INSERTION_STRATEGY) 3
 
 # Need to fix a FastRoute bug for this to work, but it's good
 # for a sense of "isolation"
