@@ -44,7 +44,7 @@ module test005upblock;
   // generate clock
   always     // no sensitivity list, so it always executes
   begin
-    clk= 0; #5; clk= 1; #5;// 10ns period
+    clk= 0; #50; clk= 1; #50;// 100ns period
   end
 
     wire vdda1 = 1'b1;	// User area 1 3.3V supply

@@ -6,26 +6,26 @@ MACRO ycell
   CLASS BLOCK ;
   FOREIGN ycell ;
   ORIGIN 0.000 0.000 ;
-  SIZE 63.845 BY 74.565 ;
+  SIZE 65.480 BY 76.200 ;
   PIN cbitin
     DIRECTION INPUT ;
     PORT
       LAYER met2 ;
-        RECT 17.110 70.565 17.390 74.565 ;
+        RECT 17.570 72.200 17.850 76.200 ;
     END
   END cbitin
   PIN cbitout
     DIRECTION OUTPUT TRISTATE ;
     PORT
       LAYER met2 ;
-        RECT 17.110 0.000 17.390 4.000 ;
+        RECT 17.570 0.000 17.850 4.000 ;
     END
   END cbitout
   PIN confclk
     DIRECTION INPUT ;
     PORT
       LAYER met2 ;
-        RECT 10.210 70.565 10.490 74.565 ;
+        RECT 10.210 72.200 10.490 76.200 ;
     END
   END confclk
   PIN confclko
@@ -39,70 +39,70 @@ MACRO ycell
     DIRECTION INPUT ;
     PORT
       LAYER met2 ;
-        RECT 45.630 0.000 45.910 4.000 ;
+        RECT 46.550 0.000 46.830 4.000 ;
     END
   END dempty
   PIN din[0]
     DIRECTION INPUT ;
     PORT
       LAYER met2 ;
-        RECT 59.890 0.000 60.170 4.000 ;
+        RECT 61.270 0.000 61.550 4.000 ;
     END
   END din[0]
   PIN din[1]
     DIRECTION INPUT ;
     PORT
       LAYER met2 ;
-        RECT 52.990 0.000 53.270 4.000 ;
+        RECT 53.910 0.000 54.190 4.000 ;
     END
   END din[1]
   PIN dout[0]
     DIRECTION OUTPUT TRISTATE ;
     PORT
       LAYER met2 ;
-        RECT 31.370 0.000 31.650 4.000 ;
+        RECT 32.290 0.000 32.570 4.000 ;
     END
   END dout[0]
   PIN dout[1]
     DIRECTION OUTPUT TRISTATE ;
     PORT
       LAYER met2 ;
-        RECT 24.470 0.000 24.750 4.000 ;
+        RECT 24.930 0.000 25.210 4.000 ;
     END
   END dout[1]
   PIN hempty
     DIRECTION OUTPUT TRISTATE ;
     PORT
       LAYER met3 ;
-        RECT 0.000 30.640 4.000 31.240 ;
+        RECT 0.000 31.320 4.000 31.920 ;
     END
   END hempty
   PIN hempty2
     DIRECTION OUTPUT TRISTATE ;
     PORT
       LAYER met3 ;
-        RECT 59.845 43.560 63.845 44.160 ;
+        RECT 61.480 44.240 65.480 44.840 ;
     END
   END hempty2
   PIN lempty
     DIRECTION INPUT ;
     PORT
       LAYER met3 ;
-        RECT 0.000 43.560 4.000 44.160 ;
+        RECT 0.000 44.240 4.000 44.840 ;
     END
   END lempty
   PIN lin[0]
     DIRECTION INPUT ;
     PORT
       LAYER met3 ;
-        RECT 0.000 68.040 4.000 68.640 ;
+        RECT 0.000 69.400 4.000 70.000 ;
     END
   END lin[0]
   PIN lin[1]
     DIRECTION INPUT ;
     PORT
       LAYER met3 ;
-        RECT 0.000 55.800 4.000 56.400 ;
+        RECT 0.000 56.480 4.000 57.080 ;
     END
   END lin[1]
   PIN lout[0]
@@ -123,14 +123,14 @@ MACRO ycell
     DIRECTION INPUT ;
     PORT
       LAYER met3 ;
-        RECT 59.845 30.640 63.845 31.240 ;
+        RECT 61.480 31.320 65.480 31.920 ;
     END
   END rempty
   PIN reset
     DIRECTION INPUT ;
     PORT
       LAYER met2 ;
-        RECT 3.310 70.565 3.590 74.565 ;
+        RECT 3.310 72.200 3.590 76.200 ;
     END
   END reset
   PIN reseto
@@ -144,77 +144,77 @@ MACRO ycell
     DIRECTION INPUT ;
     PORT
       LAYER met3 ;
-        RECT 59.845 18.400 63.845 19.000 ;
+        RECT 61.480 18.400 65.480 19.000 ;
     END
   END rin[0]
   PIN rin[1]
     DIRECTION INPUT ;
     PORT
       LAYER met3 ;
-        RECT 59.845 6.160 63.845 6.760 ;
+        RECT 61.480 6.160 65.480 6.760 ;
     END
   END rin[1]
   PIN rout[0]
     DIRECTION OUTPUT TRISTATE ;
     PORT
       LAYER met3 ;
-        RECT 59.845 68.040 63.845 68.640 ;
+        RECT 61.480 69.400 65.480 70.000 ;
     END
   END rout[0]
   PIN rout[1]
     DIRECTION OUTPUT TRISTATE ;
     PORT
       LAYER met3 ;
-        RECT 59.845 55.800 63.845 56.400 ;
+        RECT 61.480 56.480 65.480 57.080 ;
     END
   END rout[1]
   PIN uempty
     DIRECTION INPUT ;
     PORT
       LAYER met2 ;
-        RECT 38.730 70.565 39.010 74.565 ;
+        RECT 39.190 72.200 39.470 76.200 ;
     END
   END uempty
   PIN uin[0]
     DIRECTION INPUT ;
     PORT
       LAYER met2 ;
-        RECT 31.370 70.565 31.650 74.565 ;
+        RECT 32.290 72.200 32.570 76.200 ;
     END
   END uin[0]
   PIN uin[1]
     DIRECTION INPUT ;
     PORT
       LAYER met2 ;
-        RECT 24.470 70.565 24.750 74.565 ;
+        RECT 24.930 72.200 25.210 76.200 ;
     END
   END uin[1]
   PIN uout[0]
     DIRECTION OUTPUT TRISTATE ;
     PORT
       LAYER met2 ;
-        RECT 59.890 70.565 60.170 74.565 ;
+        RECT 61.270 72.200 61.550 76.200 ;
     END
   END uout[0]
   PIN uout[1]
     DIRECTION OUTPUT TRISTATE ;
     PORT
       LAYER met2 ;
-        RECT 52.990 70.565 53.270 74.565 ;
+        RECT 53.910 72.200 54.190 76.200 ;
     END
   END uout[1]
   PIN vempty
     DIRECTION OUTPUT TRISTATE ;
     PORT
       LAYER met2 ;
-        RECT 45.630 70.565 45.910 74.565 ;
+        RECT 46.550 72.200 46.830 76.200 ;
     END
   END vempty
   PIN vempty2
     DIRECTION OUTPUT TRISTATE ;
     PORT
       LAYER met2 ;
-        RECT 38.730 0.000 39.010 4.000 ;
+        RECT 39.190 0.000 39.470 4.000 ;
     END
   END vempty2
   PIN VPWR
@@ -222,7 +222,7 @@ MACRO ycell
     USE POWER ;
     PORT
       LAYER met4 ;
-        RECT 13.460 10.640 15.060 62.800 ;
+        RECT 13.765 10.640 15.365 65.520 ;
     END
   END VPWR
   PIN VGND
@@ -230,46 +230,46 @@ MACRO ycell
     USE GROUND ;
     PORT
       LAYER met4 ;
-        RECT 22.200 10.640 23.800 62.800 ;
+        RECT 22.815 10.640 24.415 65.520 ;
     END
   END VGND
   OBS
       LAYER li1 ;
-        RECT 5.520 10.795 57.960 62.645 ;
+        RECT 5.520 10.795 59.800 65.365 ;
       LAYER met1 ;
-        RECT 3.290 10.240 60.190 62.800 ;
+        RECT 3.290 10.640 61.570 65.520 ;
       LAYER met2 ;
-        RECT 3.870 70.285 9.930 70.565 ;
-        RECT 10.770 70.285 16.830 70.565 ;
-        RECT 17.670 70.285 24.190 70.565 ;
-        RECT 25.030 70.285 31.090 70.565 ;
-        RECT 31.930 70.285 38.450 70.565 ;
-        RECT 39.290 70.285 45.350 70.565 ;
-        RECT 46.190 70.285 52.710 70.565 ;
-        RECT 53.550 70.285 59.610 70.565 ;
-        RECT 3.320 4.280 60.160 70.285 ;
+        RECT 3.870 71.920 9.930 72.200 ;
+        RECT 10.770 71.920 17.290 72.200 ;
+        RECT 18.130 71.920 24.650 72.200 ;
+        RECT 25.490 71.920 32.010 72.200 ;
+        RECT 32.850 71.920 38.910 72.200 ;
+        RECT 39.750 71.920 46.270 72.200 ;
+        RECT 47.110 71.920 53.630 72.200 ;
+        RECT 54.470 71.920 60.990 72.200 ;
+        RECT 3.320 4.280 61.540 71.920 ;
         RECT 3.870 4.000 9.930 4.280 ;
-        RECT 10.770 4.000 16.830 4.280 ;
-        RECT 17.670 4.000 24.190 4.280 ;
-        RECT 25.030 4.000 31.090 4.280 ;
-        RECT 31.930 4.000 38.450 4.280 ;
-        RECT 39.290 4.000 45.350 4.280 ;
-        RECT 46.190 4.000 52.710 4.280 ;
-        RECT 53.550 4.000 59.610 4.280 ;
+        RECT 10.770 4.000 17.290 4.280 ;
+        RECT 18.130 4.000 24.650 4.280 ;
+        RECT 25.490 4.000 32.010 4.280 ;
+        RECT 32.850 4.000 38.910 4.280 ;
+        RECT 39.750 4.000 46.270 4.280 ;
+        RECT 47.110 4.000 53.630 4.280 ;
+        RECT 54.470 4.000 60.990 4.280 ;
       LAYER met3 ;
-        RECT 4.400 67.640 59.445 68.505 ;
-        RECT 4.000 56.800 59.845 67.640 ;
-        RECT 4.400 55.400 59.445 56.800 ;
-        RECT 4.000 44.560 59.845 55.400 ;
-        RECT 4.400 43.160 59.445 44.560 ;
-        RECT 4.000 31.640 59.845 43.160 ;
-        RECT 4.400 30.240 59.445 31.640 ;
-        RECT 4.000 19.400 59.845 30.240 ;
-        RECT 4.400 18.000 59.445 19.400 ;
-        RECT 4.000 7.160 59.845 18.000 ;
-        RECT 4.400 6.295 59.445 7.160 ;
+        RECT 4.400 69.000 61.080 69.865 ;
+        RECT 4.000 57.480 61.480 69.000 ;
+        RECT 4.400 56.080 61.080 57.480 ;
+        RECT 4.000 45.240 61.480 56.080 ;
+        RECT 4.400 43.840 61.080 45.240 ;
+        RECT 4.000 32.320 61.480 43.840 ;
+        RECT 4.400 30.920 61.080 32.320 ;
+        RECT 4.000 19.400 61.480 30.920 ;
+        RECT 4.400 18.000 61.080 19.400 ;
+        RECT 4.000 7.160 61.480 18.000 ;
+        RECT 4.400 6.295 61.080 7.160 ;
       LAYER met4 ;
-        RECT 30.940 10.640 50.020 62.800 ;
+        RECT 24.815 10.640 51.550 65.520 ;
   END
 END ycell
 END LIBRARY

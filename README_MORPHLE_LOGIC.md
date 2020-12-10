@@ -63,11 +63,11 @@ ML works fastest when alternating valid and empty data flows through the circuit
 
 Two ML circuits are connected by placing them next to each other and having them touch, or else using a few "-" or "|" cells to bridge the small space between them.
 
-It would be possible, but very slow, to connect very distant circuits this way. A better way is to use a packet switching network to link didtant circuits, in contrast to the circuit switching fabric of FPGAs (though extremely recent FPGAs have added packet switching).
+It would be possible, but very slow, to connect very distant circuits this way. A better way is to use a packet switching network to link distant circuits, in contrast to the circuit switching fabric of FPGAs (though extremely recent FPGAs have added packet switching).
 
 Packets of data through a network look just like waves of data through a ML circuit, so there is no mismatch when converting between one and the other.
 
-Instead of having every ML cell connect to the network, a row of special cells is inserted between some of the normal rows (between every 8 normal rows, for example). These cells also have eight possible configurations:
+Instead of having every ML cell connect to the network, a row of special cells is inserted between some of the normal rows (between every 8 normal rows, for example). These cells also have eight currently defined configurations (out of a possible sixteen):
 
  0. space: the default state, it is used to isolate the row above from the one in the row below
  1. a: this receives a bit from the first network port
@@ -93,22 +93,34 @@ A two bit full adder could receive its data from the network are return its resu
 
 Note that rows and columns can easily be swapped to help match the outputs of a circuit to the inputs of the next circuit.
 
-The first row and the last row are network ports while the 8 middle rows are normal ML cells. Two bits from an incoming packet are placed in the columns labelled "a" and two bits from a different packet are sent to columns "b". A single bit from a third packet goes into the bottom of the columns labelled "c". There is no conflict between that and the first "a" because of a space cell in that column. A and B are the values to be added and C is the carry in.
+The first row and the last row are network ports while the 8 middle rows are normal ML cells. Two bits from an incoming packet are placed in the columns labelled "a" and two bits from a different packet are sent to columns "b". A single bit from a third packet goes into the bottom of the columns labelled "c". There is no conflict between that and the rightmost "b" because of a space cell in the middle of that column. A and B are the values to be added and C is the carry in.
 
 The two bits from the addition appear in the columns labelled "s" and exit the bottom into the network as one packet. The carry out is a separate one bit packet read from the column labelled "t".
 
 The network protocol is very simple. A row and column address select a starting point and a size field indicates how many columns will receive the packet. The row address only takes into account the special rows with networking hardware. In the adder example above the row with the "a" and "b" would be address 0 and the one with "c", "s" and "t" would be row 1.
 
-The following packet types are used:
+       3                   2                   1                   0
+     1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2 1 0
+    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+    | Type  |   Column              |  Size         |   Row         |
+    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+         ....     | data byte 2     |  data byte 1  |   data byte 0 |
+    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
- 0. configure: the following bytes are shifted into the configuration registers of the rows below
+The following packet types are currently defined:
+
+ 0. configure logic: the following bytes are shifted into the configuration registers of the rows below, so three times as many packets are needed to configure a block as there are rows in that block. For example, in a block with eight rows the first three packets would configure the bottom row (first packet is the most significant bits, third is the least significant bits) and 24 packets total would be used
  1. a: the following bytes supply the bits for the "a" inputs
  2. b: the following bytes supply the bits for the "b" inputs
  3. c: the following bytes supply the bits for the "c" inputs
- 4. run: at the start of a configuration all lines and columns are forced to empty. This packet allows the circuit to function normally
+ 4. configure i/o: the following bytes define the configuration of the addressed i/o blocks, four bits per column
  5. r: the following bytes are to be used as the header for any packets with bits from the "r" outputs
  6. s: the following bytes are to be used as the header for any packets with bits from the "s" outputs
  7. t: the following bytes are to be used as the header for any packets with bits from the "t" outputs
+
+A side effect of sending "configure logic" to a group of columns is to put their associated cells into reset. The number of bytes in a packet doesn't have to match the "size" field and if no bytes are sent with "configure logic" then the columns will be reset without shifting any configuration bits into them.
+
+In the same way, a side effect of sending "configure i/o" is to take the group of columns out of reset. With no bytes this packet can be used to enable the operation of a group of columns without reconfiguring them. With four bits for "type" it would be possible to have dedicated "reset" and "run" packets but the first design has dual use ones instead of simplify the logic.
 
 ## Files
 

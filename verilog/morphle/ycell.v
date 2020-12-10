@@ -50,15 +50,15 @@ module ycfsm (
     wire [1:0] clear2 = {clear,clear};
     
     // two bit latches
-    assign lin = ~(clear2 | nlin);
-    assign nlin = ~(in | lin);
+    assign #1 lin = ~(clear2 | nlin);
+    assign #1 nlin = ~(in | lin);
     
-    assign lmatch = ~(clear2 | nlmatch);
-    assign nlmatch = ~((match & {nlmempty,nlmempty}) | lmatch);
+    assign #1 lmatch = ~(clear2 | nlmatch);
+    assign #1 nlmatch = ~((match & {nlmempty,nlmempty}) | lmatch);
     
     // one bit latch
-    assign lmempty = ~(~(linval | lmatchval) | nlmempty);
-    assign nlmempty = ~((lmatchval & ~matchval) | lmempty);
+    assign #1 lmempty = ~(~(linval | lmatchval) | nlmempty);
+    assign #1 nlmempty = ~((lmatchval & ~matchval) | lmempty);
     
     // forward the result of combining match and in
     assign out[1] = lin[1] & lmatch[1];

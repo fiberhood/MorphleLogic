@@ -52,7 +52,7 @@ init_block_cells:
 	@echo -n >../openlane/user_proj_example/macro_placement.cfg
 	@for r in 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15; do \
 		for c in 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15; do \
-		echo "blk.column\["$$c"\].row\["$$r"\].yc "$$(printf %.3f $$((220000+65480*$$c))e-3)" "$$(printf %.3f $$((87000+76160*$$r))e-3)" S" >> ../openlane/user_proj_example/macro_placement.cfg; \
+		echo "blk.column\["$$c"\].row\["$$r"\].yc "$$(printf %.3f $$((187000+72000*$$c))e-3)" "$$(printf %.3f $$((87000+76160*$$r))e-3)" S" >> ../openlane/user_proj_example/macro_placement.cfg; \
 		done \
 	done
 

@@ -24,6 +24,12 @@ set ::env(FP_IO_VEXTEND) [expr 2*$::unit]
 set ::env(FP_IO_HEXTEND) [expr 2*$::unit]
 set ::env(FP_IO_VLENGTH) $::unit
 set ::env(FP_IO_HLENGTH) $::unit
+set ::env(FP_PDN_VOFFSET) "16.32"
+set ::env(FP_PDN_VPITCH) "153.6"
+set ::env(FP_PDN_HOFFSET) "16.65"
+#set ::env(FP_PDN_HPITCH) "153.18"
+set ::env(FP_PDN_HPITCH) "76.59"
+
 
 set ::env(FP_IO_VTHICKNESS_MULT) 4
 set ::env(FP_IO_HTHICKNESS_MULT) 4

@@ -1,4 +1,0 @@
-during executing: "TritonRoute /project/openlane/morphle_yblock/runs/morphle_yblock/tmp/routing/tritonRoute.param |& tee >&@stdout /project/openlane/morphle_yblock/runs/morphle_yblock/logs/routing/tritonRoute.log"
-Last 10 lines:
-child process exited abnormally
-
