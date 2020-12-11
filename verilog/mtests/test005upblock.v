@@ -111,9 +111,15 @@ module test005upblock;
     .io_out(io_out),
     .io_oeb(io_oeb)
 );
+
+  wire reset = la_data_in[113];
+
+  wire [2:0] cfg [0:15][0:15];
   
   initial
   begin
+  $dumpfile("test005.vcd");
+  $dumpvars;
     $readmemh("test005.tv", testvectors); // Read vectors
     vectornum= 0; errors = 0;  // Initialize 
   end
@@ -127,12 +133,9 @@ module test005upblock;
       $display("%d tests completed with %d errors", vectornum-1, errors);
       $finish;   // End simulation
     end
-  end
-  
-  wire reset = la_data_in[113];
+  end  
 
-  wire [2:0] cfg [0:15][0:15];
-
+  //outside generate row and col must be constant, so this handles that limitation
   genvar row, col;
   generate
   for (row = 0; row < 16; row = row + 1) begin : vertical

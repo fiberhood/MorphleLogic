@@ -57,7 +57,7 @@ module test001fsm;
            in,DUT.lin,DUT.nlin,DUT.inval,DUT.linval,,
            match,DUT.lmatch,DUT.nlmatch,DUT.matchval,DUT.lmatchval,,
            DUT.clear2,DUT.lmempty,DUT.nlmempty);
-  $dumpfile("test.vcd");
+  $dumpfile("test001.vcd");
   $dumpvars;
   end
   

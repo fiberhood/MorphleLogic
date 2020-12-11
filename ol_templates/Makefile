@@ -31,7 +31,7 @@ init_block_flat:
 	@echo
 	@echo "       overwritting user_proj_example with 16x16 block"
 	@echo
-	cp config_block.tcl ../openlane/user_proj_example/config.tcl
+	cp config_block_flat.tcl ../openlane/user_proj_example/config.tcl
 	cp pin_order.cfg ../openlane/user_proj_example/pin_order.cfg
 
 .PHONY: init_block_cells
@@ -43,8 +43,8 @@ init_block_cells:
 	@echo
 	@echo "       overwritting user_proj_example with 16x16 block using black box cells"
 	@echo
-	cp config_block2.tcl ../openlane/user_proj_example/config.tcl
-	cp pdn.tcl ../openlane/user_proj_example/pdn.tcl
+	cp config_block_cells.tcl ../openlane/user_proj_example/config.tcl
+	cp pdn_cells.tcl ../openlane/user_proj_example/pdn.tcl
 	cp pin_order.cfg ../openlane/user_proj_example/pin_order.cfg
 	@echo
 	@echo "      creating new macro_placement.cfg file"
