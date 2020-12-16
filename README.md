@@ -38,10 +38,12 @@ To build the modified Caravel chip that includes Morphle Logic instead of the su
 If the supplied *user_proj_example* is still present in the openlane subdirectory, then this will patch it to use Morphle Logic verilog files instead by replacing everything in that subdirectory with new versions of the needed files:
 
     cd ol_templates
-    make init_block_flat
+    make init_block_cells
     cd ..
 
-In the *ol_templates* subdirectory, you can "make help" to see other options. One such is "make init_block_cells" which will copy the files needed so that *user_proj_example* will be built using the yellow cells as block boxes instead of doing the whole circuit at once. This will require having previously generated the ycell files.
+Note that we are now skipping *user_proj_example* and doing *user_project_wrapper* directly to make hooking up power to the yellow cells simpler. The above sequence is still needed so generate the macro placement file which is placed in *..example* but also used by *..wrapper*.
+
+In the *ol_templates* subdirectory, you can "make help" to see other options. One such is "make init_block_flat" which will copy the files needed so that *user_proj_example* will be built as a single mass of standard cells.
 
 If the various PDK packages have been installed with the correct versions then this step can be skipped:
 
@@ -58,16 +60,11 @@ If OpenLane has not yet been installed in the indicated place you can:
 
     make openlane
 
-If the project is going to be built using the yellow cells as black boxes, then they have to be generated first:
+Currently the project is going to be built using the yellow cells as black boxes, so they have to be generated first:
 
     make morphle_ycell
 
-The next step (which is the first non optional one) is to generate all the files for the example project:
-
-    make user_proj_example
-
-
-Note that this uses files generated in the *user_project_wrapper* subproject (definition files that help the included subproject know where the pins will go) even though that uses this one. It is not bad as circular dependencies go.
+The next step is to generate *user_project_wrapper* which now directly includes all the yellow cell macros and other logic from *user_proj_example* instead of just wires.
 
     make user_project_wrapper
 
