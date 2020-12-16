@@ -39,27 +39,25 @@ set ::env(EXTRA_GDS_FILES) "\
         $script_dir/../../gds/morphle_ycell.gds"
 
 ## Clock configurations
-set ::env(CLOCK_PORT) "user_clock2"
-set ::env(CLOCK_NET) "mprj.clk"
+set ::env(CLOCK_PORT) "wb_clk_i"
 
 set ::env(CLOCK_PERIOD) "10"
 
 ## Internal Macros
 ### Macro Placement
-set ::env(MACRO_PLACEMENT_CFG) $script_dir/../user_proj_example/macro_placement.cfg
+set ::env(MACRO_PLACEMENT_CFG) $script_dir/macro_placement.cfg
 
 
 # The following is because there are no std cells in the example wrapper project.
-set ::env(SYNTH_TOP_LEVEL) 0
-set ::env(PL_RANDOM_GLB_PLACEMENT) 1
 set ::env(PL_OPENPHYSYN_OPTIMIZATIONS) 1
 set ::env(DIODE_INSERTION_STRATEGY) 3
+set ::env(CLOCK_TREE_SYNTH) 0
+set ::env(PL_TARGET_DENSITY) 0.3
+set ::env(SYNTH_TOP_LEVEL) 0
+set ::env(PL_RANDOM_GLB_PLACEMENT) 0
 set ::env(FILL_INSERTION) 0
 set ::env(TAP_DECAP_INSERTION) 0
-set ::env(CLOCK_TREE_SYNTH) 0
 
-set ::env(PL_TARGET_DENSITY) 0.5
-set ::env(FP_CORE_UTIL) 5
 
 
 # DON'T TOUCH THE FOLLOWING SECTIONS
@@ -95,6 +93,7 @@ set ::env(GND_NETS) [list {vssd1} {vssd2} {vssa1} {vssa2}]
 set ::env(SYNTH_USE_PG_PINS_DEFINES) "USE_POWER_PINS"
 
 set ::env(RUN_CVC) 0
+set ::env(RUN_SPEF_EXTRACTION) 0
 
 # Pin Configurations. DON'T TOUCH
 set ::env(FP_PIN_ORDER_CFG) $script_dir/pin_order.cfg

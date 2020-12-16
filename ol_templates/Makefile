@@ -56,4 +56,15 @@ init_block_cells:
 		done \
 	done
 
+.PHONY: macros_upw
+macros_upw:
+	@echo
+	@echo "      creating new macro_placement.cfg file for user_project_wrapper"
+	@echo
+	@echo "mprj.wbs 180.000 90.000 N" >../openlane/user_project_wrapper/macro_placement.cfg
+	@for r in 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15; do \
+		for c in 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15; do \
+		echo "mprj.blk.column\["$$c"\].row\["$$r"\].yc "$$(printf %.3f $$((937000+72000*$$c))e-3)" "$$(printf %.3f $$((1255000+90000*$$r))e-3)" S" >> ../openlane/user_project_wrapper/macro_placement.cfg; \
+		done \
+	done
 
