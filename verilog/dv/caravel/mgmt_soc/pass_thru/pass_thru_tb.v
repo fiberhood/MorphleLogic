@@ -1,3 +1,18 @@
+// SPDX-FileCopyrightText: 2020 Efabless Corporation
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+// SPDX-License-Identifier: Apache-2.0
+
 `default_nettype none
 /*	
  *	StriVe housekeeping pass-thru mode SPI testbench.
@@ -146,7 +161,13 @@ module pass_thru_tb;
 	    end_csb();
 	    #10;
 	    $display("Read data = 0x%02x (should be 0x10)", tbdata);
-	    if(tbdata !== 8'h10) begin $display("Monitor: Test HK SPI Pass-thru (RTL) Failed"); $finish; end
+	    if(tbdata !== 8'h10) begin 
+			`ifdef GL
+				$display("Monitor: Test HK SPI Pass-thru (GL) Failed"); $finish; 
+			`else
+				$display("Monitor: Test HK SPI Pass-thru (RTL) Failed"); $finish; 
+			`endif
+		end
 
 	    start_csb();
 	    write_byte(8'hc4);	// Pass-thru mode
@@ -157,28 +178,76 @@ module pass_thru_tb;
 
 	    read_byte(tbdata);
 	    $display("Read flash data = 0x%02x (should be 0x93)", tbdata);
-	    if(tbdata !== 8'h93) begin $display("Monitor: Test HK SPI Pass-thru (RTL) Failed"); $finish; end
+	    if(tbdata !== 8'h93) begin 
+			`ifdef GL
+				$display("Monitor: Test HK SPI Pass-thru (GL) Failed"); $finish; 
+			`else
+				$display("Monitor: Test HK SPI Pass-thru (RTL) Failed"); $finish; 
+			`endif
+		end
 	    read_byte(tbdata);
 	    $display("Read flash data = 0x%02x (should be 0x00)", tbdata);
-	    if(tbdata !== 8'h00) begin $display("Monitor: Test HK SPI Pass-thru (RTL) Failed"); $finish; end
+	    if(tbdata !== 8'h00) begin 
+			`ifdef GL
+				$display("Monitor: Test HK SPI Pass-thru (GL) Failed"); $finish; 
+			`else
+				$display("Monitor: Test HK SPI Pass-thru (RTL) Failed"); $finish; 
+			`endif
+		end
 	    read_byte(tbdata);
 	    $display("Read flash data = 0x%02x (should be 0x00)", tbdata);
-	    if(tbdata !== 8'h00) begin $display("Monitor: Test HK SPI Pass-thru (RTL) Failed"); $finish; end
+	    if(tbdata !== 8'h00) begin 
+			`ifdef GL
+				$display("Monitor: Test HK SPI Pass-thru (GL) Failed"); $finish; 
+			`else
+				$display("Monitor: Test HK SPI Pass-thru (RTL) Failed"); $finish; 
+			`endif
+		end
 	    read_byte(tbdata);
 	    $display("Read flash data = 0x%02x (should be 0x00)", tbdata);
-	    if(tbdata !== 8'h00) begin $display("Monitor: Test HK SPI Pass-thru (RTL) Failed"); $finish; end
+	    if(tbdata !== 8'h00) begin
+			`ifdef GL
+				$display("Monitor: Test HK SPI Pass-thru (GL) Failed"); $finish; 
+			`else
+				$display("Monitor: Test HK SPI Pass-thru (RTL) Failed"); $finish; 
+			`endif
+		end
 	    read_byte(tbdata);
 	    $display("Read flash data = 0x%02x (should be 0x93)", tbdata);
-	    if(tbdata !== 8'h93) begin $display("Monitor: Test HK SPI Pass-thru (RTL) Failed"); $finish; end
+	    if(tbdata !== 8'h93) begin 
+			`ifdef GL
+				$display("Monitor: Test HK SPI Pass-thru (GL) Failed"); $finish; 
+			`else
+				$display("Monitor: Test HK SPI Pass-thru (RTL) Failed"); $finish; 
+			`endif
+		end
 	    read_byte(tbdata);
 	    $display("Read flash data = 0x%02x (should be 0x01)", tbdata);
-	    if(tbdata !== 8'h01) begin $display("Monitor: Test HK SPI Pass-thru (RTL) Failed"); $finish; end
+	    if(tbdata !== 8'h01) begin 
+			`ifdef GL
+				$display("Monitor: Test HK SPI Pass-thru (GL) Failed"); $finish; 
+			`else
+				$display("Monitor: Test HK SPI Pass-thru (RTL) Failed"); $finish; 
+			`endif
+		end
 	    read_byte(tbdata);
 	    $display("Read flash data = 0x%02x (should be 0x00)", tbdata);
-	    if(tbdata !== 8'h00) begin $display("Monitor: Test HK SPI Pass-thru (RTL) Failed"); $finish; end
+	    if(tbdata !== 8'h00) begin 
+			`ifdef GL
+				$display("Monitor: Test HK SPI Pass-thru (GL) Failed"); $finish; 
+			`else
+				$display("Monitor: Test HK SPI Pass-thru (RTL) Failed"); $finish; 
+			`endif
+		end
 	    read_byte(tbdata);
 	    $display("Read flash data = 0x%02x (should be 0x00)", tbdata);
-	    if(tbdata !== 8'h00) begin $display("Monitor: Test HK SPI Pass-thru (RTL) Failed"); $finish; end
+	    if(tbdata !== 8'h00) begin 
+			`ifdef GL
+				$display("Monitor: Test HK SPI Pass-thru (GL) Failed"); $finish; 
+			`else
+				$display("Monitor: Test HK SPI Pass-thru (RTL) Failed"); $finish; 
+			`endif
+		end
 
 	    end_csb();
 
@@ -194,10 +263,20 @@ module pass_thru_tb;
 	    end_csb();
 	    #10;
 	    $display("Read data = 0x%02x (should be 0x10)", tbdata);
-	    if(tbdata !== 8'h10) begin $display("Monitor: Test HK SPI Pass-thru (RTL) Failed"); $finish; end
+	    if(tbdata !== 8'h10) begin 
+			`ifdef GL
+				$display("Monitor: Test HK SPI Pass-thru (GL) Failed"); $finish; 
+			`else
+				$display("Monitor: Test HK SPI Pass-thru (RTL) Failed"); $finish; 
+			`endif
+		end
 
-	    $display("Monitor: Test HK SPI Pass-thru (RTL) Passed");
-
+		`ifdef GL
+	    	$display("Monitor: Test HK SPI Pass-thru (GL) Passed");
+		`else
+			$display("Monitor: Test HK SPI Pass-thru (RTL) Passed");
+		`endif
+		
 	    #10000;
  	    $finish;
 	end

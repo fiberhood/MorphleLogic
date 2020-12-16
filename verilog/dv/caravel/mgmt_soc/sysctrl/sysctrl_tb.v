@@ -1,3 +1,18 @@
+// SPDX-FileCopyrightText: 2020 Efabless Corporation
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+// SPDX-License-Identifier: Apache-2.0
+
 `default_nettype none
 
 `timescale 1 ns / 1 ps
@@ -41,7 +56,11 @@ module sysctrl_tb;
 			$display("+1000 cycles");
 		end
 		$display("%c[1;31m",27);
-		$display ("Monitor: Timeout, Test GPIO (RTL) Failed");
+		`ifdef GL
+			$display ("Monitor: Timeout, Test Sysctrl (GL) Failed");
+		`else
+			$display ("Monitor: Timeout, Test Sysctrl (RTL) Failed");
+		`endif
 		 $display("%c[0m",27);
 		$finish;
 	end
@@ -49,77 +68,84 @@ module sysctrl_tb;
 	// Monitor
 	initial begin
 	    wait(checkbits == 16'hA040);
-            $display("Monitor: Test Sysctrl (RTL) Started");
-
+			`ifdef GL
+            	$display("Monitor: Test Sysctrl (GL) Started");
+			`else
+			    $display("Monitor: Test Sysctrl (RTL) Started");
+			`endif
 	    wait(checkbits == 16'hA041);
             $display("   SPI value = 0x%x (should be 0x04)", spivalue);
             if(spivalue !== 32'h04) begin
-                $display("Monitor: Test Sysctrl (RTL) Failed");
+                $display("Monitor: Test Sysctrl Failed");
                 $finish;
             end
 	    wait(checkbits == 16'hA042);
             $display("   SPI value = 0x%x (should be 0x56)", spivalue);
             if(spivalue !== 32'h56) begin
-                $display("Monitor: Test Sysctrl (RTL) Failed");
+                $display("Monitor: Test Sysctrl Failed");
                 $finish;
             end
 	    wait(checkbits == 16'hA043);
             $display("   SPI value = 0x%x (should be 0x10)", spivalue);
             if(spivalue !== 32'h10) begin
-                $display("Monitor: Test Sysctrl (RTL) Failed");
+                $display("Monitor: Test Sysctrl Failed");
                 $finish;
             end
 	    wait(checkbits == 16'hA044);
             $display("   SPI value = 0x%x (should be 0x02)", spivalue);
             if(spivalue !== 32'h02) begin
-                $display("Monitor: Test Sysctrl (RTL) Failed");
+                $display("Monitor: Test Sysctrl Failed");
                 $finish;
             end
 	    wait(checkbits == 16'hA045);
             $display("   SPI value = 0x%x (should be 0x01)", spivalue);
             if(spivalue !== 32'h01) begin
-                $display("Monitor: Test Sysctrl (RTL) Failed");
+                $display("Monitor: Test Sysctrl Failed");
                 $finish;
             end
 	    wait(checkbits == 16'hA046);
             $display("   SPI value = 0x%x (should be 0xff)", spivalue);
             if(spivalue !== 32'hff) begin
-                $display("Monitor: Test Sysctrl (RTL) Failed");
+                $display("Monitor: Test Sysctrl Failed");
                 $finish;
             end
 	    wait(checkbits == 16'hA047);
             $display("   SPI value = 0x%x (should be 0xef)", spivalue);
             if(spivalue !== 32'hef) begin
-                $display("Monitor: Test Sysctrl (RTL) Failed");
+                $display("Monitor: Test Sysctrl Failed");
                 $finish;
             end
 	    wait(checkbits == 16'hA048);
             $display("   SPI value = 0x%x (should be 0xff)", spivalue);
             if(spivalue !== 32'hff) begin
-                $display("Monitor: Test Sysctrl (RTL) Failed");
+                $display("Monitor: Test Sysctrl Failed");
                 $finish;
             end
 	    wait(checkbits == 16'hA049);
             $display("   SPI value = 0x%x (should be 0x03)", spivalue);
             if(spivalue !== 32'h03) begin
-                $display("Monitor: Test Sysctrl (RTL) Failed");
+                $display("Monitor: Test Sysctrl Failed");
                 $finish;
             end
 	    wait(checkbits == 16'hA04a);
             $display("   SPI value = 0x%x (should be 0x12)", spivalue);
             if(spivalue !== 32'h12) begin
-                $display("Monitor: Test Sysctrl (RTL) Failed");
+                $display("Monitor: Test Sysctrl Failed");
                 $finish;
             end
 	    wait(checkbits == 16'hA04b);
             $display("   SPI value = 0x%x (should be 0x04)", spivalue);
             if(spivalue !== 32'h04) begin
-                $display("Monitor: Test Sysctrl (RTL) Failed");
+                $display("Monitor: Test Sysctrl Failed");
                 $finish;
             end
 
 	    wait(checkbits == 16'hA090);
-            $display("Monitor: Test Sysctrl (RTL) Passed");
+		 	`ifdef GL
+            	$display("Monitor: Test Sysctrl (GL) Passed");
+			`else
+		        $display("Monitor: Test Sysctrl (RTL) Passed");
+			`endif
             $finish;
 	end
 
@@ -151,6 +177,8 @@ module sysctrl_tb;
 	assign VDD1V8 = power2;
 	assign VSS = 1'b0;
 
+	assign mprj_io[3] = 1'b1;
+	
 	caravel uut (
 		.vddio	  (VDD3V3),
 		.vssio	  (VSS),

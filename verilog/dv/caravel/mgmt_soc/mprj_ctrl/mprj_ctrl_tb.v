@@ -1,3 +1,18 @@
+// SPDX-FileCopyrightText: 2020 Efabless Corporation
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+// SPDX-License-Identifier: Apache-2.0
+
 `default_nettype none
 
 `timescale 1 ns / 1 ps
@@ -40,8 +55,12 @@ module mprj_ctrl_tb;
 			$display("+1000 cycles");
 		end
 		$display("%c[1;31m",27);
-		$display ("Monitor: Timeout, Test User Project (RTL) Failed");
-		 $display("%c[0m",27);
+		`ifdef GL
+			$display ("Monitor: Timeout, Test User Project (GL) Failed");
+		`else
+			$display ("Monitor: Timeout, Test User Project (RTL) Failed");
+		`endif
+		$display("%c[0m",27);
 		$finish;
 	end
 
@@ -75,9 +94,14 @@ module mprj_ctrl_tb;
 			$display("%c[0m",27);
 			$finish;
         	end else if(checkbits == 4'hd) begin
+
 			$display("Monitor: power control R/W passed (check 13)");
-            		$display("Monitor: User Project control (RTL) test passed.");
-            		$finish;
+			`ifdef GL
+            	$display("Monitor: User Project control (GL) test passed.");
+			`else
+			    $display("Monitor: User Project control (RTL) test passed.");
+			`endif
+            $finish;
         	end			
 	end
 
@@ -109,6 +133,8 @@ module mprj_ctrl_tb;
 	assign VDD1V8 = power2;
 	assign VSS = 1'b0;
 
+	assign user_io[3] = 1'b1;
+	
 	caravel uut (
 		.vddio	  (VDD3V3),
 		.vssio	  (VSS),
