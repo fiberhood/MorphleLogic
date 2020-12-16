@@ -160,21 +160,21 @@ module test005upblock;
     end
     if (tvout[50]) // set this bit to pretty print cells
     begin
-      for (r = 0; r < 6; r = r + 1) begin // top to bottom
-        for (c = 15; c > 1; c = c - 1) begin // left to right
+      for (r = 0; r < 8; r = r + 1) begin // top to bottom
+        for (c = 15; c >= 0; c = c - 1) begin // left to right
           $write("   %b%b %b%b ", DUT.blk.vs[r][1+2*c], DUT.blk.vs[r][2*c],
                                   DUT.blk.vb[r][1+2*c], DUT.blk.vb[r][2*c]);
         end
         $display("  ");
-        for (c = 15; c > 1; c = c - 1) begin // left to right
+        for (c = 15; c >= 0; c = c - 1) begin // left to right
           $write("  +--%b--+", DUT.blk.ve2[r][c]);
         end
         $display("  ");
-        for (c = 15; c > 1; c = c - 1) begin // left to right
+        for (c = 15; c >= 0; c = c - 1) begin // left to right
           $write("%b%b|     |", DUT.blk.hb[c+1][1+2*r], DUT.blk.hb[c+1][2*r]);
         end
         $display("  ");
-        for (c = 15; c > 1; c = c - 1) begin // left to right
+        for (c = 15; c >= 0; c = c - 1) begin // left to right
           $write("  %b  ", DUT.blk.he[c][r]);
           if (cfg[r][c] == 3'b000) $write(".");
           else if (cfg[r][c] == 3'b001) $write("+");
@@ -188,11 +188,11 @@ module test005upblock;
           $write("  %b", DUT.blk.he[c][r]);
         end
         $display("  ");
-        for (c = 15; c > 1; c = c - 1) begin // left to right
+        for (c = 15; c >= 0; c = c - 1) begin // left to right
           $write("%b%b|     |", DUT.blk.hs[c+1][1+2*r], DUT.blk.hs[c+1][2*r]);
         end
         $display("  ");
-        for (c = 15; c > 1; c = c - 1) begin // left to right
+        for (c = 15; c >= 0; c = c - 1) begin // left to right
           $write("  +--%b--+", DUT.blk.ve[r+1][c]);
         end
         $display("  ");

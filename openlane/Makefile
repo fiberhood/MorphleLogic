@@ -5,6 +5,7 @@ CLEAN = $(foreach block,$(BLOCKS), clean-$(block))
 OPENLANE_TAG ?= rc5
 OPENLANE_IMAGE_NAME ?= openlane:$(OPENLANE_TAG)
 OPENLANE_BASIC_COMMAND = "cd /project/openlane && flow.tcl -design ./$* -save_path .. -save -tag $* -overwrite"
+#OPENLANE_BASIC_COMMAND = "gdb -ex=r --args TritonRoute /project/openlane/user_project_wrapper/runs/user_project_wrapper/tmp/routing/tritonRoute.param "
 OPENLANE_INTERACTIVE_COMMAND = "cd /project/openlane && flow.tcl -it -file ./$*/interactive.tcl"
 
 all: $(BLOCKS)
