@@ -35,6 +35,10 @@ module yblock #(parameter
   VMSB = BLOCKHEIGHT-1,
   VMSB2 = (2*BLOCKHEIGHT)-1)
   (
+`ifdef USE_POWER_PINS
+    inout vccd1,	// User area 1 1.8V supply
+    inout vssd1,	// User area 1 digital ground
+`endif
   // control
   input reset,              // freezes the cell operations and clears everything
   input confclk,            // a strobe to enter one configuration bit
@@ -93,7 +97,12 @@ module yblock #(parameter
   generate
     for (x = 0 ; x < BLOCKWIDTH ; x = x + 1) begin : column
       for (y = 0 ; y < BLOCKHEIGHT ; y = y + 1) begin : row
-        ycell yc (.reset(rst[y][x]), .reseto(rst[y+1][x]),
+        ycell yc (
+`ifdef USE_POWER_PINS
+             .vccd1(vccd1),
+             .vssd1(vssd1),
+`endif
+             .reset(rst[y][x]), .reseto(rst[y+1][x]),
              .confclk(cclk[y][x]), .confclko(cclk[y+1][x]),
              // cbitin, cbitout,
              .cbitin(vcbit[y][x]), .cbitout(vcbit[y+1][x]),

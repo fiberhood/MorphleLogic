@@ -126,13 +126,19 @@ module user_proj_example (
   wire [VMSB2:0] rin = {(2*BLOCKHEIGHT){1'b0}};
 
     yblock #(.BLOCKWIDTH(BLOCKWIDTH), .BLOCKHEIGHT(BLOCKHEIGHT))
-        blk (.reset(reset), .confclk(confclk), .cbitin(cbitin), .cbitout(cbitout),
+        blk (
+`ifdef USE_POWER_PINS
+             .vccd1(vccd1),
+             .vssd1(vssd1),
+`endif
+             .reset(reset), .confclk(confclk), .cbitin(cbitin), .cbitout(cbitout),
              .lhempty(lhempty), .uvempty(uvempty),
              .rhempty(rhempty), .dvempty(dvempty),
              .uempty(uempty), .uin(uin), .uout(uout),
              .dempty(dempty), .din(din), .dout(dout),
              .lempty(lempty), .lin(lin), .lout(lout),
-             .rempty(rempty), .rin(rin), .rout(rout));
+             .rempty(rempty), .rin(rin), .rout(rout)
+            );
 
 endmodule
 

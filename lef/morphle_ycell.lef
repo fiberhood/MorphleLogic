@@ -9,6 +9,7 @@ MACRO ycell
   SIZE 65.480 BY 76.200 ;
   PIN cbitin
     DIRECTION INPUT ;
+    USE SIGNAL ;
     PORT
       LAYER met2 ;
         RECT 17.570 72.200 17.850 76.200 ;
@@ -16,6 +17,7 @@ MACRO ycell
   END cbitin
   PIN cbitout
     DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
     PORT
       LAYER met2 ;
         RECT 17.570 0.000 17.850 4.000 ;
@@ -23,6 +25,7 @@ MACRO ycell
   END cbitout
   PIN confclk
     DIRECTION INPUT ;
+    USE SIGNAL ;
     PORT
       LAYER met2 ;
         RECT 10.210 72.200 10.490 76.200 ;
@@ -30,6 +33,7 @@ MACRO ycell
   END confclk
   PIN confclko
     DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
     PORT
       LAYER met2 ;
         RECT 10.210 0.000 10.490 4.000 ;
@@ -37,6 +41,7 @@ MACRO ycell
   END confclko
   PIN dempty
     DIRECTION INPUT ;
+    USE SIGNAL ;
     PORT
       LAYER met2 ;
         RECT 46.550 0.000 46.830 4.000 ;
@@ -44,6 +49,7 @@ MACRO ycell
   END dempty
   PIN din[0]
     DIRECTION INPUT ;
+    USE SIGNAL ;
     PORT
       LAYER met2 ;
         RECT 61.270 0.000 61.550 4.000 ;
@@ -51,6 +57,7 @@ MACRO ycell
   END din[0]
   PIN din[1]
     DIRECTION INPUT ;
+    USE SIGNAL ;
     PORT
       LAYER met2 ;
         RECT 53.910 0.000 54.190 4.000 ;
@@ -58,6 +65,7 @@ MACRO ycell
   END din[1]
   PIN dout[0]
     DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
     PORT
       LAYER met2 ;
         RECT 32.290 0.000 32.570 4.000 ;
@@ -65,6 +73,7 @@ MACRO ycell
   END dout[0]
   PIN dout[1]
     DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
     PORT
       LAYER met2 ;
         RECT 24.930 0.000 25.210 4.000 ;
@@ -72,6 +81,7 @@ MACRO ycell
   END dout[1]
   PIN hempty
     DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
     PORT
       LAYER met3 ;
         RECT 0.000 31.320 4.000 31.920 ;
@@ -79,6 +89,7 @@ MACRO ycell
   END hempty
   PIN hempty2
     DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
     PORT
       LAYER met3 ;
         RECT 61.480 44.240 65.480 44.840 ;
@@ -86,6 +97,7 @@ MACRO ycell
   END hempty2
   PIN lempty
     DIRECTION INPUT ;
+    USE SIGNAL ;
     PORT
       LAYER met3 ;
         RECT 0.000 44.240 4.000 44.840 ;
@@ -93,6 +105,7 @@ MACRO ycell
   END lempty
   PIN lin[0]
     DIRECTION INPUT ;
+    USE SIGNAL ;
     PORT
       LAYER met3 ;
         RECT 0.000 69.400 4.000 70.000 ;
@@ -100,6 +113,7 @@ MACRO ycell
   END lin[0]
   PIN lin[1]
     DIRECTION INPUT ;
+    USE SIGNAL ;
     PORT
       LAYER met3 ;
         RECT 0.000 56.480 4.000 57.080 ;
@@ -107,6 +121,7 @@ MACRO ycell
   END lin[1]
   PIN lout[0]
     DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
     PORT
       LAYER met3 ;
         RECT 0.000 18.400 4.000 19.000 ;
@@ -114,6 +129,7 @@ MACRO ycell
   END lout[0]
   PIN lout[1]
     DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
     PORT
       LAYER met3 ;
         RECT 0.000 6.160 4.000 6.760 ;
@@ -121,6 +137,7 @@ MACRO ycell
   END lout[1]
   PIN rempty
     DIRECTION INPUT ;
+    USE SIGNAL ;
     PORT
       LAYER met3 ;
         RECT 61.480 31.320 65.480 31.920 ;
@@ -128,6 +145,7 @@ MACRO ycell
   END rempty
   PIN reset
     DIRECTION INPUT ;
+    USE SIGNAL ;
     PORT
       LAYER met2 ;
         RECT 3.310 72.200 3.590 76.200 ;
@@ -135,6 +153,7 @@ MACRO ycell
   END reset
   PIN reseto
     DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
     PORT
       LAYER met2 ;
         RECT 3.310 0.000 3.590 4.000 ;
@@ -142,6 +161,7 @@ MACRO ycell
   END reseto
   PIN rin[0]
     DIRECTION INPUT ;
+    USE SIGNAL ;
     PORT
       LAYER met3 ;
         RECT 61.480 18.400 65.480 19.000 ;
@@ -149,6 +169,7 @@ MACRO ycell
   END rin[0]
   PIN rin[1]
     DIRECTION INPUT ;
+    USE SIGNAL ;
     PORT
       LAYER met3 ;
         RECT 61.480 6.160 65.480 6.760 ;
@@ -156,6 +177,7 @@ MACRO ycell
   END rin[1]
   PIN rout[0]
     DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
     PORT
       LAYER met3 ;
         RECT 61.480 69.400 65.480 70.000 ;
@@ -163,6 +185,7 @@ MACRO ycell
   END rout[0]
   PIN rout[1]
     DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
     PORT
       LAYER met3 ;
         RECT 61.480 56.480 65.480 57.080 ;
@@ -170,6 +193,7 @@ MACRO ycell
   END rout[1]
   PIN uempty
     DIRECTION INPUT ;
+    USE SIGNAL ;
     PORT
       LAYER met2 ;
         RECT 39.190 72.200 39.470 76.200 ;
@@ -177,6 +201,7 @@ MACRO ycell
   END uempty
   PIN uin[0]
     DIRECTION INPUT ;
+    USE SIGNAL ;
     PORT
       LAYER met2 ;
         RECT 32.290 72.200 32.570 76.200 ;
@@ -184,6 +209,7 @@ MACRO ycell
   END uin[0]
   PIN uin[1]
     DIRECTION INPUT ;
+    USE SIGNAL ;
     PORT
       LAYER met2 ;
         RECT 24.930 72.200 25.210 76.200 ;
@@ -191,6 +217,7 @@ MACRO ycell
   END uin[1]
   PIN uout[0]
     DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
     PORT
       LAYER met2 ;
         RECT 61.270 72.200 61.550 76.200 ;
@@ -198,6 +225,7 @@ MACRO ycell
   END uout[0]
   PIN uout[1]
     DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
     PORT
       LAYER met2 ;
         RECT 53.910 72.200 54.190 76.200 ;
@@ -205,6 +233,7 @@ MACRO ycell
   END uout[1]
   PIN vempty
     DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
     PORT
       LAYER met2 ;
         RECT 46.550 72.200 46.830 76.200 ;
@@ -212,27 +241,52 @@ MACRO ycell
   END vempty
   PIN vempty2
     DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
     PORT
       LAYER met2 ;
         RECT 39.190 0.000 39.470 4.000 ;
     END
   END vempty2
-  PIN VPWR
-    DIRECTION INPUT ;
+  PIN vccd1
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER met4 ;
+        RECT 49.955 10.640 51.555 65.520 ;
+    END
+  END vccd1
+  PIN vccd1
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER met4 ;
+        RECT 31.860 10.640 33.460 65.520 ;
+    END
+  END vccd1
+  PIN vccd1
+    DIRECTION INOUT ;
     USE POWER ;
     PORT
       LAYER met4 ;
         RECT 13.765 10.640 15.365 65.520 ;
     END
-  END VPWR
-  PIN VGND
-    DIRECTION INPUT ;
+  END vccd1
+  PIN vssd1
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER met4 ;
+        RECT 40.905 10.640 42.505 65.520 ;
+    END
+  END vssd1
+  PIN vssd1
+    DIRECTION INOUT ;
     USE GROUND ;
     PORT
       LAYER met4 ;
         RECT 22.815 10.640 24.415 65.520 ;
     END
-  END VGND
+  END vssd1
   OBS
       LAYER li1 ;
         RECT 5.520 10.795 59.800 65.365 ;
@@ -269,7 +323,9 @@ MACRO ycell
         RECT 4.000 7.160 61.480 18.000 ;
         RECT 4.400 6.295 61.080 7.160 ;
       LAYER met4 ;
-        RECT 24.815 10.640 51.550 65.520 ;
+        RECT 24.815 10.640 31.460 65.520 ;
+        RECT 33.860 10.640 40.505 65.520 ;
+        RECT 42.905 10.640 49.555 65.520 ;
   END
 END ycell
 END LIBRARY
