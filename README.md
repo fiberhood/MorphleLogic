@@ -23,7 +23,11 @@ This is a combination of the Morphle Logic asynchronous runtime reconfigurable a
 [README for Morphle Logic](README_MORPHLE_LOGIC.md) gives more details about that part
 of the project.
 
-This version of the chip uses a single block of "yellow cells" from Morphle Logic connected to the logic analyzer pins inside Caravel. The processor in the management frame can inject a configuration into the block (a reset, configuration clock and 16 configuration bits interface with the capability of reading back 16 configuration bits coming out of the bottom of the block) and then inject a value into the top interface of the block (16 pairs of bits) and read back the value coming out the top of the block. The left, down and right interfaces are hardwired to loop back into themselves (which shouldn't matter as their missing neighbors always assert that they are "empty").
+This version of the chip uses a single block of "yellow cells" from Morphle Logic connected to the logic analyzer pins inside Caravel. The processor in the management frame can inject a configuration into the block (a reset, configuration clock and 16 configuration bits interface with the capability of reading back 16 configuration bits coming out of the bottom of the block) and then inject a value into the top interface of the block (16 pairs of bits) and read back the value coming out the top of the block. The left, down and right interfaces are hardwired to indicate empty neighbors with the inputs always empty as well.
+
+## Testing
+
+The various unit tests and the test harness for Morphle Logic blocks and the *user_proj_example* can be found in the *verilog/mtests* directory.
 
 ## Steps to build caravel.gds
 
@@ -64,9 +68,27 @@ Currently the project is going to be built using the yellow cells as black boxes
 
     make morphle_ycell
 
+This should be the result:
+
+<p align="center">
+<img src="/doc/morphle_logic_ycell.png" width="75%" height="75%"> 
+</p>
+
 The next step is to generate *user_project_wrapper* which now directly includes all the yellow cell macros and other logic from *user_proj_example* instead of just wires.
 
     make user_project_wrapper
+
+Here is the result:
+
+<p align="center">
+<img src="/doc/morphle_logic_user_project_wrapper.png" width="75%" height="75%"> 
+</p>
+
+Note that the design rule checker (DRC) will give 6 errors complaining about tapcells being too far. This is due to the ycell macros disrupting the nice pattern of tapcells to their right, so that where the pattern changes at the very right edge there is a slightly longer stretch. The six errors are all about a single missing tap point. But there is not actual circuit in this region of the chip - it is empty space. Fixing this error would be possible by moving the macros to the left, but then OpenLane causes actual errors by running vertical metal 4 traces too close to the power rails.
+
+<p align="center">
+<img src="/doc/morphle_logic_tapcellerror.png" width="75%" height="75%"> 
+</p>
 
 Now we have the *gds/user_project_wrapper.gds* file that the main script needs.
 Be sure that you have the latest version of the *magic* tool, otherwise you will get some very hard to understand errors.
@@ -75,6 +97,10 @@ Be sure that you have the latest version of the *magic* tool, otherwise you will
     make ship
 
 If there were no errors in any step then the file *gds/caravel.gds* has the final design. The files needed for error checking should also all be available at this point.
+
+<p align="center">
+<img src="/doc/morphle_logic_caravel.png" width="75%" height="75%"> 
+</p>
 
 It is possible to "make compress" to make it easier to move the repository around (only files larger than 10MB, by default, will be affected).
 
