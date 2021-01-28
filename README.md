@@ -84,7 +84,7 @@ Here is the result:
 <img src="/doc/morphle_logic_user_project_wrapper.png" width="75%" height="75%"> 
 </p>
 
-Note that the design rule checker (DRC) will give 6 errors complaining about tapcells being too far. This is due to the ycell macros disrupting the nice pattern of tapcells to their right, so that where the pattern changes at the very right edge there is a slightly longer stretch. The six errors are all about a single missing tap point. But there is not actual circuit in this region of the chip - it is empty space. Fixing this error would be possible by moving the macros to the left, but then OpenLane causes actual errors by running vertical metal 4 traces too close to the power rails.
+Note that the design rule checker (DRC) will give 6 errors complaining about tapcells being too far. This is due to the ycell macros disrupting the nice pattern of tapcells to their right, so that where the pattern changes at the very right edge there is a slightly longer stretch. The six errors are all about a single missing tap point. But there is not any actual circuits in this region of the chip - it is empty space. Fixing this error would be possible by moving the macros to the left, but then OpenLane causes actual errors by running vertical metal 4 traces too close to the power rails.
 
 <p align="center">
 <img src="/doc/morphle_logic_tapcellerror.png" width="75%" height="75%"> 

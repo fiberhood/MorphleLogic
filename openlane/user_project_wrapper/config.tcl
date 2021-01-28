@@ -83,8 +83,8 @@ set ::env(FP_PDN_VWIDTH) 3
 set ::env(FP_PDN_HWIDTH) 3
 set ::env(FP_PDN_VOFFSET) 0
 set ::env(FP_PDN_HOFFSET) $::env(FP_PDN_VOFFSET)
-set ::env(FP_PDN_VPITCH) 90
-set ::env(FP_PDN_HPITCH) $::env(FP_PDN_VPITCH)
+set ::env(FP_PDN_VPITCH) 180
+set ::env(FP_PDN_HPITCH) 90
 set ::env(FP_PDN_VSPACING) [expr 5*$::env(FP_PDN_CORE_RING_VWIDTH)]
 set ::env(FP_PDN_HSPACING) [expr 5*$::env(FP_PDN_CORE_RING_HWIDTH)]
 
