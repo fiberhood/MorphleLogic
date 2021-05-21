@@ -36,7 +36,7 @@ Each cell can be configured to one of eight values, which we represent with a ch
  4. 1: when the vertical input is 1, the horizontal output is set to 1
  5. 0: when the vertical input is 0, the horizontal output is set to 1
  6. Y: when the horizontal input is 1, the vertical output is set to 1
- 7. N: when the horizontal input is 0, the vertical output is set to 0
+ 7. N: when the horizontal input is 0, the vertical output is set to 1
 
 An alternative name for Morphle Logic would be "match logic" since you explicitly list the values that you want the inputs to match.
 
