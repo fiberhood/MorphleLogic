@@ -52,6 +52,6 @@ A second configuration circuit is cascaded with the first in this test. Every ti
 
 A separate file, "test004.tv", has the actual test vectors as a 28 bit vector per line in the form of a 7 digit hex number. The first two bits are ignored and the rest are used as inputs to the "yellow cell" (the basic building block of Morphle Logic) or as values to be compared against the actual outputs.
 
-### test004upblock.v
+### test005upblock.v
 
 A separate test file, "test005.tv", has the actual test vectors as a 100 bit vector per line in the form of a 25 digit hex number. The first two bits are use to disable comparisons with the outputs of the configuration bits and data lines respectively. These outputs have an initial value of "x" (unknown) for some three cycles in the case of data lines and until 48 bits have been shifted in for the configuration bits. The next 50 bits are what the Caravel is supposed to send to the user project via the logic analyzer pins and the last 48 bits are what should be returned by the user project.
